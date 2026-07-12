@@ -35,6 +35,7 @@ class VideoAnalysis(BaseModel):
     category: str = Field(description="영상의 장르나 대분류 (예: 개발, AI, 생산성, 경제, 트렌드 등 1개 단어)")
     keywords: str = Field(description="쉼표(,)로 구분된 관련 핵심 키워드 3~5개 (예: 머신러닝, 자동화, 파이썬)")
     filename: str = Field(description="영어 소문자와 대시(-)로만 구성된 유니크한 파일명 (예: intro-to-gemini-api)")
+    recommendation: str = Field(description="유튜브 시청자 관점에서 이 영상을 왜 봐야 하는지, 무엇을 배우고 얻을 수 있는지 2~3문장으로 정리한 따뜻하고 설득력 있는 한국어 추천 문구")
 
 def get_youtube_id(url: str) -> str:
     """유튜브 URL에서 video_id를 추출하는 헬퍼 함수"""

@@ -297,7 +297,16 @@ def main():
             num, url = create_issue(repo, title_url, body_txt, token)
             if num:
                 print(f"[+] 이슈 자동 생성 성공: #{num} -> {url}")
-                comment = "로컬 비디오 데이터 복구를 위해 자동 생성되어 곧바로 클로즈 처리됩니다."
+                rec_txt = video.get("recommendation", "")
+                if rec_txt:
+                    comment = (
+                        f"✨ **이 영상을 추천하는 이유!** (시청 포인트)\n\n"
+                        f"{rec_txt}\n\n"
+                        f"---\n"
+                        f"💡 요약 및 PPTX 발표자료가 정상적으로 자동 연동되어 배포 완료 후 사이트에 반영됩니다."
+                    )
+                else:
+                    comment = "로컬 비디오 데이터 복구를 위해 자동 생성되어 곧바로 클로즈 처리됩니다."
                 close_github_issue(repo, num, comment, token)
                 
                 # 메타데이터에 매핑
@@ -392,7 +401,17 @@ def main():
                         
                 # 만약 원본 이슈가 열린(open) 상태였다면 자동으로 닫아줍니다.
                 if issue.get("state") == "open":
-                    comment = "요약 분석 및 정적 사이트 복구 빌드가 완료되어 이슈를 종료합니다."
+                    video_info = next((v for v in videos if v.get('youtube_id') == ytid), None)
+                    rec_txt = video_info.get("recommendation", "") if video_info else ""
+                    if rec_txt:
+                        comment = (
+                            f"✨ **이 영상을 추천하는 이유!** (시청 포인트)\n\n"
+                            f"{rec_txt}\n\n"
+                            f"---\n"
+                            f"💡 요약 분석 및 정적 사이트 빌드가 완료되어 이슈를 종료합니다. 배포 완료 후 사이트에서 확인하실 수 있습니다!"
+                        )
+                    else:
+                        comment = "요약 분석 및 정적 사이트 복구 빌드가 완료되어 이슈를 종료합니다."
                     close_github_issue(repo, num, comment, token)
 
     # ==========================================
