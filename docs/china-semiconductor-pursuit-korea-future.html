@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="이 영상은 미국 정부의 강력한 규제에도 불구하고 중국 반도체 산업이 어떻게 빠르게 성장하며 한국을 추격하고 있는지 분석합니다. 권석준 교수는 미국의 제재가 오히려 중국의 자립을 가속화하고 있으며, 중국의 HBM 및 첨단 패키징 기술 발전과 정부의 전폭적인 지원이 한국 ">
+    <title>미국 제재에도 멈추지 않는 중국 반도체 추격, 한국의 미래는? - 영상 요약</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(30, 30, 50, 0.8);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --accent-1: #ff6b6b;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-border: rgba(255,255,255,0.06);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Top Nav */
+        .topnav {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--card-border);
+            background: rgba(15,15,26,0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topnav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .topnav a:hover { color: var(--text-primary); }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* Meta Info */
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .category-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 8px;
+        }
+        .keyword-tag {
+            background: rgba(102,126,234,0.15);
+            color: #98a8f8;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Video Player */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 36px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        /* Section */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .points-list {
+            list-style: none;
+            padding: 0;
+        }
+        .points-list li {
+            position: relative;
+            padding: 12px 0 12px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .points-list li:last-child { border-bottom: none; }
+        .points-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-download {
+            background: var(--accent-gradient);
+            color: white;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+        }
+        .btn-preview {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+        .btn-preview:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .btn-preview.active {
+            background: rgba(102,126,234,0.15);
+            border-color: #667eea;
+            color: #98a8f8;
+        }
+
+        /* PPTX Preview Tabs */
+        .preview-tabs {
+            display: none;
+            margin-bottom: 28px;
+        }
+        .preview-tabs.show { display: block; }
+        .tab-header {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            border-bottom: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tab-content {
+            border: 1px solid var(--card-border);
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+
+        /* Office Viewer */
+        .office-viewer {
+            width: 100%; height: 560px; border: 0;
+            background: #111;
+        }
+
+        /* HTML Slide Preview */
+        .slide-preview {
+            background: #1a1a2e;
+            aspect-ratio: 16/9;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-preview .sp-cat {
+            color: var(--accent-1);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-title {
+            color: white;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .slide-preview .sp-divider {
+            width: 60px; height: 3px;
+            background: #64b5f6;
+            border-radius: 2px;
+            margin-bottom: 14px;
+        }
+        .slide-preview .sp-overview {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .slide-preview .sp-point {
+            color: #eee;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-footer {
+            position: absolute;
+            bottom: 16px; left: 50px;
+            color: #888;
+            font-size: 0.7rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container > * {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 40px; }
+            .slide-preview { padding: 20px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <a href="./index.html">← 갤러리로 돌아가기</a>
+    </nav>
+
+    <div class="container">
+        <div class="meta-bar">
+            <span class="category-badge">반도체</span>
+            
+            <span class="keyword-tag">#중국 반도체</span>
+            
+            <span class="keyword-tag">#HBM</span>
+            
+            <span class="keyword-tag">#AI 데이터센터</span>
+            
+            <span class="keyword-tag">#미국 제재</span>
+            
+            <span class="keyword-tag">#기술 추격</span>
+            
+            <span class="keyword-tag">#화웨이</span>
+            
+            <span class="keyword-tag">#CXMT</span>
+            
+            <span class="keyword-tag">#SMIC</span>
+            
+        </div>
+
+        <h1>미국 제재에도 멈추지 않는 중국 반도체 추격, 한국의 미래는?</h1>
+
+        <!-- YouTube Player -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/16utVc0yExQ" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="section">
+            <div class="section-title">📋 영상 요약</div>
+            <p>이 영상은 미국 정부의 강력한 규제에도 불구하고 중국 반도체 산업이 어떻게 빠르게 성장하며 한국을 추격하고 있는지 분석합니다. 권석준 교수는 미국의 제재가 오히려 중국의 자립을 가속화하고 있으며, 중국의 HBM 및 첨단 패키징 기술 발전과 정부의 전폭적인 지원이 한국 반도체 시장에 심각한 위협이 될 수 있음을 경고합니다. 한국이 글로벌 반도체 시장에서 경쟁력을 유지하기 위한 새로운 차원의 혁신 전략이 필요함을 강조합니다.</p>
+            <ul class="points-list">
+                
+                <li>미국 제재의 역설과 중국의 자립 가속화: 미국 정부의 강력한 제재가 오히려 중국의 자국 기술 개발 및 내수 시장 활용을 가속화하여 반도체 자립 생태계를 구축하게 만들고 있으며, 이는 장기적으로 한국에 더 큰 위협이 될 수 있음을 지적합니다.</li>
+                
+                <li>중국의 HBM 및 첨단 패키징 기술 추격: CXMT의 D램, YMTC의 낸드, 화웨이의 로직 폴딩 기술 연합을 통해 중국판 HBM이 예상보다 빠르게 현실화될 가능성이 높으며, 이는 한국 메모리 반도체 시장에 가격 경쟁력 기반의 대량 공세를 예고합니다.</li>
+                
+                <li>중국 정부의 전폭적 지원과 풀스택 전략: 중앙 및 지방 정부의 막대한 자본, 인프라, R&D 지원과 화웨이의 풀스택(칩 설계부터 클라우드 서비스까지) 전략은 중국 반도체 산업의 경쟁력을 극대화하고 있으며, 한국은 새로운 차원의 혁신을 통해 격차를 벌려야 한다고 강조합니다.</li>
+                
+            </ul>
+        </div>
+
+        <!-- PPTX Actions -->
+        <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>
+        <div class="btn-row">
+            <a href="./china-semiconductor-pursuit-korea-future.pptx" class="btn btn-download" download>⬇️ PPTX 다운로드</a>
+            <button class="btn btn-preview" id="togglePreview" onclick="togglePreview()">👁️ 슬라이드 미리보기</button>
+        </div>
+
+        <!-- PPTX Preview -->
+        <div class="preview-tabs" id="previewSection">
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('html')">HTML 프리뷰</button>
+                <button class="tab-btn" onclick="switchTab('office')">Office Online 뷰어</button>
+            </div>
+            <div class="tab-content">
+                <!-- HTML Rendered Slide -->
+                <div class="tab-pane active" id="tab-html">
+                    <div class="carousel-wrapper" style="position: relative; overflow: hidden; width: 100%;">
+                        
+                        <!-- Slide 1: Cover & Overview -->
+                        <div class="slide-item active-slide" id="slide-page-1">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="font-size: 1.15rem; font-weight: 700;">[ 반도체 ]</div>
+                                <div class="sp-title" style="font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; line-height: 1.3; color: #fff; margin-top: 10px;">미국 제재에도 멈추지 않는 중국 반도체 추격, 한국의 미래는?</div>
+                                <div class="sp-divider" style="background: #667eea; width: 100px; height: 4px; margin: 20px 0;"></div>
+                                <div class="sp-overview" style="font-size: 1.35rem; line-height: 1.8; color: var(--text-secondary);">이 영상은 미국 정부의 강력한 규제에도 불구하고 중국 반도체 산업이 어떻게 빠르게 성장하며 한국을 추격하고 있는지 분석합니다. 권석준 교수는 미국의 제재가 오히려 중국의 자립을 가속화하고 있으며, 중국의 HBM 및 첨단 패키징 기술 발전과 정부의 전폭적인 지원이 한국 반도체 시장에 심각한 위협이 될 수 있음을 경고합니다. 한국이 글로벌 반도체 시장에서 경쟁력을 유지하기 위한 새로운 차원의 혁신 전략이 필요함을 강조합니다.</div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 1 / 5 (Cover)</div>
+                            </div>
+                        </div>
+
+                        <!-- Slides 2, 3, 4: Insights -->
+                        
+                        <div class="slide-item" id="slide-page-2" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 01 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">미국 제재의 역설과 중국의 자립 가속화</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">미국 정부의 강력한 제재가 오히려 중국의 자국 기술 개발 및 내수 시장 활용을 가속화하여 반도체 자립 생태계를 구축하게 만들고 있으며, 이는 장기적으로 한국에 더 큰 위협이 될 수 있음을 지적합니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 2 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-3" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 02 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">중국의 HBM 및 첨단 패키징 기술 추격</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">CXMT의 D램, YMTC의 낸드, 화웨이의 로직 폴딩 기술 연합을 통해 중국판 HBM이 예상보다 빠르게 현실화될 가능성이 높으며, 이는 한국 메모리 반도체 시장에 가격 경쟁력 기반의 대량 공세를 예고합니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 3 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-4" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 03 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">중국 정부의 전폭적 지원과 풀스택 전략</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">중앙 및 지방 정부의 막대한 자본, 인프라, R&D 지원과 화웨이의 풀스택(칩 설계부터 클라우드 서비스까지) 전략은 중국 반도체 산업의 경쟁력을 극대화하고 있으며, 한국은 새로운 차원의 혁신을 통해 격차를 벌려야 한다고 강조합니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 4 / 5</div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Slide 5: Outro & Recommendation -->
+                        <div class="slide-item" id="slide-page-5" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #ff6b6b; font-weight: bold; font-size: 0.9rem; margin-bottom: 12px;">🎯 AI 추천사 및 시청 가치</div>
+                                <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.6; color: var(--text-primary); font-style: italic; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                                    "미국과 중국의 반도체 전쟁 속에서 한국의 미래를 고민하는 분이라면 이 영상을 꼭 시청해야 합니다. 권석준 교수님의 깊이 있는 분석을 통해 중국 반도체 산업의 현주소와 미래 전략, 그리고 한국이 나아가야 할 방향에 대한 통찰을 얻을 수 있을 것입니다. 급변하는 글로벌 기술 패권 경쟁에서 우리의 위치를 정확히 파악하고 대비하는 데 큰 도움이 될 것입니다."
+                                </div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">
+                                    Keywords: 중국 반도체, HBM, AI 데이터센터, 미국 제재, 기술 추격, 화웨이, CXMT, SMIC | 🔗 https://youtu.be/16utVc0yExQ | Slide 5 / 5
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slide Controller buttons -->
+                    <div class="slide-controls" style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 10px;">
+                        <button class="btn btn-preview" onclick="prevSlide()" id="btn-prev-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">◀ 이전</button>
+                        <span id="slide-indicator" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">1 / 5</span>
+                        <button class="btn btn-preview" onclick="nextSlide()" id="btn-next-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">다음 ▶</button>
+                    </div>
+
+                    <!-- Inline Slider JS -->
+                    <script>
+                        let currentSlideIndex = 1;
+                        const totalSlides = 5;
+
+                        function updateSlideUI() {
+                            // 모든 슬라이드 숨기기
+                            for (let i = 1; i <= totalSlides; i++) {
+                                const slide = document.getElementById('slide-page-' + i);
+                                if (slide) {
+                                    if (i === currentSlideIndex) {
+                                        slide.style.display = 'block';
+                                    } else {
+                                        slide.style.display = 'none';
+                                    }
+                                }
+                            }
+                            // 인디케이터 업데이트
+                            document.getElementById('slide-indicator').textContent = currentSlideIndex + ' / ' + totalSlides;
+                            
+                            // 버튼 비활성화 및 불투명도 조절
+                            const btnPrev = document.getElementById('btn-prev-slide');
+                            const btnNext = document.getElementById('btn-next-slide');
+                            
+                            btnPrev.disabled = (currentSlideIndex === 1);
+                            btnNext.disabled = (currentSlideIndex === totalSlides);
+                            
+                            btnPrev.style.opacity = (currentSlideIndex === 1) ? '0.4' : '1';
+                            btnNext.style.opacity = (currentSlideIndex === totalSlides) ? '0.4' : '1';
+                            btnPrev.style.cursor = (currentSlideIndex === 1) ? 'not-allowed' : 'pointer';
+                            btnNext.style.cursor = (currentSlideIndex === totalSlides) ? 'not-allowed' : 'pointer';
+                        }
+
+                        function nextSlide() {
+                            if (currentSlideIndex < totalSlides) {
+                                currentSlideIndex++;
+                                updateSlideUI();
+                            }
+                        }
+
+                        function prevSlide() {
+                            if (currentSlideIndex > 1) {
+                                currentSlideIndex--;
+                                updateSlideUI();
+                            }
+                        }
+
+                        // DOM 로드 완료 후 실행
+                        document.addEventListener("DOMContentLoaded", function() {
+                            updateSlideUI();
+                        });
+                    </script>
+                </div>
+                <!-- Office Online Viewer -->
+                <div class="tab-pane" id="tab-office">
+                    <iframe class="office-viewer" 
+                            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A//meesokim.github.io/my-youtube-gallary/china-semiconductor-pursuit-korea-future.pptx"
+                            loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comments Section (Utterances) -->
+        
+        <div class="section-title" style="margin-top: 40px; margin-bottom: 16px;">💬 댓글 및 의견</div>
+        <div class="section" style="padding: 20px; background: rgba(30, 30, 50, 0.4); border-radius: 16px; border: 1px solid var(--card-border);">
+            <script src="https://utteranc.es/client.js"
+                    repo="meesokim/my-youtube-gallary"
+                    issue-number="5"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        
+    </div>
+
+    <footer class="footer">
+        Powered by Gemini AI · <a href="./index.html" style="color:#667eea;text-decoration:none;">갤러리로 돌아가기</a>
+    </footer>
+
+    <script>
+    function togglePreview() {
+        const section = document.getElementById('previewSection');
+        const btn = document.getElementById('togglePreview');
+        const isVisible = section.classList.toggle('show');
+        btn.classList.toggle('active', isVisible);
+        btn.textContent = isVisible ? '🙈 미리보기 닫기' : '👁️ 슬라이드 미리보기';
+    }
+
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    </script>
+</body>
+</html>
