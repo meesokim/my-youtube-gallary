@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import re
+import requests
 from dotenv import load_dotenv
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound
@@ -11,6 +12,18 @@ from pydantic import BaseModel, Field
 
 # .env 파일에서 환경 변수 로드
 load_dotenv()
+
+def get_youtube_title(video_id: str) -> str:
+    """oEmbed API를 통해 유튜브 비디오 제목을 수집"""
+    try:
+        url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:
+            data = response.json()
+            return data.get("title", "")
+    except Exception as e:
+        print(f"[-] 유튜브 제목 추출 중 오류 발생: {e}")
+    return ""
 
 # ==========================================
 # 1. Gemini 구조화된 출력(Structured Output) 정의
@@ -144,8 +157,12 @@ if __name__ == "__main__":
     script = fetch_youtube_script(v_id)
     
     if not script:
-        print("[-] 요약할 스크립트 텍스트가 부족하여 작업을 중단합니다.")
-        sys.exit(1)
+        print("[!] 자막(스크립트) 수집에 실패했습니다. (자막이 없는 영상일 수 있습니다.)")
+        print("[*] 제목 및 취지 기반으로 AI 분석을 진행합니다...")
+        video_title = get_youtube_title(v_id)
+        if not video_title:
+            video_title = "제목을 가져올 수 없는 비디오"
+        script = f"(자막 정보 없음. 비디오 제목: {video_title})"
         
     print("[*] Gemini AI가 컨텐츠를 분석하고 요약하는 중입니다...")
     analysis_result = analyze_script_with_gemini(script, v_id, user_context)
