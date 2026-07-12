@@ -8,6 +8,7 @@ on:
     workflows: ["Auto Process YouTube Issue"]
     types:
       - completed
+  workflow_dispatch:
 
 permissions:
   contents: read
