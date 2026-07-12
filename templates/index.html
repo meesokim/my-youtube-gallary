@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="엄선된 유튜브 추천 영상을 AI가 분석하고 요약한 큐레이션 갤러리">
+    <meta name="description" content="사람들이 추천하고 AI가 분석하고 요약한 엄선된 유튜브 추천 영상 큐레이션">
     <title>YouTube 추천 영상 갤러리</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -333,7 +333,7 @@
 <body>
     <section class="hero">
         <h1>🎬 YouTube 추천 영상 갤러리</h1>
-        <p>AI가 분석하고 요약한 엄선된 유튜브 추천 영상 큐레이션</p>
+        <p>사람들이 추천하고 AI가 분석하고 요약한 엄선된 유튜브 추천 영상 큐레이션</p>
         <div class="stats">
             <div class="stat-item">
                 <div class="stat-num">{{ videos|length }}</div>
@@ -393,6 +393,11 @@
                 <button type="button" class="btn-submit" onclick="submitRecommendation()">🚀 추천 비디오 등록하기</button>
             </div>
         </div>
+    </div>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter" style="text-align: center; margin: 40px auto 20px;">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmeesokim.github.io%2Fmy-youtube-gallary%2F&count_bg=%23667eea&title_bg=%231a1a2e&icon=&icon_color=%23E7E7E7&title=VISITORS&edge_flat=false" alt="Hits Counter" style="border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
     </div>
 
     <footer class="footer">
