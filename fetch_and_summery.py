@@ -48,7 +48,7 @@ def fetch_youtube_script(video_id: str) -> str:
         print(f"[-] 자막 추출 중 오류 발생: {e}")
         return ""
 
-def analyze_script_with_gemini(script_text: str, video_id: str) -> dict:
+def analyze_script_with_gemini(script_text: str, video_id: str, user_context: str = "") -> dict:
     """Gemini API를 사용하여 구조화된 JSON 데이터로 분석결과 수신"""
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
@@ -64,6 +64,15 @@ def analyze_script_with_gemini(script_text: str, video_id: str) -> dict:
     [유튜브 자막 스크립트]
     {script_text[:15000]} # 토큰 절약을 위한 슬라이싱 (필요시 조절)
     """
+    
+    if user_context and user_context.strip():
+        prompt += f"""
+        
+        [특별 요청 사항 및 정리 취지]
+        {user_context}
+        
+        위 [특별 요청 사항 및 정리 취지]를 참고하여, 핵심 요약(points) 및 개요(overview)를 작성할 때 이 관점과 디테일이 적극적으로 반영되도록 정리해주세요.
+        """
     
     try:
         # 최신 안정화 모델인 gemini-2.5-flash 활용
@@ -117,10 +126,11 @@ def update_videos_json(new_video_data: dict, json_path: str = "data/videos.json"
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("사용법: python fetch_and_summarize.py <유튜브_링크>")
+        print("사용법: python fetch_and_summarize.py <유튜브_링크> [요약_취지]")
         sys.exit(1)
         
     youtube_url = sys.argv[1]
+    user_context = sys.argv[2] if len(sys.argv) > 2 else ""
     v_id = get_youtube_id(youtube_url)
     
     if not v_id:
@@ -128,6 +138,8 @@ if __name__ == "__main__":
         sys.exit(1)
         
     print(f"[*] 유튜브 ID 추출 완료: {v_id}")
+    if user_context:
+        print(f"[*] 정리 취지: {user_context}")
     print("[*] 자막(스크립트) 수집을 시작합니다...")
     script = fetch_youtube_script(v_id)
     
@@ -136,7 +148,7 @@ if __name__ == "__main__":
         sys.exit(1)
         
     print("[*] Gemini AI가 컨텐츠를 분석하고 요약하는 중입니다...")
-    analysis_result = analyze_script_with_gemini(script, v_id)
+    analysis_result = analyze_script_with_gemini(script, v_id, user_context)
     
     if analysis_result:
         update_videos_json(analysis_result)

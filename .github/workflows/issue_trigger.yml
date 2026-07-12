@@ -1,0 +1,58 @@
+name: Auto Process YouTube Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process-issue:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.title, 'youtube.com') || contains(github.event.issue.title, 'youtu.be')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          echo "Processing link: ${{ github.event.issue.title }}"
+          python fetch_and_summery.py "${{ github.event.issue.title }}" "${{ github.event.issue.body }}"
+
+      - name: Generate site
+        run: |
+          python generate.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m "feat: Auto-update from issue #${{ github.event.issue.number }}"
+            git push origin main
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Close Issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue close "${{ github.event.issue.number }}" --comment "자동으로 요약 페이지와 PPTX 파일 생성이 완료되었습니다! 배포 완료 후 적용됩니다."
