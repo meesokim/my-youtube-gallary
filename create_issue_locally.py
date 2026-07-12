@@ -39,11 +39,17 @@ def create_issue(repo, title, body, token=None):
         try:
             print("[*] GitHub CLI(gh)를 사용하여 이슈를 생성합니다...")
             res = subprocess.run(
-                ["gh", "issue", "create", "--repo", repo, "--title", title, "--body", body, "--json", "number,url"],
+                ["gh", "issue", "create", "--repo", repo, "--title", title, "--body", body],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True
             )
-            data = json.loads(res.stdout)
-            return data.get("number"), data.get("url")
+            output_url = res.stdout.strip()
+            # 생성된 URL에서 이슈 번호 추출 (예: https://github.com/owner/repo/issues/123)
+            import re
+            match = re.search(r"/issues/(\d+)", output_url)
+            if match:
+                num = int(match.group(1))
+                return num, output_url
+            return None, output_url
         except Exception as e:
             print(f"[!] gh CLI로 이슈 생성 중 오류 발생: {e}")
 
