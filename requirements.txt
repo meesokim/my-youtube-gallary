@@ -1,0 +1,6 @@
+python-pptx
+jinja2
+python-dotenv
+youtube-transcript-api
+google-genai
+pydantic

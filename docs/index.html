@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="엄선된 유튜브 추천 영상을 AI가 분석하고 요약한 큐레이션 갤러리">
+    <title>YouTube 추천 영상 갤러리</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(30, 30, 50, 0.7);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --accent-1: #ff6b6b;
+            --accent-2: #4ecdc4;
+            --accent-3: #45b7d1;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-border: rgba(255,255,255,0.06);
+            --card-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+            background: linear-gradient(180deg, rgba(102,126,234,0.15) 0%, transparent 100%);
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .hero .stat-item {
+            text-align: center;
+        }
+        .hero .stat-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-3);
+        }
+        .hero .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-bar input[type="text"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .filter-bar input[type="text"]:focus {
+            border-color: #667eea;
+        }
+        .filter-bar input[type="text"]::placeholder {
+            color: var(--text-secondary);
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Grid */
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        /* Card */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-shadow);
+            border-color: rgba(102,126,234,0.3);
+        }
+        .card-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .card-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-title a:hover {
+            color: #667eea;
+        }
+        .card-overview {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tag {
+            background: rgba(102,126,234,0.15);
+            color: #98a8f8;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 50px 16px 30px; }
+            .grid { grid-template-columns: 1fr; }
+            .hero .stats { gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>🎬 YouTube 추천 영상 갤러리</h1>
+        <p>AI가 분석하고 요약한 엄선된 유튜브 추천 영상 큐레이션</p>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-num">1</div>
+                <div class="stat-label">총 영상 수</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">1</div>
+                <div class="stat-label">카테고리</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="filter-bar" id="filterBar">
+        <input type="text" id="searchInput" placeholder="🔍 제목, 키워드로 검색...">
+        <button class="filter-btn active" data-category="all">전체</button>
+        
+        <button class="filter-btn" data-category="경영">경영</button>
+        
+    </div>
+
+    <div class="grid-container">
+        <div class="grid" id="videoGrid">
+            
+            <div class="card" data-category="경영" data-keywords="민음사, 출판업계, 민음사TV, 세계문학전집, 경영전략" data-title="민음사, 출판업계 불황 속 72% 영업이익 성장 비결">
+                <img class="card-thumb" src="https://img.youtube.com/vi/LKKTAJytBRo/mqdefault.jpg" alt="민음사, 출판업계 불황 속 72% 영업이익 성장 비결" loading="lazy">
+                <div class="card-body">
+                    <span class="card-category">경영</span>
+                    <h3 class="card-title"><a href="./minumsa-success-strategy.html">민음사, 출판업계 불황 속 72% 영업이익 성장 비결</a></h3>
+                    <p class="card-overview">출판업계 전반의 매출 감소 속에서도 민음사가 72%의 영업이익 성장을 기록하며 주목받고 있습니다. 이는 '민음사TV'의 성공적인 팬덤 구축과 구간 도서 판매 전략, 그리고 창업자 박맹호 회장의 장기적인 안목과 혁신적인 경영 철학 덕분입니다.</p>
+                    <div class="card-tags">
+                        
+                        <span class="tag">#민음사</span>
+                        
+                        <span class="tag">#출판업계</span>
+                        
+                        <span class="tag">#민음사TV</span>
+                        
+                        <span class="tag">#세계문학전집</span>
+                        
+                        <span class="tag">#경영전략</span>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="no-results" id="noResults">검색 결과가 없습니다.</div>
+    </div>
+
+    <footer class="footer">
+        Powered by Gemini AI · 1개 영상 수록
+    </footer>
+
+    <script>
+    (function() {
+        const searchInput = document.getElementById('searchInput');
+        const grid = document.getElementById('videoGrid');
+        const cards = grid.querySelectorAll('.card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const noResults = document.getElementById('noResults');
+        let activeCategory = 'all';
+
+        function filterCards() {
+            const query = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+            cards.forEach(card => {
+                const cat = card.dataset.category;
+                const title = card.dataset.title.toLowerCase();
+                const kw = card.dataset.keywords.toLowerCase();
+                const matchCat = activeCategory === 'all' || cat === activeCategory;
+                const matchSearch = !query || title.includes(query) || kw.includes(query);
+                const visible = matchCat && matchSearch;
+                card.style.display = visible ? '' : 'none';
+                if (visible) visibleCount++;
+            });
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.category;
+                filterCards();
+            });
+        });
+
+        searchInput.addEventListener('input', filterCards);
+    })();
+    </script>
+</body>
+</html>
