@@ -248,11 +248,11 @@
         <p>AI가 분석하고 요약한 엄선된 유튜브 추천 영상 큐레이션</p>
         <div class="stats">
             <div class="stat-item">
-                <div class="stat-num">1</div>
+                <div class="stat-num">2</div>
                 <div class="stat-label">총 영상 수</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num">1</div>
+                <div class="stat-num">2</div>
                 <div class="stat-label">카테고리</div>
             </div>
         </div>
@@ -261,6 +261,8 @@
     <div class="filter-bar" id="filterBar">
         <input type="text" id="searchInput" placeholder="🔍 제목, 키워드로 검색...">
         <button class="filter-btn active" data-category="all">전체</button>
+        
+        <button class="filter-btn" data-category="AI">AI</button>
         
         <button class="filter-btn" data-category="비즈니스">비즈니스</button>
         
@@ -291,12 +293,34 @@
                 </div>
             </div>
             
+            <div class="card" data-category="AI" data-keywords="인공지능, AI 에이전트, 챗GPT, AI 트렌드, 빌더 시대" data-title="AI 시대의 진화: 챗봇에서 에이전트, 그리고 빌더까지">
+                <img class="card-thumb" src="https://img.youtube.com/vi/ChsmNLwoHmw/mqdefault.jpg" alt="AI 시대의 진화: 챗봇에서 에이전트, 그리고 빌더까지" loading="lazy">
+                <div class="card-body">
+                    <span class="card-category">AI</span>
+                    <h3 class="card-title"><a href="./ai-evolution-from-chatbot-to-agent-builder.html">AI 시대의 진화: 챗봇에서 에이전트, 그리고 빌더까지</a></h3>
+                    <p class="card-overview">인공지능은 1956년 다트머스 회의에서 시작되어 두 번의 침체기를 겪었지만, 2017년 구글의 '어텐션 메커니즘'과 GPU의 발전으로 챗GPT와 같은 혁신을 이끌었습니다. 이제 AI는 단순한 챗봇을 넘어 목표 지향적이고 자율적으로 다단계 작업을 수행하는 '에이전트' 시대로 진화하고 있으며, 도메인 지식을 가진 누구나 AI를 활용해 문제를 해결하는 '빌더'가 될 수 있는 시대가 도래했습니다.</p>
+                    <div class="card-tags">
+                        
+                        <span class="tag">#인공지능</span>
+                        
+                        <span class="tag">#AI 에이전트</span>
+                        
+                        <span class="tag">#챗GPT</span>
+                        
+                        <span class="tag">#AI 트렌드</span>
+                        
+                        <span class="tag">#빌더 시대</span>
+                        
+                    </div>
+                </div>
+            </div>
+            
         </div>
         <div class="no-results" id="noResults">검색 결과가 없습니다.</div>
     </div>
 
     <footer class="footer">
-        Powered by Gemini AI · 1개 영상 수록
+        Powered by Gemini AI · 2개 영상 수록
     </footer>
 
     <script>
