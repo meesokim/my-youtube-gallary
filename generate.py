@@ -34,39 +34,39 @@ def create_pptx(video_data, output_path):
     slide1 = add_custom_slide()
     
     # 카테고리 라벨
-    cat_box = slide1.shapes.add_textbox(Inches(1.0), Inches(1.2), Inches(11.333), Inches(0.5))
+    cat_box = slide1.shapes.add_textbox(Inches(1.0), Inches(1.0), Inches(11.333), Inches(0.5))
     p_cat = cat_box.text_frame.paragraphs[0]
     p_cat.text = f"💡 [ {video_data['category']} ]"
     p_cat.font.name = "Malgun Gothic"
-    p_cat.font.size = Pt(16)
+    p_cat.font.size = Pt(22)
     p_cat.font.bold = True
     p_cat.font.color.rgb = RGBColor(0xff, 0x6b, 0x6b)
     
     # 대제목
-    title_box = slide1.shapes.add_textbox(Inches(1.0), Inches(1.8), Inches(11.333), Inches(2.0))
+    title_box = slide1.shapes.add_textbox(Inches(1.0), Inches(1.6), Inches(11.333), Inches(2.0))
     tf_title = title_box.text_frame
     tf_title.word_wrap = True
     p_title = tf_title.paragraphs[0]
     p_title.text = video_data['title']
     p_title.font.name = "Malgun Gothic"
-    p_title.font.size = Pt(36)
+    p_title.font.size = Pt(46)
     p_title.font.bold = True
     p_title.font.color.rgb = RGBColor(0xff, 0xff, 0xff)
     
     # 구분선
-    line_shape = slide1.shapes.add_shape(1, Inches(1.0), Inches(3.8), Inches(2.5), Inches(0.04))
+    line_shape = slide1.shapes.add_shape(1, Inches(1.0), Inches(4.0), Inches(2.5), Inches(0.06))
     line_shape.fill.solid()
     line_shape.fill.fore_color.rgb = RGBColor(0x66, 0x7e, 0xea)
     line_shape.line.fill.background()
     
     # 개요 (Overview)
-    ov_box = slide1.shapes.add_textbox(Inches(1.0), Inches(4.2), Inches(11.333), Inches(2.0))
+    ov_box = slide1.shapes.add_textbox(Inches(1.0), Inches(4.4), Inches(11.333), Inches(2.0))
     tf_ov = ov_box.text_frame
     tf_ov.word_wrap = True
     p_ov = tf_ov.paragraphs[0]
     p_ov.text = video_data['overview']
     p_ov.font.name = "Malgun Gothic"
-    p_ov.font.size = Pt(18)
+    p_ov.font.size = Pt(24)
     p_ov.font.color.rgb = RGBColor(0xa0, 0xa0, 0xb8)
     p_ov.line_spacing = 1.3
 
