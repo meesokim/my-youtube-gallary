@@ -299,7 +299,7 @@ def main():
             
         # 1. 스크립트 요약 실행
         print("[*] 1단계: fetch_and_summery.py 실행 중...")
-        res_summary = subprocess.run(["python", "fetch_and_summery.py", title, user_context])
+        res_summary = subprocess.run(["python", "fetch_and_summery.py", title, user_context, str(num)])
         if res_summary.returncode != 0:
             print(f"[!] 이슈 #{num} 요약 과정에서 실패했습니다. 다음 이슈로 넘어갑니다.")
             continue

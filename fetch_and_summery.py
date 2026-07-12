@@ -108,11 +108,14 @@ def analyze_script_with_gemini(script_text: str, video_id: str, user_context: st
         print(f"[-] Gemini API 요청 중 오류 발생: {e}")
         return None
 
-def update_videos_json(new_video_data: dict, json_path: str = "data/videos.json"):
+def update_videos_json(new_video_data: dict, issue_number: int = None, json_path: str = "data/videos.json"):
     """결과 데이터를 기존 data/videos.json에 추가 또는 업데이트"""
     # 디렉토리 자동 생성
     os.makedirs(os.path.dirname(json_path), exist_ok=True)
     
+    if issue_number:
+        new_video_data['issue_number'] = issue_number
+        
     videos_list = []
     if os.path.exists(json_path):
         try:
@@ -139,11 +142,14 @@ def update_videos_json(new_video_data: dict, json_path: str = "data/videos.json"
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("사용법: python fetch_and_summarize.py <유튜브_링크> [요약_취지]")
+        print("사용법: python fetch_and_summarize.py <유튜브_링크> [요약_취지] [이슈_번호]")
         sys.exit(1)
         
     youtube_url = sys.argv[1]
     user_context = sys.argv[2] if len(sys.argv) > 2 else ""
+    issue_num_str = sys.argv[3] if len(sys.argv) > 3 else ""
+    issue_num = int(issue_num_str) if issue_num_str and issue_num_str.isdigit() else None
+    
     v_id = get_youtube_id(youtube_url)
     
     if not v_id:
@@ -153,6 +159,9 @@ if __name__ == "__main__":
     print(f"[*] 유튜브 ID 추출 완료: {v_id}")
     if user_context:
         print(f"[*] 정리 취지: {user_context}")
+    if issue_num:
+        print(f"[*] 연동 이슈 번호: {issue_num}")
+        
     print("[*] 자막(스크립트) 수집을 시작합니다...")
     script = fetch_youtube_script(v_id)
     
@@ -168,7 +177,7 @@ if __name__ == "__main__":
     analysis_result = analyze_script_with_gemini(script, v_id, user_context)
     
     if analysis_result:
-        update_videos_json(analysis_result)
+        update_videos_json(analysis_result, issue_num)
         print("[*] 모든 파이프라인 처리가 완료되었습니다. 'data/videos.json'을 확인하세요.")
     else:
         print("[-] 분석 실패.")
