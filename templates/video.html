@@ -344,16 +344,115 @@
             <div class="tab-content">
                 <!-- HTML Rendered Slide -->
                 <div class="tab-pane active" id="tab-html">
-                    <div class="slide-preview">
-                        <div class="sp-cat">[ {{ video.category }} ]</div>
-                        <div class="sp-title">{{ video.title }}</div>
-                        <div class="sp-divider"></div>
-                        <div class="sp-overview">{{ video.overview }}</div>
-                        {% for point in video.points %}
-                        <div class="sp-point">▸ {{ point }}</div>
+                    <div class="carousel-wrapper" style="position: relative; overflow: hidden; width: 100%;">
+                        
+                        <!-- Slide 1: Cover & Overview -->
+                        <div class="slide-item active-slide" id="slide-page-1">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat">[ {{ video.category }} ]</div>
+                                <div class="sp-title" style="font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 800; line-height: 1.3; color: #fff; margin-top: 10px;">{{ video.title }}</div>
+                                <div class="sp-divider" style="background: #667eea; width: 100px; height: 4px; margin: 20px 0;"></div>
+                                <div class="sp-overview" style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">{{ video.overview }}</div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 1 / 5 (Cover)</div>
+                            </div>
+                        </div>
+
+                        <!-- Slides 2, 3, 4: Insights -->
+                        {% for point in video.points[:3] %}
+                        <div class="slide-item" id="slide-page-{{ loop.index + 1 }}" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 0{{ loop.index }} / 03</div>
+                                
+                                {% if ":" in point %}
+                                    {% set parts = point.split(":", 1) %}
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">{{ parts[0] | trim }}</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">{{ parts[1] | trim }}</div>
+                                {% else %}
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">Insight {{ loop.index }}</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">{{ point }}</div>
+                                {% endif %}
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide {{ loop.index + 1 }} / 5</div>
+                            </div>
+                        </div>
                         {% endfor %}
-                        <div class="sp-footer">Keywords: {{ video.keywords }} | 🔗 https://youtu.be/{{ video.youtube_id }}</div>
+
+                        <!-- Slide 5: Outro & Recommendation -->
+                        <div class="slide-item" id="slide-page-5" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #ff6b6b; font-weight: bold; font-size: 0.9rem; margin-bottom: 12px;">🎯 AI 추천사 및 시청 가치</div>
+                                <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.6; color: var(--text-primary); font-style: italic; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                                    "{{ video.recommendation | default('영상을 통해 최신 통찰을 넓혀보세요.') }}"
+                                </div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">
+                                    Keywords: {{ video.keywords }} | 🔗 https://youtu.be/{{ video.youtube_id }} | Slide 5 / 5
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- Slide Controller buttons -->
+                    <div class="slide-controls" style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 10px;">
+                        <button class="btn btn-preview" onclick="prevSlide()" id="btn-prev-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">◀ 이전</button>
+                        <span id="slide-indicator" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">1 / 5</span>
+                        <button class="btn btn-preview" onclick="nextSlide()" id="btn-next-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">다음 ▶</button>
+                    </div>
+
+                    <!-- Inline Slider JS -->
+                    <script>
+                        let currentSlideIndex = 1;
+                        const totalSlides = 5;
+
+                        function updateSlideUI() {
+                            // 모든 슬라이드 숨기기
+                            for (let i = 1; i <= totalSlides; i++) {
+                                const slide = document.getElementById('slide-page-' + i);
+                                if (slide) {
+                                    if (i === currentSlideIndex) {
+                                        slide.style.display = 'block';
+                                    } else {
+                                        slide.style.display = 'none';
+                                    }
+                                }
+                            }
+                            // 인디케이터 업데이트
+                            document.getElementById('slide-indicator').textContent = currentSlideIndex + ' / ' + totalSlides;
+                            
+                            // 버튼 비활성화 및 불투명도 조절
+                            const btnPrev = document.getElementById('btn-prev-slide');
+                            const btnNext = document.getElementById('btn-next-slide');
+                            
+                            btnPrev.disabled = (currentSlideIndex === 1);
+                            btnNext.disabled = (currentSlideIndex === totalSlides);
+                            
+                            btnPrev.style.opacity = (currentSlideIndex === 1) ? '0.4' : '1';
+                            btnNext.style.opacity = (currentSlideIndex === totalSlides) ? '0.4' : '1';
+                            btnPrev.style.cursor = (currentSlideIndex === 1) ? 'not-allowed' : 'pointer';
+                            btnNext.style.cursor = (currentSlideIndex === totalSlides) ? 'not-allowed' : 'pointer';
+                        }
+
+                        function nextSlide() {
+                            if (currentSlideIndex < totalSlides) {
+                                currentSlideIndex++;
+                                updateSlideUI();
+                            }
+                        }
+
+                        function prevSlide() {
+                            if (currentSlideIndex > 1) {
+                                currentSlideIndex--;
+                                updateSlideUI();
+                            }
+                        }
+
+                        // DOM 로드 완료 후 실행
+                        document.addEventListener("DOMContentLoaded", function() {
+                            updateSlideUI();
+                        });
+                    </script>
                 </div>
                 <!-- Office Online Viewer -->
                 <div class="tab-pane" id="tab-office">

@@ -31,7 +31,7 @@ def get_youtube_title(video_id: str) -> str:
 class VideoAnalysis(BaseModel):
     title: str = Field(description="영상의 핵심 주제를 반영한 한국어 제목")
     overview: str = Field(description="영상의 전체적인 내용을 2~3문장으로 명확하게 정리한 한국어 개요")
-    points: list[str] = Field(description="영상의 핵심 요약 및 디테일한 설명 3~5개 리스트 (한국어)")
+    points: list[str] = Field(description="영상의 핵심 인사이트 딱 3개 리스트 (한국어). 각 항목은 반드시 '핵심 주제 및 요약 제목: 이에 대한 명확한 근거와 상세 디테일 설명' 포맷이어야 함 (예: '마케팅 혁신: 직원 브랜딩과 소통을 중심으로 강력한 팬덤을 형성하여 수익을 극대화함')")
     category: str = Field(description="영상의 장르나 대분류 (예: 개발, AI, 생산성, 경제, 트렌드 등 1개 단어)")
     keywords: str = Field(description="쉼표(,)로 구분된 관련 핵심 키워드 3~5개 (예: 머신러닝, 자동화, 파이썬)")
     filename: str = Field(description="영어 소문자와 대시(-)로만 구성된 유니크한 파일명 (예: intro-to-gemini-api)")

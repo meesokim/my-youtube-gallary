@@ -12,84 +12,159 @@ PAGES_URL = "https://meesokim.github.io/my-youtube-gallary"
 OUTPUT_DIR = "docs"
 
 def create_pptx(video_data, output_path):
-    """ 한 페이지안에 영상을 깔끔하게 요약한 PPTX 생성 """
+    """ 각 페이지당 하나의 핵심 인사이트만 명확히 담는 다중 슬라이드 PPTX 생성 """
     prs = Presentation()
     # 16:9 와이드스크린 설정
     prs.slide_width = Inches(13.333)
     prs.slide_height = Inches(7.5)
+    blank_layout = prs.slide_layouts[6]
     
-    blank_slide_layout = prs.slide_layouts[6]
-    slide = prs.slides.add_slide(blank_slide_layout)
+    # 헬퍼 함수: 슬라이드 추가 및 배경색(네이비) 설정
+    def add_custom_slide():
+        slide = prs.slides.add_slide(blank_layout)
+        background = slide.background
+        fill = background.fill
+        fill.solid()
+        fill.fore_color.rgb = RGBColor(0x0f, 0x0f, 0x1a) # 어두운 네이비
+        return slide
 
-    # 배경색 설정 (진한 네이비)
-    background = slide.background
-    fill = background.fill
-    fill.solid()
-    fill.fore_color.rgb = RGBColor(0x1a, 0x1a, 0x2e)
+    # ----------------------------------------------------
+    # SLIDE 1: Cover & Overview (표지 및 전체 요약)
+    # ----------------------------------------------------
+    slide1 = add_custom_slide()
     
     # 카테고리 라벨
-    cat_box = slide.shapes.add_textbox(Inches(0.5), Inches(0.3), Inches(3), Inches(0.4))
-    tf_cat = cat_box.text_frame
-    p_cat = tf_cat.paragraphs[0]
-    p_cat.text = f"[ {video_data['category']} ]"
+    cat_box = slide1.shapes.add_textbox(Inches(1.0), Inches(1.2), Inches(11.333), Inches(0.5))
+    p_cat = cat_box.text_frame.paragraphs[0]
+    p_cat.text = f"💡 [ {video_data['category']} ]"
     p_cat.font.name = "Malgun Gothic"
-    p_cat.font.size = Pt(14)
+    p_cat.font.size = Pt(16)
     p_cat.font.bold = True
     p_cat.font.color.rgb = RGBColor(0xff, 0x6b, 0x6b)
     
-    # 제목 상자 추가
-    title_box = slide.shapes.add_textbox(Inches(0.5), Inches(0.7), Inches(12.333), Inches(1.0))
+    # 대제목
+    title_box = slide1.shapes.add_textbox(Inches(1.0), Inches(1.8), Inches(11.333), Inches(2.0))
     tf_title = title_box.text_frame
     tf_title.word_wrap = True
     p_title = tf_title.paragraphs[0]
     p_title.text = video_data['title']
     p_title.font.name = "Malgun Gothic"
-    p_title.font.size = Pt(32)
+    p_title.font.size = Pt(36)
     p_title.font.bold = True
     p_title.font.color.rgb = RGBColor(0xff, 0xff, 0xff)
     
-    # 구분선 역할의 얇은 사각형
-    line_shape = slide.shapes.add_shape(
-        1, Inches(0.5), Inches(1.75), Inches(2), Inches(0.04)
-    )
+    # 구분선
+    line_shape = slide1.shapes.add_shape(1, Inches(1.0), Inches(3.8), Inches(2.5), Inches(0.04))
     line_shape.fill.solid()
-    line_shape.fill.fore_color.rgb = RGBColor(0x64, 0xb5, 0xf6)
+    line_shape.fill.fore_color.rgb = RGBColor(0x66, 0x7e, 0xea)
     line_shape.line.fill.background()
     
-    # Overview
-    ov_box = slide.shapes.add_textbox(Inches(0.5), Inches(2.0), Inches(12.333), Inches(1.2))
+    # 개요 (Overview)
+    ov_box = slide1.shapes.add_textbox(Inches(1.0), Inches(4.2), Inches(11.333), Inches(2.0))
     tf_ov = ov_box.text_frame
     tf_ov.word_wrap = True
     p_ov = tf_ov.paragraphs[0]
     p_ov.text = video_data['overview']
     p_ov.font.name = "Malgun Gothic"
-    p_ov.font.size = Pt(16)
-    p_ov.font.color.rgb = RGBColor(0xcc, 0xcc, 0xcc)
-    
-    # Key Points
-    content_box = slide.shapes.add_textbox(Inches(0.5), Inches(3.4), Inches(12.333), Inches(3.2))
-    tf_content = content_box.text_frame
-    tf_content.word_wrap = True
-    
-    for i, point in enumerate(video_data['points']):
-        if i == 0:
-            p = tf_content.paragraphs[0]
-        else:
-            p = tf_content.add_paragraph()
-        p.text = f"▸ {point}"
-        p.font.name = "Malgun Gothic"
-        p.font.size = Pt(13)
-        p.font.color.rgb = RGBColor(0xee, 0xee, 0xee)
-        p.space_after = Pt(8)
+    p_ov.font.size = Pt(18)
+    p_ov.font.color.rgb = RGBColor(0xa0, 0xa0, 0xb8)
+    p_ov.line_spacing = 1.3
+
+    # ----------------------------------------------------
+    # SLIDE 2, 3, 4: Core Insights (각 장표당 하나의 명확한 인사이트)
+    # ----------------------------------------------------
+    for idx, point_str in enumerate(video_data['points'][:3]):
+        slide = add_custom_slide()
         
-    # 하단 링크 및 키워드 바
-    meta_box = slide.shapes.add_textbox(Inches(0.5), Inches(6.8), Inches(12.333), Inches(0.5))
+        # 상단 네비게이터 (현재 위치 파악용)
+        nav_box = slide.shapes.add_textbox(Inches(1.0), Inches(0.6), Inches(11.333), Inches(0.4))
+        p_nav = nav_box.text_frame.paragraphs[0]
+        p_nav.text = f"CORE INSIGHT 0{idx + 1} / 03"
+        p_nav.font.name = "Malgun Gothic"
+        p_nav.font.size = Pt(12)
+        p_nav.font.bold = True
+        p_nav.font.color.rgb = RGBColor(0x66, 0x7e, 0xea)
+        
+        # '제목: 상세설명' 파싱
+        insight_title = f"Insight {idx + 1}"
+        insight_detail = point_str
+        if ":" in point_str:
+            parts = point_str.split(":", 1)
+            insight_title = parts[0].strip()
+            insight_detail = parts[1].strip()
+            
+        # 인사이트 제목 (큼직하고 굵게)
+        ins_title_box = slide.shapes.add_textbox(Inches(1.0), Inches(1.2), Inches(11.333), Inches(1.2))
+        tf_ins_title = ins_title_box.text_frame
+        tf_ins_title.word_wrap = True
+        p_ins_title = tf_ins_title.paragraphs[0]
+        p_ins_title.text = insight_title
+        p_ins_title.font.name = "Malgun Gothic"
+        p_ins_title.font.size = Pt(30)
+        p_ins_title.font.bold = True
+        p_ins_title.font.color.rgb = RGBColor(0xff, 0xff, 0xff)
+        
+        # 구분선
+        line_shape = slide.shapes.add_shape(1, Inches(1.0), Inches(2.5), Inches(11.333), Inches(0.02))
+        line_shape.fill.solid()
+        line_shape.fill.fore_color.rgb = RGBColor(0x2d, 0x2d, 0x44)
+        line_shape.line.fill.background()
+        
+        # 인사이트 상세 내용 (1 Slide, 1 Message를 위한 큼직한 가독성 확보)
+        ins_detail_box = slide.shapes.add_textbox(Inches(1.0), Inches(3.0), Inches(11.333), Inches(3.5))
+        tf_ins_detail = ins_detail_box.text_frame
+        tf_ins_detail.word_wrap = True
+        p_ins_detail = tf_ins_detail.paragraphs[0]
+        p_ins_detail.text = insight_detail
+        p_ins_detail.font.name = "Malgun Gothic"
+        p_ins_detail.font.size = Pt(20)
+        p_ins_detail.font.color.rgb = RGBColor(0xe8, 0xe8, 0xf0)
+        p_ins_detail.line_spacing = 1.4
+
+    # ----------------------------------------------------
+    # SLIDE 5: Outro & Recommendation (마무리 및 시청자 추천사)
+    # ----------------------------------------------------
+    slide5 = add_custom_slide()
+    
+    # 추천사 카드 형태의 백그라운드 영역
+    card_shape = slide5.shapes.add_shape(
+        5, Inches(1.0), Inches(1.5), Inches(11.333), Inches(3.8) # 5 = rounded rectangle
+    )
+    card_shape.fill.solid()
+    card_shape.fill.fore_color.rgb = RGBColor(0x1a, 0x1a, 0x2e)
+    card_shape.line.color.rgb = RGBColor(0x2d, 0x2d, 0x44)
+    
+    # 추천사 텍스트
+    rec_box = slide5.shapes.add_textbox(Inches(1.5), Inches(1.8), Inches(10.333), Inches(3.2))
+    tf_rec = rec_box.text_frame
+    tf_rec.word_wrap = True
+    
+    p_rec_lbl = tf_rec.paragraphs[0]
+    p_rec_lbl.text = "🎯 AI 추천사 및 시청 가치"
+    p_rec_lbl.font.name = "Malgun Gothic"
+    p_rec_lbl.font.size = Pt(14)
+    p_rec_lbl.font.bold = True
+    p_rec_lbl.font.color.rgb = RGBColor(0xff, 0x6b, 0x6b)
+    p_rec_lbl.space_after = Pt(14)
+    
+    p_rec_val = tf_rec.add_paragraph()
+    p_rec_val.text = video_data.get('recommendation', '영상을 통해 최신 통찰을 넓혀보세요.')
+    p_rec_val.font.name = "Malgun Gothic"
+    p_rec_val.font.size = Pt(18)
+    p_rec_val.font.italic = True
+    p_rec_val.font.color.rgb = RGBColor(0xe8, 0xe8, 0xf0)
+    p_rec_val.line_spacing = 1.3
+    
+    # 하단 메타바 (키워드 및 출처 링크)
+    meta_box = slide5.shapes.add_textbox(Inches(1.0), Inches(5.8), Inches(11.333), Inches(1.0))
     tf_meta = meta_box.text_frame
+    tf_meta.word_wrap = True
     p_meta = tf_meta.paragraphs[0]
-    p_meta.text = f"Keywords: {video_data['keywords']}  |  🔗 https://youtu.be/{video_data['youtube_id']}"
+    p_meta.text = f"🏷️ Keywords: {video_data['keywords']}\n🔗 Source: https://youtu.be/{video_data['youtube_id']}"
     p_meta.font.name = "Malgun Gothic"
-    p_meta.font.size = Pt(10)
+    p_meta.font.size = Pt(12)
     p_meta.font.color.rgb = RGBColor(0x88, 0x88, 0x88)
+    p_meta.line_spacing = 1.3
     
     prs.save(output_path)
 
