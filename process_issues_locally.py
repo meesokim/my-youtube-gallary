@@ -70,33 +70,31 @@ def is_collaborator(repo, username, token=None):
                 "Accept": "application/vnd.github+json"
             }
             res = requests.get(url, headers=headers, timeout=5)
-            # 204 No Content면 Collaborator임, 404면 아님
             is_collab = (res.status_code == 204)
             _collaborator_cache[username] = is_collab
             return is_collab
         except Exception:
             pass
 
-    # 권한 판단이 불가한 경우 기본값 False
     return False
 
-def get_open_issues(repo, token=None):
-    """열려있는 이슈 목록 조회"""
+def get_all_issues(repo, token=None):
+    """열려있거나 닫혀있는 리포지토리의 모든 이슈 수집"""
     if check_gh_cli():
         try:
-            print("[*] GitHub CLI(gh)를 사용하여 이슈 목록을 불러옵니다...")
+            print("[*] GitHub CLI(gh)를 사용하여 전체 이슈 목록을 불러옵니다...")
             res = subprocess.run(
-                ["gh", "issue", "list", "--repo", repo, "--state", "open", "--json", "number,title,body,author"],
+                ["gh", "issue", "list", "--repo", repo, "--state", "all", "--limit", "100", "--json", "number,title,body,author,state"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True
             )
             return json.loads(res.stdout)
         except Exception as e:
-            print(f"[!] gh CLI로 이슈를 가져오는 중 오류 발생: {e}")
+            print(f"[!] gh CLI로 전체 이슈를 가져오는 중 오류 발생: {e}")
 
     if token:
         try:
-            print("[*] GitHub API (HTTP)를 사용하여 이슈 목록을 불러옵니다...")
-            url = f"https://api.github.com/repos/{repo}/issues?state=open"
+            print("[*] GitHub API (HTTP)를 사용하여 전체 이슈 목록을 불러옵니다...")
+            url = f"https://api.github.com/repos/{repo}/issues?state=all&per_page=100"
             headers = {
                 "Authorization": f"Bearer {token}",
                 "Accept": "application/vnd.github+json"
@@ -106,11 +104,11 @@ def get_open_issues(repo, token=None):
                 issues = res.json()
                 return [i for i in issues if "pull_request" not in i]
             else:
-                print(f"[!] 이슈 API 요청 실패 (HTTP {res.status_code}): {res.text}")
+                print(f"[!] 전체 이슈 API 요청 실패 (HTTP {res.status_code}): {res.text}")
         except Exception as e:
             print(f"[!] GitHub API 요청 중 오류 발생: {e}")
             
-    return None
+    return []
 
 def get_issue_comments(repo, issue_number, token=None):
     """특정 이슈의 코멘트 목록 조회"""
@@ -164,6 +162,35 @@ def add_github_comment(repo, issue_number, comment_body, token=None):
             pass
     return False
 
+def create_issue(repo, title, body, token=None):
+    """GitHub에 새로운 이슈를 생성하고 생성된 이슈 정보를 반환"""
+    if check_gh_cli():
+        try:
+            res = subprocess.run(
+                ["gh", "issue", "create", "--repo", repo, "--title", title, "--body", body, "--json", "number,url"],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True
+            )
+            data = json.loads(res.stdout)
+            return data.get("number"), data.get("url")
+        except Exception:
+            pass
+
+    if token:
+        try:
+            url = f"https://api.github.com/repos/{repo}/issues"
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.github+json"
+            }
+            res = requests.post(url, headers=headers, json={"title": title, "body": body}, timeout=10)
+            if res.status_code == 201:
+                data = res.json()
+                return data.get("number"), data.get("html_url")
+        except Exception:
+            pass
+            
+    return None, None
+
 def close_github_issue(repo, issue_number, comment, token=None):
     """이슈 완료 코멘트를 달고 닫기"""
     if check_gh_cli():
@@ -208,142 +235,188 @@ def main():
         print("[!] 에러: GitHub CLI(gh)에 로그인되어 있지 않고, .env에 GH_TOKEN(또는 GITHUB_TOKEN)도 설정되어 있지 않습니다.")
         sys.exit(1)
         
-    issues = get_open_issues(repo, token)
-    if issues is None:
-        print("[-] 이슈 목록을 성공적으로 가져오지 못했습니다.")
-        sys.exit(1)
-        
-    if not issues:
-        print("[*] 현재 열려있는 이슈가 없습니다.")
-        sys.exit(0)
-        
-    youtube_pattern = re.compile(r"(?:youtube\.com|youtu\.be)")
-    target_issues = []
+    # 1. 원격의 모든 이슈 목록 조회
+    issues = get_all_issues(repo, token)
     
+    # 2. 유튜브 ID 추출 정규식
+    youtube_pattern = re.compile(
+        r"(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})"
+    )
+    
+    # 원격 이슈를 파싱하여 youtube_id -> issue 객체 맵 작성
+    issue_by_ytid = {}
     for issue in issues:
         title = issue.get("title", "")
-        if youtube_pattern.search(title):
-            target_issues.append(issue)
+        match = youtube_pattern.search(title)
+        if match:
+            ytid = match.group(1)
+            # 동일 유튜브 영상 이슈가 중복되면 더 낮은 번호(최초 이슈)를 우선 맵핑
+            if ytid not in issue_by_ytid or issue.get("number") < issue_by_ytid[ytid].get("number"):
+                issue_by_ytid[ytid] = issue
+
+    # 3. 로컬 videos.json 데이터 로드
+    videos_path = "data/videos.json"
+    videos = []
+    if os.path.exists(videos_path):
+        try:
+            with open(videos_path, "r", encoding="utf-8") as f:
+                videos = json.load(f)
+        except Exception:
+            videos = []
+
+    videos_updated = False
+    
+    # ==========================================
+    # 동기화 방향 1: Videos ➔ GitHub (이슈 매핑 교정 및 신규 이슈 생성)
+    # ==========================================
+    print("\n[*] 1단계 동기화 검증: 로컬 비디오 데이터 ➔ 원격 이슈 매핑 검증 중...")
+    for video in videos:
+        ytid = video.get("youtube_id")
+        title = video.get("title")
+        if not ytid:
+            continue
             
-    if not target_issues:
-        print("[*] 유튜브 링크가 제목에 포함된 열려있는 이슈가 없습니다.")
-        sys.exit(0)
-        
-    print(f"[+] 처리할 후보 이슈 {len(target_issues)}개를 감지했습니다.")
-    
-    processed_count = 0
-    
-    for idx, issue in enumerate(target_issues, 1):
-        num = issue.get("number")
-        title = issue.get("title", "").strip()
-        body = issue.get("body", "") or ""
-        body = body.strip()
-        
-        # 작성자 추출 (하이브리드 대응)
-        author_data = issue.get("author") or issue.get("user")
-        author = author_data.get("login") if isinstance(author_data, dict) else author_data
-        
-        print(f"\n--- [{idx}/{len(target_issues)}] 이슈 #{num} 검사 시작 (작성자: {author}) ---")
-        
-        # 권한 확인
-        is_collab = is_collaborator(repo, author, token)
-        
-        user_context = ""
-        should_process = False
-        
-        if is_collab:
-            print(f"[+] 승인된 사용자({author})가 등록한 이슈입니다. 즉시 처리를 시작합니다.")
-            user_context = body
-            should_process = True
+        if ytid in issue_by_ytid:
+            actual_num = issue_by_ytid[ytid].get("number")
+            # 이슈 번호 매핑 교정
+            if video.get("issue_number") != actual_num:
+                print(f"[▲] 교정: 비디오 '{title}'의 이슈 번호를 #{video.get('issue_number')}에서 실제 원격 번호 #{actual_num}로 자동 변경합니다.")
+                video["issue_number"] = actual_num
+                videos_updated = True
         else:
-            print(f"[*] 일반 사용자({author})가 등록한 이슈입니다. 관리자(Collaborator)의 답변 코멘트를 확인합니다...")
-            comments = get_issue_comments(repo, num, token)
-            
-            # 협업자가 쓴 답변 코멘트 찾기 (가장 최신 것)
-            admin_comments = []
-            bot_waiting_comment_exists = False
-            
-            for comment in comments:
-                c_author_data = comment.get("author") or comment.get("user")
-                c_author = c_author_data.get("login") if isinstance(c_author_data, dict) else c_author_data
-                c_body = comment.get("body", "") or ""
+            # 원격에 매핑된 이슈가 없는 경우 ➔ 새로 생성하여 양방향 링크 성립
+            print(f"[!] 경고: 비디오 '{title}'({ytid})에 대응하는 이슈가 깃허브에 존재하지 않습니다. 새로 생성합니다...")
+            title_url = f"https://www.youtube.com/watch?v={ytid}"
+            body_txt = f"(로컬 비디오 데이터 '{title}'에서 유실 복구 목적으로 자동 생성한 이슈입니다.)"
+            num, url = create_issue(repo, title_url, body_txt, token)
+            if num:
+                print(f"[+] 이슈 자동 생성 성공: #{num} -> {url}")
+                comment = "로컬 비디오 데이터 복구를 위해 자동 생성되어 곧바로 클로즈 처리됩니다."
+                close_github_issue(repo, num, comment, token)
                 
-                # 봇이 이미 남겨둔 대기 안내문이 있는지 검사
-                if "소유자나 Collaborator가 이슈에 답변 코멘트를 등록하면" in c_body:
-                    bot_waiting_comment_exists = True
-                    
-                if is_collaborator(repo, c_author, token):
-                    admin_comments.append((c_author, c_body))
-                    
-            if admin_comments:
-                # 가장 최근에 달린 관리자 답변
-                latest_admin, latest_comment = admin_comments[-1]
-                print(f"[+] 관리자({latest_admin})의 답변 코멘트를 확인했습니다: \"{latest_comment[:40]}...\"")
-                user_context = latest_comment
+                # 메타데이터에 매핑
+                video["issue_number"] = num
+                videos_updated = True
+                
+                # 메모리 캐시 정보 동기화
+                issue_by_ytid[ytid] = {"number": num, "title": title_url, "state": "closed"}
+            else:
+                print(f"[-] 이슈 생성 실패: '{title}'")
+
+    if videos_updated:
+        # 갱신된 데이터를 videos.json에 저장
+        with open(videos_path, "w", encoding="utf-8") as f:
+            json.dump(videos, f, ensure_ascii=False, indent=4)
+        print("[+] 1단계 동기화 완료: videos.json 파일이 갱신되었습니다.")
+
+    # ==========================================
+    # 동기화 방향 2: GitHub ➔ Videos (원격 이슈 감지하여 로컬 요약 추가)
+    # ==========================================
+    print("\n[*] 2단계 동기화 검증: 원격 이슈 ➔ 로컬 비디오 누락 체크 중...")
+    
+    # 깃허브에 올라온 이슈 중 videos.json에 데이터가 누락된 리스트 검사
+    existing_ytids = {v.get("youtube_id") for v in videos if v.get("youtube_id")}
+    any_video_added = False
+
+    for ytid, issue in issue_by_ytid.items():
+        if ytid not in existing_ytids:
+            num = issue.get("number")
+            title = issue.get("title", "").strip()
+            body = issue.get("body", "") or ""
+            body = body.strip()
+            
+            # 작성자 롤(Role) 판단
+            author_data = issue.get("author") or issue.get("user")
+            author = author_data.get("login") if isinstance(author_data, dict) else author_data
+            
+            print(f"\n● 이슈 #{num} ({title})이 원격에 존재하나 로컬 데이터가 누락되었습니다.")
+            is_collab = is_collaborator(repo, author, token)
+            
+            user_context = ""
+            should_process = False
+            
+            if is_collab:
+                print(f"  -> 승인된 사용자({author})가 등록한 이슈입니다. 즉시 로컬로 가져옵니다.")
+                user_context = body
                 should_process = True
             else:
-                print("[-] 아직 관리자(Collaborator)의 답변 코멘트가 등록되지 않아 처리를 보류합니다.")
-                # 대기 안내문이 없다면 안내 코멘트 등록 (최초 1회만)
-                if not bot_waiting_comment_exists:
-                    waiting_message = (
-                        "👋 안녕하세요! 일반 사용자가 추천하신 영상의 자동 요약 및 퍼블리싱을 진행하려면, "
-                        "이 리포지토리의 소유자나 Collaborator가 이슈에 답변 코멘트(취지 등)를 등록해야 합니다. "
-                        "답변 코멘트가 달리면 요약 처리가 자동으로 시작됩니다."
-                    )
-                    add_github_comment(repo, num, waiting_message, token)
-                    print("[+] 이슈에 관리자 대기 안내 코멘트를 달았습니다.")
-                should_process = False
+                print(f"  -> 일반 사용자({author})의 이슈입니다. 관리자 답변 코멘트를 조회합니다...")
+                comments = get_issue_comments(repo, num, token)
                 
-        if not should_process:
-            continue
-            
-        # 1. 스크립트 요약 실행
-        print("[*] 1단계: fetch_and_summery.py 실행 중...")
-        res_summary = subprocess.run(["python", "fetch_and_summery.py", title, user_context, str(num)])
-        if res_summary.returncode != 0:
-            print(f"[!] 이슈 #{num} 요약 과정에서 실패했습니다. 다음 이슈로 넘어갑니다.")
-            continue
-            
-        # 2. 정적 사이트 빌드
-        print("[*] 2단계: generate.py 정적 사이트 빌드 중...")
+                admin_comments = []
+                bot_waiting_comment_exists = False
+                
+                for comment in comments:
+                    c_author_data = comment.get("author") or comment.get("user")
+                    c_author = c_author_data.get("login") if isinstance(c_author_data, dict) else c_author_data
+                    c_body = comment.get("body", "") or ""
+                    
+                    if "소유자나 Collaborator가 이슈에 답변 코멘트를 등록하면" in c_body:
+                        bot_waiting_comment_exists = True
+                        
+                    if is_collaborator(repo, c_author, token):
+                        admin_comments.append(c_body)
+                        
+                if admin_comments:
+                    user_context = admin_comments[-1]
+                    print(f"  -> 관리자의 답변 코멘트가 감지되었습니다. 처리를 승인합니다.")
+                    should_process = True
+                else:
+                    print("  -> 아직 승인(관리자 답변)이 없어 데이터 수집을 스킵합니다.")
+                    if not bot_waiting_comment_exists:
+                        waiting_message = (
+                            "👋 안녕하세요! 일반 사용자가 추천하신 영상의 자동 요약 및 퍼블리싱을 진행하려면, "
+                            "이 리포지토리의 소유자나 Collaborator가 이슈에 답변 코멘트(취지 등)를 등록해야 합니다. "
+                            "답변 코멘트가 달리면 요약 처리가 자동으로 시작됩니다."
+                        )
+                        add_github_comment(repo, num, waiting_message, token)
+                        print("  -> 이슈에 대기 안내 코멘트를 작성했습니다.")
+                    should_process = False
+                    
+            if should_process:
+                print(f"[*] 요약 스크립트 실행 중 (fetch_and_summery.py)...")
+                res_summary = subprocess.run(["python", "fetch_and_summery.py", title, user_context, str(num)])
+                if res_summary.returncode == 0:
+                    any_video_added = True
+                    # videos.json 캐시를 루프 안에서 다시 불러옴
+                    if os.path.exists(videos_path):
+                        with open(videos_path, "r", encoding="utf-8") as f:
+                            videos = json.load(f)
+                        existing_ytids.add(ytid)
+                        
+                # 만약 원본 이슈가 열린(open) 상태였다면 자동으로 닫아줍니다.
+                if issue.get("state") == "open":
+                    comment = "요약 분석 및 정적 사이트 복구 빌드가 완료되어 이슈를 종료합니다."
+                    close_github_issue(repo, num, comment, token)
+
+    # ==========================================
+    # 4단계: 최종 빌드 및 릴리즈 배포
+    # ==========================================
+    if videos_updated or any_video_added:
+        print("\n[*] 3단계: 요약 데이터 변경이 감지되었습니다. 정적 사이트(generate.py) 빌드 중...")
         res_gen = subprocess.run(["python", "generate.py"])
-        if res_gen.returncode != 0:
-            print(f"[!] 이슈 #{num} 빌드 과정에서 실패했습니다. 다음 이슈로 넘어갑니다.")
-            continue
-            
-        # 3. 변경 사항 Git Commit & Push
-        print("[*] 3단계: Git 변경사항 Commit & Push 중...")
-        try:
-            # Actions 환경 등에서 git config가 안 잡혀있을 때를 위한 자동 보안
-            try:
-                subprocess.run(["git", "config", "user.name"], check=True, stdout=subprocess.DEVNULL)
-            except subprocess.CalledProcessError:
-                subprocess.run(["git", "config", "--global", "user.name", "github-actions[bot]"])
-                subprocess.run(["git", "config", "--global", "user.email", "github-actions[bot]@users.noreply.github.com"])
-                
-            subprocess.run(["git", "add", "."], check=True)
-            diff_res = subprocess.run(["git", "diff", "--cached", "--quiet"])
-            if diff_res.returncode != 0:
-                commit_msg = f"feat: Auto-update from issue #{num}"
-                subprocess.run(["git", "commit", "-m", commit_msg], check=True)
-                subprocess.run(["git", "push", "origin", "main"], check=True)
-                print("[+] 원격 리포지토리에 변경사항을 커밋 및 푸시 완료했습니다.")
-            else:
-                print("[-] 변경된 데이터가 없어 커밋을 건너뜁니다.")
-        except subprocess.CalledProcessError as e:
-            print(f"[!] Git 작업 중 에러 발생: {e}. 다음 이슈로 넘어갑니다.")
-            continue
-            
-        # 4. 이슈 종결
-        comment = (
-            f"요약 분석 및 PPTX 생성이 완료되었습니다!\n"
-            f"배포 완료 후 사이트에 반영됩니다."
-        )
-        close_github_issue(repo, num, comment, token)
-        print(f"--- 이슈 #{num} 처리 완료 ---")
-        processed_count += 1
         
-    print(f"\n[*] 총 {processed_count}개의 이슈가 성공적으로 처리되었습니다.")
+        if res_gen.returncode == 0:
+            print("[*] 4단계: Git 커밋 및 원격 저장소 푸시 중...")
+            try:
+                try:
+                    subprocess.run(["git", "config", "user.name"], check=True, stdout=subprocess.DEVNULL)
+                except subprocess.CalledProcessError:
+                    subprocess.run(["git", "config", "--global", "user.name", "github-actions[bot]"])
+                    subprocess.run(["git", "config", "--global", "user.email", "github-actions[bot]@users.noreply.github.com"])
+                
+                subprocess.run(["git", "add", "."], check=True)
+                diff_res = subprocess.run(["git", "diff", "--cached", "--quiet"])
+                if diff_res.returncode != 0:
+                    subprocess.run(["git", "commit", "-m", "chore: Auto-sync videos metadata and remote issues"], check=True)
+                    subprocess.run(["git", "push", "origin", "main"], check=True)
+                    print("[+] 동기화 변경사항이 깃허브에 성공적으로 배포 완료되었습니다.")
+                else:
+                    print("[-] 변경된 파일 내역이 없어 푸시를 생략합니다.")
+            except subprocess.CalledProcessError as e:
+                print(f"[!] Git 동기화 푸시 중 에러 발생: {e}")
+    else:
+        print("\n[*] 동기화 완료: 로컬 데이터베이스와 원격 이슈 데이터가 완전히 일치하여 정적 사이트를 유지합니다.")
 
 if __name__ == "__main__":
     main()
