@@ -211,7 +211,7 @@ def build_site():
             
     # 2. 메인 index.html 생성
     index_template = env.get_template('index.html')
-    rendered_index = index_template.render(videos=videos)
+    rendered_index = index_template.render(videos=videos[::-1])
     index_path = os.path.join(OUTPUT_DIR, "index.html")
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(rendered_index)
