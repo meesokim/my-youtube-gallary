@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="이 영상은 김갑진 교수님과 이근이 박사님의 신간 '우리는 어쩌다 과학을 믿게 되었을까?'를 소개하며, 노벨 물리학상 수상 연구들을 통해 과학적 진리가 어떻게 형성되고 패러다임이 전환되는지를 탐구합니다. 특히 빛의 본질을 둘러싼 역사적 논쟁과 이를 해결한 수많은 노벨상 ">
+    <title>노벨 물리학상으로 탐구하는 과학의 본질과 빛의 이중성 - 영상 요약</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(30, 30, 50, 0.8);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --accent-1: #ff6b6b;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-border: rgba(255,255,255,0.06);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Top Nav */
+        .topnav {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--card-border);
+            background: rgba(15,15,26,0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topnav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .topnav a:hover { color: var(--text-primary); }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* Meta Info */
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .category-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 8px;
+        }
+        .keyword-tag {
+            background: rgba(102,126,234,0.15);
+            color: #98a8f8;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Video Player */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 36px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        /* Section */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .points-list {
+            list-style: none;
+            padding: 0;
+        }
+        .points-list li {
+            position: relative;
+            padding: 12px 0 12px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .points-list li:last-child { border-bottom: none; }
+        .points-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-download {
+            background: var(--accent-gradient);
+            color: white;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+        }
+        .btn-preview {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+        .btn-preview:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .btn-preview.active {
+            background: rgba(102,126,234,0.15);
+            border-color: #667eea;
+            color: #98a8f8;
+        }
+
+        /* PPTX Preview Tabs */
+        .preview-tabs {
+            display: none;
+            margin-bottom: 28px;
+        }
+        .preview-tabs.show { display: block; }
+        .tab-header {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            border-bottom: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tab-content {
+            border: 1px solid var(--card-border);
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+
+        /* Office Viewer */
+        .office-viewer {
+            width: 100%; height: 560px; border: 0;
+            background: #111;
+        }
+
+        /* HTML Slide Preview */
+        .slide-preview {
+            background: #1a1a2e;
+            aspect-ratio: 16/9;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-preview .sp-cat {
+            color: var(--accent-1);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-title {
+            color: white;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .slide-preview .sp-divider {
+            width: 60px; height: 3px;
+            background: #64b5f6;
+            border-radius: 2px;
+            margin-bottom: 14px;
+        }
+        .slide-preview .sp-overview {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .slide-preview .sp-point {
+            color: #eee;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-footer {
+            position: absolute;
+            bottom: 16px; left: 50px;
+            color: #888;
+            font-size: 0.7rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container > * {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 40px; }
+            .slide-preview { padding: 20px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <a href="./index.html">← 갤러리로 돌아가기</a>
+    </nav>
+
+    <div class="container">
+        <div class="meta-bar">
+            <span class="category-badge">과학</span>
+            
+            <span class="keyword-tag">#노벨상</span>
+            
+            <span class="keyword-tag">#물리학</span>
+            
+            <span class="keyword-tag">#과학사</span>
+            
+            <span class="keyword-tag">#빛의 이중성</span>
+            
+            <span class="keyword-tag">#양자역학</span>
+            
+        </div>
+
+        <h1>노벨 물리학상으로 탐구하는 과학의 본질과 빛의 이중성</h1>
+
+        <!-- YouTube Player -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/NXkv1HNAquk" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="section">
+            <div class="section-title">📋 영상 요약</div>
+            <p>이 영상은 김갑진 교수님과 이근이 박사님의 신간 '우리는 어쩌다 과학을 믿게 되었을까?'를 소개하며, 노벨 물리학상 수상 연구들을 통해 과학적 진리가 어떻게 형성되고 패러다임이 전환되는지를 탐구합니다. 특히 빛의 본질을 둘러싼 역사적 논쟁과 이를 해결한 수많은 노벨상 수상 실험들을 따라가며 과학의 본질과 탐구 과정을 심도 있게 다룹니다.</p>
+            <ul class="points-list">
+                
+                <li>과학의 본질과 패러다임 전환: 과학적 진리는 절대적인 것이 아니라, 사람들이 설득되고 신뢰하며 받아들이는 과정에서 형성되며, 천동설에서 지동설, 고전 역학에서 양자 역학으로의 전환처럼 끊임없는 논쟁과 새로운 증거를 통해 패러다임이 변화함을 강조합니다.</li>
+                
+                <li>빛의 본질에 대한 탐구와 노벨상: 뉴턴의 입자설부터 영의 이중 슬릿 실험, 맥스웰의 전자기파 이론, 그리고 아인슈타인의 광자설에 이르기까지 빛이 입자인가 파동인가에 대한 치열한 논쟁과 이를 증명한 실험들(열복사 스펙트럼, 광전 효과, 콤프턴 산란)이 어떻게 과학적 진보를 이끌고 수많은 노벨 물리학상으로 이어졌는지 상세히 설명합니다.</li>
+                
+                <li>빛의 입자-파동 이중성과 상보성 원리: 빛이 입자이면서 동시에 파동이라는 현대 물리학의 핵심 개념을 소개하며, 닐스 보어의 상보성 원리(서로 배타적이지만 상호 보완적인 두 관점이 필요)를 통해 자연을 이해하는 방식을 제시합니다. 이는 끊임없는 질문과 실험 설계가 노벨상으로 이어지는 과학 탐구의 본질임을 보여줍니다.</li>
+                
+            </ul>
+        </div>
+
+        <!-- PPTX Actions -->
+        <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>
+        <div class="btn-row">
+            <a href="./nobel-physics-science-essence.pptx" class="btn btn-download" download>⬇️ PPTX 다운로드</a>
+            <button class="btn btn-preview active" id="togglePreview" onclick="togglePreview()">🙈 미리보기 닫기</button>
+        </div>
+
+        <!-- PPTX Preview -->
+        <div class="preview-tabs show" id="previewSection">
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('html')">HTML 프리뷰</button>
+                <button class="tab-btn" onclick="switchTab('office')">Office Online 뷰어</button>
+            </div>
+            <div class="tab-content">
+                <!-- HTML Rendered Slide -->
+                <div class="tab-pane active" id="tab-html">
+                    <div class="carousel-wrapper" style="position: relative; overflow: hidden; width: 100%;">
+                        
+                        <!-- Slide 1: Cover & Overview -->
+                        <div class="slide-item active-slide" id="slide-page-1">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="font-size: 1.15rem; font-weight: 700;">[ 과학 ]</div>
+                                <div class="sp-title" style="font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; line-height: 1.3; color: #fff; margin-top: 10px;">노벨 물리학상으로 탐구하는 과학의 본질과 빛의 이중성</div>
+                                <div class="sp-divider" style="background: #667eea; width: 100px; height: 4px; margin: 20px 0;"></div>
+                                <div class="sp-overview" style="font-size: 1.35rem; line-height: 1.8; color: var(--text-secondary);">이 영상은 김갑진 교수님과 이근이 박사님의 신간 '우리는 어쩌다 과학을 믿게 되었을까?'를 소개하며, 노벨 물리학상 수상 연구들을 통해 과학적 진리가 어떻게 형성되고 패러다임이 전환되는지를 탐구합니다. 특히 빛의 본질을 둘러싼 역사적 논쟁과 이를 해결한 수많은 노벨상 수상 실험들을 따라가며 과학의 본질과 탐구 과정을 심도 있게 다룹니다.</div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 1 / 5 (Cover)</div>
+                            </div>
+                        </div>
+
+                        <!-- Slides 2, 3, 4: Insights -->
+                        
+                        <div class="slide-item" id="slide-page-2" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 01 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">과학의 본질과 패러다임 전환</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">과학적 진리는 절대적인 것이 아니라, 사람들이 설득되고 신뢰하며 받아들이는 과정에서 형성되며, 천동설에서 지동설, 고전 역학에서 양자 역학으로의 전환처럼 끊임없는 논쟁과 새로운 증거를 통해 패러다임이 변화함을 강조합니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 2 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-3" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 02 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">빛의 본질에 대한 탐구와 노벨상</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">뉴턴의 입자설부터 영의 이중 슬릿 실험, 맥스웰의 전자기파 이론, 그리고 아인슈타인의 광자설에 이르기까지 빛이 입자인가 파동인가에 대한 치열한 논쟁과 이를 증명한 실험들(열복사 스펙트럼, 광전 효과, 콤프턴 산란)이 어떻게 과학적 진보를 이끌고 수많은 노벨 물리학상으로 이어졌는지 상세히 설명합니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 3 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-4" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 03 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">빛의 입자-파동 이중성과 상보성 원리</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">빛이 입자이면서 동시에 파동이라는 현대 물리학의 핵심 개념을 소개하며, 닐스 보어의 상보성 원리(서로 배타적이지만 상호 보완적인 두 관점이 필요)를 통해 자연을 이해하는 방식을 제시합니다. 이는 끊임없는 질문과 실험 설계가 노벨상으로 이어지는 과학 탐구의 본질임을 보여줍니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 4 / 5</div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Slide 5: Outro & Recommendation -->
+                        <div class="slide-item" id="slide-page-5" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #ff6b6b; font-weight: bold; font-size: 0.9rem; margin-bottom: 12px;">🎯 AI 추천사 및 시청 가치</div>
+                                <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.6; color: var(--text-primary); font-style: italic; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                                    "이 영상은 노벨 물리학상 수상 연구들을 통해 과학이 어떻게 발전하고 진리가 정립되는지 흥미롭게 탐구합니다. 특히 빛의 본질을 둘러싼 역사적 논쟁과 실험들을 따라가며 과학적 사고의 깊이를 경험하고, 미래의 노벨상 연구에 대한 영감을 얻을 수 있을 것입니다. 과학에 대한 깊이 있는 이해와 통찰을 얻고 싶은 분들께 강력히 추천합니다."
+                                </div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">
+                                    Keywords: 노벨상, 물리학, 과학사, 빛의 이중성, 양자역학 | 🔗 https://youtu.be/NXkv1HNAquk | Slide 5 / 5
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slide Controller buttons -->
+                    <div class="slide-controls" style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 10px;">
+                        <button class="btn btn-preview" onclick="prevSlide()" id="btn-prev-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">◀ 이전</button>
+                        <span id="slide-indicator" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">1 / 5</span>
+                        <button class="btn btn-preview" onclick="nextSlide()" id="btn-next-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">다음 ▶</button>
+                    </div>
+
+                    <!-- Inline Slider JS -->
+                    <script>
+                        let currentSlideIndex = 1;
+                        const totalSlides = 5;
+
+                        function updateSlideUI() {
+                            // 모든 슬라이드 숨기기
+                            for (let i = 1; i <= totalSlides; i++) {
+                                const slide = document.getElementById('slide-page-' + i);
+                                if (slide) {
+                                    if (i === currentSlideIndex) {
+                                        slide.style.display = 'block';
+                                    } else {
+                                        slide.style.display = 'none';
+                                    }
+                                }
+                            }
+                            // 인디케이터 업데이트
+                            document.getElementById('slide-indicator').textContent = currentSlideIndex + ' / ' + totalSlides;
+                            
+                            // 버튼 비활성화 및 불투명도 조절
+                            const btnPrev = document.getElementById('btn-prev-slide');
+                            const btnNext = document.getElementById('btn-next-slide');
+                            
+                            btnPrev.disabled = (currentSlideIndex === 1);
+                            btnNext.disabled = (currentSlideIndex === totalSlides);
+                            
+                            btnPrev.style.opacity = (currentSlideIndex === 1) ? '0.4' : '1';
+                            btnNext.style.opacity = (currentSlideIndex === totalSlides) ? '0.4' : '1';
+                            btnPrev.style.cursor = (currentSlideIndex === 1) ? 'not-allowed' : 'pointer';
+                            btnNext.style.cursor = (currentSlideIndex === totalSlides) ? 'not-allowed' : 'pointer';
+                        }
+
+                        function nextSlide() {
+                            if (currentSlideIndex < totalSlides) {
+                                currentSlideIndex++;
+                                updateSlideUI();
+                            }
+                        }
+
+                        function prevSlide() {
+                            if (currentSlideIndex > 1) {
+                                currentSlideIndex--;
+                                updateSlideUI();
+                            }
+                        }
+
+                        // DOM 로드 완료 후 실행
+                        document.addEventListener("DOMContentLoaded", function() {
+                            updateSlideUI();
+                        });
+                    </script>
+                </div>
+                <!-- Office Online Viewer -->
+                <div class="tab-pane" id="tab-office">
+                    <iframe class="office-viewer" 
+                            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A//meesokim.github.io/my-youtube-gallary/nobel-physics-science-essence.pptx"
+                            loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comments Section (Utterances) -->
+        
+        <div class="section-title" style="margin-top: 40px; margin-bottom: 16px;">💬 댓글 및 의견</div>
+        <div class="section" style="padding: 20px; background: rgba(30, 30, 50, 0.4); border-radius: 16px; border: 1px solid var(--card-border);">
+            <script src="https://utteranc.es/client.js"
+                    repo="meesokim/my-youtube-gallary"
+                    issue-number="14"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        
+    </div>
+
+    <footer class="footer">
+        Powered by Gemini AI · <a href="./index.html" style="color:#667eea;text-decoration:none;">갤러리로 돌아가기</a>
+    </footer>
+
+    <script>
+    function togglePreview() {
+        const section = document.getElementById('previewSection');
+        const btn = document.getElementById('togglePreview');
+        const isVisible = section.classList.toggle('show');
+        btn.classList.toggle('active', isVisible);
+        btn.textContent = isVisible ? '🙈 미리보기 닫기' : '👁️ 슬라이드 미리보기';
+    }
+
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    </script>
+</body>
+</html>
