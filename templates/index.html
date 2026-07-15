@@ -216,6 +216,20 @@
             font-size: 0.75rem;
             font-weight: 500;
         }
+        .card-stats {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 8px;
+        }
+        .card-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
 
         /* No Results */
         .no-results {
@@ -362,6 +376,10 @@
                 <div class="card-body">
                     <span class="card-category">{{ video.category }}</span>
                     <h3 class="card-title"><a href="./{{ video.filename }}.html">{{ video.title }}</a></h3>
+                    <div class="card-stats">
+                        <span class="card-stat">👁️ {{ "{:,}".format(video.views | default(0) | int) }}</span>
+                        <span class="card-stat">❤️ {{ video.likes | default('0') }}</span>
+                    </div>
                     <p class="card-overview">{{ video.overview }}</p>
                     <div class="card-tags">
                         {% for kw in video.keywords.split(',') %}

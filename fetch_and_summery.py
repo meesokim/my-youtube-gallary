@@ -25,6 +25,26 @@ def get_youtube_title(video_id: str) -> str:
         print(f"[-] 유튜브 제목 추출 중 오류 발생: {e}")
     return ""
 
+def fetch_youtube_stats(video_id: str) -> tuple[int, str]:
+    """유튜브 비디오의 조회수와 좋아요 수를 수집"""
+    try:
+        url = f"https://www.youtube.com/watch?v={video_id}"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7"
+        }
+        response = requests.get(url, headers=headers, timeout=10)
+        if response.status_code == 200:
+            view_match = re.search(r"\"viewCount\":\"(\d+)\"", response.text)
+            like_match = re.search(r"\"iconName\":\"LIKE\",\"title\":\"([^\"]+)\"", response.text)
+            
+            views = int(view_match.group(1)) if view_match else 0
+            likes = like_match.group(1) if like_match else "0"
+            return views, likes
+    except Exception as e:
+        print(f"[-] 유튜브 통계 수집 중 오류 발생: {e}")
+    return 0, "0"
+
 # ==========================================
 # 1. Gemini 구조화된 출력(Structured Output) 정의
 # ==========================================
@@ -132,6 +152,10 @@ def update_videos_json(new_video_data: dict, issue_number: int = None, json_path
     existing_index = next((i for i, v in enumerate(videos_list) if v.get('youtube_id') == new_video_data['youtube_id']), None)
     
     if existing_index is not None:
+        # 기존 필드 유지 (예: issue_number, views, likes 등)
+        for key in list(videos_list[existing_index].keys()):
+            if key not in new_video_data:
+                new_video_data[key] = videos_list[existing_index][key]
         videos_list[existing_index] = new_video_data
         print(f"[+] 기존 영상 데이터를 업데이트했습니다: {new_video_data['title']}")
     else:
@@ -178,6 +202,9 @@ if __name__ == "__main__":
     analysis_result = analyze_script_with_gemini(script, v_id, user_context)
     
     if analysis_result:
+        views, likes = fetch_youtube_stats(v_id)
+        analysis_result['views'] = views
+        analysis_result['likes'] = likes
         update_videos_json(analysis_result, issue_num)
         print("[*] 모든 파이프라인 처리가 완료되었습니다. 'data/videos.json'을 확인하세요.")
     else:

@@ -73,6 +73,17 @@
             border-radius: 20px;
             font-size: 0.78rem;
         }
+        .meta-stat {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
 
         h1 {
             font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -306,6 +317,8 @@
             {% for kw in video.keywords.split(',') %}
             <span class="keyword-tag">#{{ kw.strip() }}</span>
             {% endfor %}
+            <span class="meta-stat">👁️ {{ "{:,}".format(video.views | default(0) | int) }}</span>
+            <span class="meta-stat">❤️ {{ video.likes | default('0') }}</span>
         </div>
 
         <h1>{{ video.title }}</h1>
