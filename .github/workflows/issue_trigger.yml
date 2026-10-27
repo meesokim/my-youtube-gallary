@@ -5,6 +5,11 @@ on:
     types: [opened]
   issue_comment:
     types: [created]
+  workflow_dispatch:
+
+concurrency:
+  group: youtube-issue-processor
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -13,12 +18,13 @@ permissions:
 jobs:
   process-issue:
     runs-on: self-hosted
-    if: contains(github.event.issue.title, 'youtube.com') || contains(github.event.issue.title, 'youtu.be')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.title, 'youtube.com') || contains(github.event.issue.title, 'youtu.be')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -29,9 +35,12 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Run regression tests
+        run: python -m unittest discover -s tests -v
+
       - name: Run Auto Processor
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python process_issues_locally.py
+          python -u process_issues_locally.py

@@ -115,10 +115,10 @@ def get_issue_comments(repo, issue_number, token=None):
     if check_gh_cli():
         try:
             res = subprocess.run(
-                ["gh", "api", f"repos/{repo}/issues/{issue_number}/comments", "--json", "author,body"],
+                ["gh", "api", f"repos/{repo}/issues/{issue_number}/comments", "--paginate", "--slurp"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True
             )
-            return json.loads(res.stdout)
+            return [comment for page in json.loads(res.stdout) for comment in page]
         except Exception:
             pass
 
@@ -243,6 +243,9 @@ def main():
         
     # 1. 원격의 모든 이슈 목록 조회
     issues = get_all_issues(repo, token)
+    # gh CLI는 OPEN/CLOSED, REST API는 open/closed를 반환합니다.
+    for issue in issues:
+        issue["state"] = (issue.get("state") or "").lower()
     
     # 2. 유튜브 ID 추출 정규식
     youtube_pattern = re.compile(
@@ -332,6 +335,8 @@ def main():
     # 깃허브에 올라온 이슈 중 videos.json에 데이터가 누락된 리스트 검사
     existing_ytids = {v.get("youtube_id") for v in videos if v.get("youtube_id")}
     any_video_added = False
+    processing_failed = False
+    issues_to_close = {}
 
     for ytid, issue in issue_by_ytid.items():
         if ytid not in existing_ytids:
@@ -390,36 +395,32 @@ def main():
                     
             if should_process:
                 print(f"[*] 요약 스크립트 실행 중 (fetch_and_summery.py)...")
-                res_summary = subprocess.run(["python", "fetch_and_summery.py", title, user_context, str(num)])
+                res_summary = subprocess.run([sys.executable, "fetch_and_summery.py", title, user_context, str(num)])
                 if res_summary.returncode == 0:
-                    any_video_added = True
                     # videos.json 캐시를 루프 안에서 다시 불러옴
                     if os.path.exists(videos_path):
                         with open(videos_path, "r", encoding="utf-8") as f:
                             videos = json.load(f)
+                    if any(v.get("youtube_id") == ytid for v in videos):
+                        any_video_added = True
                         existing_ytids.add(ytid)
-                        
-                # 만약 원본 이슈가 열린(open) 상태였다면 자동으로 닫아줍니다.
-                if issue.get("state") == "open":
-                    video_info = next((v for v in videos if v.get('youtube_id') == ytid), None)
-                    rec_txt = video_info.get("recommendation", "") if video_info else ""
-                    if rec_txt:
-                        comment = (
-                            f"✨ **이 영상을 추천하는 이유!** (시청 포인트)\n\n"
-                            f"{rec_txt}\n\n"
-                            f"---\n"
-                            f"💡 요약 분석 및 정적 사이트 빌드가 완료되어 이슈를 종료합니다. 배포 완료 후 사이트에서 확인하실 수 있습니다!"
-                        )
                     else:
-                        comment = "요약 분석 및 정적 사이트 복구 빌드가 완료되어 이슈를 종료합니다."
-                    close_github_issue(repo, num, comment, token)
+                        processing_failed = True
+                        print(f"[!] 이슈 #{num}: 요약 결과가 저장되지 않았습니다.")
+                else:
+                    processing_failed = True
+                    print(f"[!] 이슈 #{num}: 요약 실패. 이슈를 열린 상태로 유지합니다.")
+
+        # 과거 실행에서 요약됐지만 닫히지 않은 이슈도 복구합니다.
+        if issue.get("state") == "open" and ytid in existing_ytids:
+            issues_to_close[issue["number"]] = ytid
 
     # ==========================================
     # 4단계: 최종 빌드 및 릴리즈 배포
     # ==========================================
     if videos_updated or any_video_added:
         print("\n[*] 3단계: 요약 데이터 변경이 감지되었습니다. 정적 사이트(generate.py) 빌드 중...")
-        res_gen = subprocess.run(["python", "generate.py"])
+        res_gen = subprocess.run([sys.executable, "generate.py"])
         
         if res_gen.returncode == 0:
             print("[*] 4단계: Git 커밋 및 원격 저장소 푸시 중...")
@@ -440,8 +441,30 @@ def main():
                     print("[-] 변경된 파일 내역이 없어 푸시를 생략합니다.")
             except subprocess.CalledProcessError as e:
                 print(f"[!] Git 동기화 푸시 중 에러 발생: {e}")
+                return 1
+        else:
+            print("[!] 정적 사이트 빌드 실패. 이슈를 열린 상태로 유지합니다.")
+            return 1
     else:
         print("\n[*] 동기화 완료: 로컬 데이터베이스와 원격 이슈 데이터가 완전히 일치하여 정적 사이트를 유지합니다.")
 
+    # 빌드 및 푸시가 성공한 뒤에만 완료 처리합니다.
+    for num, ytid in issues_to_close.items():
+        video_info = next(v for v in videos if v.get("youtube_id") == ytid)
+        filename = video_info.get("filename", "")
+        if not filename or not all(os.path.isfile(f"docs/{filename}.{ext}") for ext in ("html", "pptx")):
+            print(f"[!] 이슈 #{num}: 생성된 HTML/PPTX가 없어 완료 처리하지 않습니다.")
+            processing_failed = True
+            continue
+        rec_txt = video_info.get("recommendation", "")
+        comment = (
+            f"✨ **이 영상을 추천하는 이유!** (시청 포인트)\n\n{rec_txt}\n\n---\n"
+            "💡 요약 분석 및 정적 사이트 빌드가 완료되어 이슈를 종료합니다. 배포 완료 후 사이트에서 확인하실 수 있습니다!"
+        )
+        if not close_github_issue(repo, num, comment, token):
+            processing_failed = True
+
+    return 1 if processing_failed else 0
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

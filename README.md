@@ -68,6 +68,28 @@
 
 ---
 
+## Self-hosted runner 운영 및 재처리
+
+이슈 처리와 Pages 배포는 모두 `self-hosted` runner에서 실행됩니다. runner가
+오프라인이면 GitHub에서 작업을 대기시키므로, runner를 실행하는 컴퓨터와 WSL
+환경을 계속 실행해 두어야 합니다. systemd 서비스의 자동 시작 설정만으로 WSL이
+종료된 동안에도 작업을 처리할 수 있는 것은 아닙니다.
+
+현재 runner 서비스와 최근 로그는 다음 명령으로 확인할 수 있습니다.
+
+```bash
+systemctl status actions.runner.meesokim-my-youtube-gallary.miso-mini.service
+journalctl -u actions.runner.meesokim-my-youtube-gallary.miso-mini.service -n 50
+gh api repos/meesokim/my-youtube-gallary/actions/runners --jq '.runners[] | {name,status,busy}'
+```
+
+처리 워크플로는 **Actions → Auto Process YouTube Issue → Run workflow**에서
+수동으로 재실행할 수 있습니다. 이미 요약 데이터와 HTML/PPTX가 있는 열린 이슈는
+요약을 다시 생성하지 않고 완료 처리합니다. 새 요약은 빌드와 저장소 푸시가 성공한
+뒤 완료 처리하며, Pages 배포는 처리 워크플로가 성공한 경우에 실행됩니다.
+
+회귀 테스트: `.venv/bin/python -m unittest discover -s tests -v`
+
 ## 📂 파일 구조 설명
 - `fetch_and_summery.py`: 자막 수집 및 Gemini 구조화(Structured JSON) 데이터 추출 스크립트.
 - `generate.py`: 수집된 데이터를 바탕으로 `docs` 폴더 내에 PPTX 파일, 상세 HTML, 메인 index.html을 빌드하는 스크립트.

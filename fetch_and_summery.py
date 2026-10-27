@@ -209,3 +209,4 @@ if __name__ == "__main__":
         print("[*] 모든 파이프라인 처리가 완료되었습니다. 'data/videos.json'을 확인하세요.")
     else:
         print("[-] 분석 실패.")
+        sys.exit(1)
