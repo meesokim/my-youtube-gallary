@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -342,20 +454,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>최근 중국 첨단 기술주, 특히 AI 관련 기업들이 시장을 주도하며 높은 수익률을 기록하고 있습니다. 이는 중국 정부의 '제조 강국' 우선 정책과 AI를 '공공재'로 활용하려는 독특한 전략에 기인하며, 미국과의 디커플링 속에서 독자적인 기술 생태계를 구축하려는 움직임이 두드러집니다. 특히 중국 반도체 산업의 성장이 AI 시장에 미치는 영향이 주목됩니다.</p>
             <ul class="points-list">
                 
-                <li>중국 AI 기술주의 K자형 성장과 디커플링 전략: 중국 경제의 K자형 성장 속에서 AI 테마가 정부 정책의 강력한 지원을 받으며 시장을 주도하고 있으며, 미국과의 AI 기술 디커플링을 통해 독자적인 노선을 구축하며 반도체 자립을 가속화하고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">중국 AI 기술주의 K자형 성장과 디커플링 전략:</span> 중국 경제의 K자형 성장 속에서 AI 테마가 정부 정책의 강력한 지원을 받으며 시장을 주도하고 있으며, 미국과의 AI 기술 디커플링을 통해 독자적인 노선을 구축하며 반도체 자립을 가속화하고 있습니다.
+                    
+                </li>
                 
-                <li>AI 공공재화 전략을 통한 시장 확장: 중국 정부는 AI를 '공공재'로 간주하여 고용 안정과 제조업 생산성 향상에 기여하도록 유도하며, 저렴한 가격과 오픈소스 정책으로 LLM(거대언어모델)의 보급률(Q)을 극대화하여 글로벌 시장 점유율을 빠르게 확대하고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 공공재화 전략을 통한 시장 확장:</span> 중국 정부는 AI를 '공공재'로 간주하여 고용 안정과 제조업 생산성 향상에 기여하도록 유도하며, 저렴한 가격과 오픈소스 정책으로 LLM(거대언어모델)의 보급률(Q)을 극대화하여 글로벌 시장 점유율을 빠르게 확대하고 있습니다.
+                    
+                </li>
                 
-                <li>반도체 자립과 HBM 시장의 잠재적 위협: 중국 정부의 막대한 반도체 육성 기금과 미국의 제재는 중국 내 GPU 및 메모리 반도체 기업의 성장을 촉진했으며, 특히 CXMT의 상장과 애플의 협력 가능성은 중국이 HBM 기술 개발에 박차를 가해 한국 반도체 시장에 중장기적인 경쟁 구도를 형성할 수 있음을 시사합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">반도체 자립과 HBM 시장의 잠재적 위협:</span> 중국 정부의 막대한 반도체 육성 기금과 미국의 제재는 중국 내 GPU 및 메모리 반도체 기업의 성장을 촉진했으며, 특히 CXMT의 상장과 애플의 협력 가능성은 중국이 HBM 기술 개발에 박차를 가해 한국 반도체 시장에 중장기적인 경쟁 구도를 형성할 수 있음을 시사합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                중국 AI 기술주가 왜 지금 주목받고 있는지 궁금하신가요? 이 영상을 통해 중국 정부의 독특한 AI 전략과 반도체 자립 노력이 글로벌 시장에 어떤 파급 효과를 가져올지 심층적으로 이해할 수 있습니다. 특히 한국 반도체 산업에 미칠 잠재적 영향까지 분석하여 미래 투자 인사이트를 얻을 수 있는 필수 시청 영상입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 반도체 공장 건설에 필요한 극단적인 네 가지 조건(먼지, 진동, 물, 전기)을 상세히 설명합니다. 특히, 광주 군공항 부지가 이러한 까다로운 조건을 놀랍도록 충족하며 800조 원 규모의 반도체 공장 후보지로 떠오른 배경과 그 가능성, 그리고 남은 과제들을 심층적으로 분석합니다.</p>
             <ul class="points-list">
                 
-                <li>극단적인 청정 환경 요구: 나노미터급 회로 보호를 위한 축구장 수십 개 규모의 클린룸 유지: 반도체 회로의 선폭이 머리카락 굵기의 10만분의 1 수준인 나노미터 단위이므로, 먼지 한 톨이 수천만 원 상당의 웨이퍼를 불량 처리할 수 있어 일반 사무실보다 50만 배 깨끗한 클린룸을 축구장 수십 개 면적으로 24시간 365일 유지해야 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">극단적인 청정 환경 요구:</span> 나노미터급 회로 보호를 위한 축구장 수십 개 규모의 클린룸 유지: 반도체 회로의 선폭이 머리카락 굵기의 10만분의 1 수준인 나노미터 단위이므로, 먼지 한 톨이 수천만 원 상당의 웨이퍼를 불량 처리할 수 있어 일반 사무실보다 50만 배 깨끗한 클린룸을 축구장 수십 개 면적으로 24시간 365일 유지해야 합니다.
+                    
+                </li>
                 
-                <li>절대적인 지반 안정성 확보: 나노미터급 정밀 공정을 위한 미세 진동 제어: 나노미터급 회로를 새기는 노광 장비는 대형 트럭의 미세한 진동조차 오차로 이어질 수 있어, 건물 자체의 두꺼운 기초 슬래브와 독립 기초 재진대, 능동 방진 장치 외에도 지진이 드문 근본적으로 흔들리지 않는 땅을 선택하는 것이 필수적입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">절대적인 지반 안정성 확보:</span> 나노미터급 정밀 공정을 위한 미세 진동 제어: 나노미터급 회로를 새기는 노광 장비는 대형 트럭의 미세한 진동조차 오차로 이어질 수 있어, 건물 자체의 두꺼운 기초 슬래브와 독립 기초 재진대, 능동 방진 장치 외에도 지진이 드문 근본적으로 흔들리지 않는 땅을 선택하는 것이 필수적입니다.
+                    
+                </li>
                 
-                <li>대도시급 자원 소비와 인프라 구축: 초순수 및 전력의 안정적 대량 공급: 반도체 펩 하나가 하루에 대도시 상수도 사용량에 맞먹는 13.7만 톤의 초순수와 서울시 전체 연간 전력량에 해당하는 6.3GW(펩 4개 기준)의 전력을 소비하므로, 발전소 건설을 넘어 초고압 송전선로, 변전소, 이중 백업 시스템 등 대규모 전력 및 용수 인프라를 처음부터 갖춘 부지가 중요합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">대도시급 자원 소비와 인프라 구축:</span> 초순수 및 전력의 안정적 대량 공급: 반도체 펩 하나가 하루에 대도시 상수도 사용량에 맞먹는 13.7만 톤의 초순수와 서울시 전체 연간 전력량에 해당하는 6.3GW(펩 4개 기준)의 전력을 소비하므로, 발전소 건설을 넘어 초고압 송전선로, 변전소, 이중 백업 시스템 등 대규모 전력 및 용수 인프라를 처음부터 갖춘 부지가 중요합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 반도체 공장이 얼마나 까다로운 조건을 요구하는지 생생하게 보여주며, 우리가 매일 쓰는 반도체가 어떻게 만들어지는지 깊이 이해할 수 있게 합니다. 특히 광주 군공항이 반도체 클러스터의 최적지로 떠오른 흥미로운 배경과 그 안에 숨겨진 과학적, 기술적 이유를 알 수 있어 미래 산업의 흐름을 읽는 데 큰 도움이 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -342,20 +454,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>AI 시대에는 단순히 AI를 사용하는 것을 넘어, 얼마나 깊이 있게 활용하느냐에 따라 개인과 기업의 성과가 극명하게 갈릴 것입니다. 이 영상은 AI를 최고의 도우미로 삼아 압도적인 퍼포먼스를 내는 방법과, AI가 가져올 산업 및 직업 변화 속에서 기회를 포착하고 능동적으로 대응하는 전략을 제시합니다.</p>
             <ul class="points-list">
                 
-                <li>AI 활용의 깊이감과 양극화: AI는 최고의 도우미이지만, 질문 3개로 끝내는 사람과 끊임없이 탐구하는 사람 간에 지식의 깊이, 실력, 그리고 성과에서 엄청난 양극화를 초래합니다. 이는 개인이 AI를 얼마나 적극적이고 심층적으로 활용하려는 의지가 있느냐에 따라 결정됩니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 활용의 깊이감과 양극화:</span> AI는 최고의 도우미이지만, 질문 3개로 끝내는 사람과 끊임없이 탐구하는 사람 간에 지식의 깊이, 실력, 그리고 성과에서 엄청난 양극화를 초래합니다. 이는 개인이 AI를 얼마나 적극적이고 심층적으로 활용하려는 의지가 있느냐에 따라 결정됩니다.
+                    
+                </li>
                 
-                <li>AI 기반의 창업 및 비즈니스 혁신: AI는 소프트웨어 개발 및 창업의 진입 장벽을 낮춰 1인 유니콘의 탄생을 가능하게 하며, 휴머노이드 로봇 도입을 통해 인건비를 획기적으로 절감하여 기존 사업의 수익성을 극대화하는 등 고용주와 사업가에게 엄청난 기회를 제공합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 기반의 창업 및 비즈니스 혁신:</span> AI는 소프트웨어 개발 및 창업의 진입 장벽을 낮춰 1인 유니콘의 탄생을 가능하게 하며, 휴머노이드 로봇 도입을 통해 인건비를 획기적으로 절감하여 기존 사업의 수익성을 극대화하는 등 고용주와 사업가에게 엄청난 기회를 제공합니다.
+                    
+                </li>
                 
-                <li>직무 재설계와 사회적 상생 전략: AI 도입은 단순히 기존 직무를 대체하는 것을 넘어, 모든 업무를 재설계하여 AI가 담당할 부분을 분리하고 인간의 역할을 재정의해야 합니다. 또한, 자율주행과 같은 기술은 사회적 저항을 줄이기 위해 낙후된 지역에 먼저 도입하여 필수 서비스를 제공하는 상생의 방식으로 접근해야 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">직무 재설계와 사회적 상생 전략:</span> AI 도입은 단순히 기존 직무를 대체하는 것을 넘어, 모든 업무를 재설계하여 AI가 담당할 부분을 분리하고 인간의 역할을 재정의해야 합니다. 또한, 자율주행과 같은 기술은 사회적 저항을 줄이기 위해 낙후된 지역에 먼저 도입하여 필수 서비스를 제공하는 상생의 방식으로 접근해야 합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI 시대의 변화가 두렵거나 어떻게 활용해야 할지 막막하신가요? 이 영상을 통해 AI를 단순한 도구가 아닌, 당신의 잠재력을 폭발시킬 최고의 파트너로 만드는 방법을 배우고, 다가오는 미래에 대한 통찰력과 자신감을 얻어가세요. 깊이 있는 AI 활용 전략으로 당신의 삶과 비즈니스에 혁신적인 기회를 만들어낼 수 있을 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

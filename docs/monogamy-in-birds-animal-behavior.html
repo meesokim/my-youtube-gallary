@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>우리가 당연하게 여기는 일부일처제가 동물 세계, 특히 새들에게서 얼마나 복잡하고 다양한 형태로 나타나는지 탐구합니다. 이 영상은 많은 새들이 겉으로는 일부일처제를 유지하지만, 실제로는 광범위한 '짝외 교미'를 통해 유전적 이익을 추구한다는 충격적인 사실을 밝히며, 일부일처제가 과연 자연스러운 것인지에 대한 근본적인 질문을 던집니다. 부모의 투자 불균형과 환경적 요인이 짝짓기 체계에 미치는 진화적 영향을 심도 있게 분석합니다.</p>
             <ul class="points-list">
                 
-                <li>일부일처제의 보편성과 오해: 척추동물 중 일부일처제는 조류(91%)와 영장류(29.4%)에서 비교적 흔하지만, 어류, 양서류, 파충류에서는 1% 미만으로 매우 드물다. 이는 일부일처제가 모든 생물에게 보편적인 자연 현상이 아님을 시사하며, 특히 조류의 높은 비율은 사회적 일부일처제와 유전적 일부일처제의 구분이 필요함을 보여준다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">일부일처제의 보편성과 오해:</span> 척추동물 중 일부일처제는 조류(91%)와 영장류(29.4%)에서 비교적 흔하지만, 어류, 양서류, 파충류에서는 1% 미만으로 매우 드물다. 이는 일부일처제가 모든 생물에게 보편적인 자연 현상이 아님을 시사하며, 특히 조류의 높은 비율은 사회적 일부일처제와 유전적 일부일처제의 구분이 필요함을 보여준다.
+                    
+                </li>
                 
-                <li>새들의 '사회적 일부일처제'와 '짝외 교미': 겉으로는 일부일처제를 유지하는 것처럼 보이는 새들(사회적 일부일처제)의 90% 이상이 실제로는 짝외 교미(혼외 자식)를 통해 유전적 다양성을 추구한다. 이는 수컷이 양육에 참여하면서도 자신의 유전자를 더 많이 퍼뜨리려는 전략, 또는 암컷이 더 우수한 유전자를 얻기 위한 전략 등 복잡한 번식 이익 계산에 의해 발생하며, 일부일처제가 항상 유전적으로 엄격하게 지켜지는 것은 아님을 드러낸다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">새들의 '사회적 일부일처제'와 '짝외 교미':</span> 겉으로는 일부일처제를 유지하는 것처럼 보이는 새들(사회적 일부일처제)의 90% 이상이 실제로는 짝외 교미(혼외 자식)를 통해 유전적 다양성을 추구한다. 이는 수컷이 양육에 참여하면서도 자신의 유전자를 더 많이 퍼뜨리려는 전략, 또는 암컷이 더 우수한 유전자를 얻기 위한 전략 등 복잡한 번식 이익 계산에 의해 발생하며, 일부일처제가 항상 유전적으로 엄격하게 지켜지는 것은 아님을 드러낸다.
+                    
+                </li>
                 
-                <li>부모 투자 불균형과 일부일처제 선택의 진화적 이유: 암컷은 난자 생산 및 양육에 막대한 투자를 하므로 신중하게 짝을 선택하고 자원 확보에 집중하는 반면, 수컷은 정자 생산 비용이 적어 더 많은 번식 기회를 추구하려는 경향이 있다. 그러나 수리부엉이처럼 척박한 환경에서는 수컷의 양육 참여가 새끼 생존에 필수적이므로, 수컷에게도 일부일처제가 유리한 진화적 선택이 될 수 있다 (필수적 일부일처제). 이는 일부일처제가 단순히 사회적 제도가 아닌, 생존 환경과 번식 이익에 따라 진화적으로 형성된 복합적인 짝짓기 체계임을 보여준다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">부모 투자 불균형과 일부일처제 선택의 진화적 이유:</span> 암컷은 난자 생산 및 양육에 막대한 투자를 하므로 신중하게 짝을 선택하고 자원 확보에 집중하는 반면, 수컷은 정자 생산 비용이 적어 더 많은 번식 기회를 추구하려는 경향이 있다. 그러나 수리부엉이처럼 척박한 환경에서는 수컷의 양육 참여가 새끼 생존에 필수적이므로, 수컷에게도 일부일처제가 유리한 진화적 선택이 될 수 있다 (필수적 일부일처제). 이는 일부일처제가 단순히 사회적 제도가 아닌, 생존 환경과 번식 이익에 따라 진화적으로 형성된 복합적인 짝짓기 체계임을 보여준다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                우리가 당연하게 여기는 일부일처제가 사실은 동물 세계에서 얼마나 복잡하고 다양한 형태로 나타나는지 궁금하신가요? 이 영상을 통해 새들의 충격적인 사생활과 함께, 일부일처제가 진화적으로 어떻게 형성되고 유지되는지에 대한 깊이 있는 통찰을 얻을 수 있을 것입니다. 인간 사회의 관계를 이해하는 데도 새로운 관점을 제공할 흥미로운 과학 이야기를 놓치지 마세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

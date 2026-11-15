@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>AI가 모든 것을 해주는 시대에 우리는 어떤 커리어를 쌓아가야 할지 고민하는 이들을 위해, 메타에서 일하는 개발자가 직접 경험하며 체득한 12가지 AI 시대 커리어 팁을 공유합니다. AI 활용법부터 인간 고유의 역량 강화, 그리고 유연한 업무 방식까지, 미래를 준비하는 데 필요한 실질적인 인사이트를 얻을 수 있습니다.</p>
             <ul class="points-list">
                 
-                <li>AI 활용 능력 극대화: AI 시대를 맞아 AI를 단순히 사용하는 것을 넘어, 에이전트의 작동 원리를 깊이 이해하고 학습에 적극 활용하여 개인의 생산성을 10배 이상 끌어올릴 수 있는 에이전틱 엔지니어 역량을 갖춰야 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 활용 능력 극대화:</span> AI 시대를 맞아 AI를 단순히 사용하는 것을 넘어, 에이전트의 작동 원리를 깊이 이해하고 학습에 적극 활용하여 개인의 생산성을 10배 이상 끌어올릴 수 있는 에이전틱 엔지니어 역량을 갖춰야 합니다.
+                    
+                </li>
                 
-                <li>인간 고유의 역량 강화 및 문제 해결 집중: AI가 실패하는 지점을 체득하고 고객의 미묘한 취향(Taste)을 이해하는 등 인간만이 할 수 있는 영역에 집중하며, AI를 도구 삼아 궁극적으로 비즈니스와 삶의 문제를 해결하는 데 역량을 쏟아야 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">인간 고유의 역량 강화 및 문제 해결 집중:</span> AI가 실패하는 지점을 체득하고 고객의 미묘한 취향(Taste)을 이해하는 등 인간만이 할 수 있는 영역에 집중하며, AI를 도구 삼아 궁극적으로 비즈니스와 삶의 문제를 해결하는 데 역량을 쏟아야 합니다.
+                    
+                </li>
                 
-                <li>유연하고 주도적인 업무 방식 채택: 직급이나 팀의 경계에 얽매이지 않고, 70% 완성 시점에 빠르게 출시하여 피드백을 받고 개선하는 민첩한 태도를 가지며, 상위 1%를 목표로 주도적으로 일하고 좋은 사람들과 교류하며 끊임없이 성장하는 자세를 준비해야 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">유연하고 주도적인 업무 방식 채택:</span> 직급이나 팀의 경계에 얽매이지 않고, 70% 완성 시점에 빠르게 출시하여 피드백을 받고 개선하는 민첩한 태도를 가지며, 상위 1%를 목표로 주도적으로 일하고 좋은 사람들과 교류하며 끊임없이 성장하는 자세를 준비해야 합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI 시대, 내 커리어는 어떻게 준비해야 할지 막막하신가요? 이 영상은 실리콘밸리 현직 개발자가 직접 경험하며 얻은 12가지 핵심 노하우를 통해 여러분의 고민을 해결해 줄 것입니다. AI를 마스터하고, 인간 고유의 강점을 살려 미래를 주도하는 인재로 성장하는 방법을 지금 바로 확인해보세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>AI 기술의 급격한 발전은 휴머노이드 로봇의 등장과 함께 생산 활동 전반을 변화시키고 있으며, 이는 전례 없는 규모의 새로운 시장을 창출하고 있습니다. 투자 시장의 단기 변동성에도 불구하고, AI 기술 개발과 실물 경제 파트는 뜨겁게 진화하며 에너지, 디지털 주권, 자원 등 다양한 분야에서 미래 주도권을 결정할 핵심 동력이 될 것입니다.</p>
             <ul class="points-list">
                 
-                <li>AI와 로봇 혁명: 새로운 경제 주체와 거대한 시장의 탄생: 반자율 의지를 가진 AI와 휴머노이드 로봇(테슬라 옵티머스 등)이 인간의 역할을 대체하며 생산 활동의 패러다임을 전환하고 있습니다. 이들은 디지털 자산 기반의 급여 시스템을 통해 새로운 경제 주체로 부상하며, 바이오, 자동차, 석유 산업을 능가하는 전례 없는 규모의 시장을 형성할 것입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI와 로봇 혁명:</span> 새로운 경제 주체와 거대한 시장의 탄생: 반자율 의지를 가진 AI와 휴머노이드 로봇(테슬라 옵티머스 등)이 인간의 역할을 대체하며 생산 활동의 패러다임을 전환하고 있습니다. 이들은 디지털 자산 기반의 급여 시스템을 통해 새로운 경제 주체로 부상하며, 바이오, 자동차, 석유 산업을 능가하는 전례 없는 규모의 시장을 형성할 것입니다.
+                    
+                </li>
                 
-                <li>디지털 주권 경쟁과 에너지 대전환: 미래 패권의 핵심 동력: 각국은 스플린터넷과 데이터 소유권 확보를 통해 디지털 주권을 강화하며 AI 생태계 경쟁을 심화하고 있습니다. 동시에 AI 시대의 막대한 에너지 수요를 충족하기 위해 원전, 신재생 에너지 등 모든 수단을 동원한 에너지 생산 확대와 혁신이 가속화되며, 이는 국가 간 기술 및 경제 패권 다툼의 핵심 축이 될 것입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">디지털 주권 경쟁과 에너지 대전환:</span> 미래 패권의 핵심 동력: 각국은 스플린터넷과 데이터 소유권 확보를 통해 디지털 주권을 강화하며 AI 생태계 경쟁을 심화하고 있습니다. 동시에 AI 시대의 막대한 에너지 수요를 충족하기 위해 원전, 신재생 에너지 등 모든 수단을 동원한 에너지 생산 확대와 혁신이 가속화되며, 이는 국가 간 기술 및 경제 패권 다툼의 핵심 축이 될 것입니다.
+                    
+                </li>
                 
-                <li>반도체와 희토류: 공급망 재편 속 숨겨진 기회와 중국의 전략: AI 시대의 필수 요소인 반도체는 끊임없이 수요가 증가하며 대규모 증설이 필요하지만, 공급 과잉 시기에 대한 전략적 대비가 중요합니다. 또한 희토류와 같은 핵심 자원을 무기화하는 중국의 '냄비 속 개구리' 전략은 서방 국가들의 공급망 재편을 유도하며 한국 등 일부 국가에 새로운 산업적 기회를 제공할 것입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">반도체와 희토류:</span> 공급망 재편 속 숨겨진 기회와 중국의 전략: AI 시대의 필수 요소인 반도체는 끊임없이 수요가 증가하며 대규모 증설이 필요하지만, 공급 과잉 시기에 대한 전략적 대비가 중요합니다. 또한 희토류와 같은 핵심 자원을 무기화하는 중국의 '냄비 속 개구리' 전략은 서방 국가들의 공급망 재편을 유도하며 한국 등 일부 국가에 새로운 산업적 기회를 제공할 것입니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI가 이끄는 미래 사회의 거대한 변화 속에서 어떤 산업과 기술이 다음 주도주가 될지 궁금하신가요? 이 영상을 통해 AI, 로봇, 에너지, 반도체, 디지털 주권 등 핵심 분야의 심층 분석을 듣고, 다가올 경제 대전환 시대에 성공적인 투자와 비즈니스 기회를 포착할 인사이트를 얻어가세요. 미래를 읽는 혜안을 얻고 싶다면 반드시 시청해야 할 영상입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

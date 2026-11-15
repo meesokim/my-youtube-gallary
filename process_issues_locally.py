@@ -335,6 +335,7 @@ def main():
     # 깃허브에 올라온 이슈 중 videos.json에 데이터가 누락된 리스트 검사
     existing_ytids = {v.get("youtube_id") for v in videos if v.get("youtube_id")}
     any_video_added = False
+    newly_added_ytids = []
     processing_failed = False
     issues_to_close = {}
 
@@ -403,6 +404,7 @@ def main():
                             videos = json.load(f)
                     if any(v.get("youtube_id") == ytid for v in videos):
                         any_video_added = True
+                        newly_added_ytids.append(ytid)
                         existing_ytids.add(ytid)
                     else:
                         processing_failed = True
@@ -463,6 +465,17 @@ def main():
         )
         if not close_github_issue(repo, num, comment, token):
             processing_failed = True
+
+    if newly_added_ytids and os.getenv("NAVER_BLOG_AUTO_PUBLISH") == "1":
+        try:
+            import publish_naver_blog
+            for ytid in newly_added_ytids:
+                video_info = next((v for v in videos if v.get("youtube_id") == ytid), None)
+                if video_info:
+                    print(f"[*] 네이버 블로그 자동 발행 중 ({video_info.get('title')})...")
+                    publish_naver_blog.publish_to_naver_blog(video_info, headless=True)
+        except Exception as e:
+            print(f"[!] 네이버 블로그 자동 발행 중 오류 발생 (GitHub 배포에는 영향 없음): {e}")
 
     return 1 if processing_failed else 0
 

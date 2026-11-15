@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,24 +450,57 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>한국은 일본보다 훨씬 빠른 속도로 초고령사회에 진입하고 있으며, 이는 국가적 과제인 동시에 새로운 비즈니스 기회를 창출하고 있습니다. 이 영상은 일본의 성공적인 시니어 비즈니스 사례를 통해 한국 시장이 나아가야 할 방향을 제시하며, 특히 죽음 준비부터 돌봄, 관계 형성, 재취업, 커뮤니티까지 시니어의 삶 전반을 아우르는 5가지 핵심 트렌드를 분석합니다.</p>
             <ul class="points-list">
                 
-                <li>인생 마무리 활동(슈카츠) 시장의 성장: 카마쿠라신쇼의 성공적인 피벗을 통해 죽음 준비가 단순한 장례를 넘어 종합적인 생애 후반 정보 플랫폼으로 진화하며 거대한 산업으로 성장하고 있음을 보여줍니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">인생 마무리 활동(슈카츠) 시장의 성장:</span> 카마쿠라신쇼의 성공적인 피벗을 통해 죽음 준비가 단순한 장례를 넘어 종합적인 생애 후반 정보 플랫폼으로 진화하며 거대한 산업으로 성장하고 있음을 보여줍니다.
+                    
+                </li>
                 
-                <li>디지털 소외를 극복한 돌봄테크: 조지루시의 전기포트와 마고채널의 TV 셋톱박스 사례처럼, 시니어의 기존 생활 습관을 존중하고 감성적 연결을 중시하는 기술이 고독사 및 고립 문제 해결에 효과적임을 입증합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">디지털 소외를 극복한 돌봄테크:</span> 조지루시의 전기포트와 마고채널의 TV 셋톱박스 사례처럼, 시니어의 기존 생활 습관을 존중하고 감성적 연결을 중시하는 기술이 고독사 및 고립 문제 해결에 효과적임을 입증합니다.
+                    
+                </li>
                 
-                <li>외로움과 자존감을 채우는 관계 기반 서비스: 에이지웰재팬의 모토메이트는 요양이나 가사 대행이 아닌, 정기적인 방문을 통해 시니어의 외로움을 해소하고 자존감을 높이는 새로운 형태의 구독 서비스 시장을 개척했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">외로움과 자존감을 채우는 관계 기반 서비스:</span> 에이지웰재팬의 모토메이트는 요양이나 가사 대행이 아닌, 정기적인 방문을 통해 시니어의 외로움을 해소하고 자존감을 높이는 새로운 형태의 구독 서비스 시장을 개척했습니다.
+                    
+                </li>
                 
-                <li>중장년층의 재혼/만남을 위한 섬세한 매칭 플랫폼: 마리슈는 이혼, 사별 등 중장년층의 약점을 공감대로 전환하고 '리본 마크'와 같은 차별화된 기능으로 사회적 낙인을 해소하며 폭발적인 성장을 이뤄냈습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">중장년층의 재혼/만남을 위한 섬세한 매칭 플랫폼:</span> 마리슈는 이혼, 사별 등 중장년층의 약점을 공감대로 전환하고 '리본 마크'와 같은 차별화된 기능으로 사회적 낙인을 해소하며 폭발적인 성장을 이뤄냈습니다.
+                    
+                </li>
                 
-                <li>액티브 시니어의 재취업 및 커뮤니티 활성화: 고레이샤는 60세 이상 전문 인력 파견으로 숙련된 시니어의 재취업 기회를 제공하고, 클럽투어리즘은 취미 기반의 테마 여행 커뮤니티를 통해 시니어의 관계 욕구를 충족시키며 라이프케어 플랫폼으로 확장했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">액티브 시니어의 재취업 및 커뮤니티 활성화:</span> 고레이샤는 60세 이상 전문 인력 파견으로 숙련된 시니어의 재취업 기회를 제공하고, 클럽투어리즘은 취미 기반의 테마 여행 커뮤니티를 통해 시니어의 관계 욕구를 충족시키며 라이프케어 플랫폼으로 확장했습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                한국의 초고령사회 진입 속도가 심상치 않다고 느끼시나요? 이 영상은 일본의 성공적인 시니어 비즈니스 모델 5가지를 통해 다가올 미래 시장의 기회를 명확하게 보여줍니다. 죽음 준비부터 돌봄, 관계 형성, 재취업까지, 시니어의 삶 전반을 아우르는 혁신적인 아이디어를 얻고 싶다면 반드시 시청하여 미래 사업 아이템을 발굴해 보세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

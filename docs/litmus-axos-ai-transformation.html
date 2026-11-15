@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -342,20 +454,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>리트머스는 미래 비즈니스 모델의 한계를 극복하기 위해 AX(AI Transformation)를 추진하며 자체 AI 운영 체제(AIOS)를 구축했습니다. 이 시스템은 워크벤치, 넥서스, 에이전트 등을 통해 전사적인 업무 자동화를 실현하고, 직무 통합을 통해 조직 생산성을 3배 이상 향상시키는 구체적인 성과를 달성했습니다.</p>
             <ul class="points-list">
                 
-                <li>AIOS 기반의 전사적 자동화 시스템 구축: 리트머스는 개인별 맞춤형 작업 공간인 '워크벤치', 중앙 데이터 및 권한 관리 플랫폼 '넥서스', 그리고 에이전트 실행 및 관리를 위한 '파운드리'를 포함하는 AIOS를 구축하여, 반복적인 업무를 AI 에이전트가 처리하고 핵심 인력은 고부가가치 업무에 집중할 수 있도록 지원합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AIOS 기반의 전사적 자동화 시스템 구축:</span> 리트머스는 개인별 맞춤형 작업 공간인 '워크벤치', 중앙 데이터 및 권한 관리 플랫폼 '넥서스', 그리고 에이전트 실행 및 관리를 위한 '파운드리'를 포함하는 AIOS를 구축하여, 반복적인 업무를 AI 에이전트가 처리하고 핵심 인력은 고부가가치 업무에 집중할 수 있도록 지원합니다.
+                    
+                </li>
                 
-                <li>직무 통합을 통한 생산성 3배 향상: AIOS 도입 후, 세일즈, PM, 개발자 등 기존의 분리된 직무를 '컨설턴트' 형태로 통합하여 한 사람이 여러 역할을 수행하게 되었습니다. 이 조직 변화를 통해 같은 매출 대비 투입 인력 수가 크게 줄어들고, 결과적으로 조직 생산성이 3배 이상 높아지는 혁신적인 성과를 이루었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">직무 통합을 통한 생산성 3배 향상:</span> AIOS 도입 후, 세일즈, PM, 개발자 등 기존의 분리된 직무를 '컨설턴트' 형태로 통합하여 한 사람이 여러 역할을 수행하게 되었습니다. 이 조직 변화를 통해 같은 매출 대비 투입 인력 수가 크게 줄어들고, 결과적으로 조직 생산성이 3배 이상 높아지는 혁신적인 성과를 이루었습니다.
+                    
+                </li>
                 
-                <li>고객 참여형 버그 티켓 자동화 및 에이전트 거버넌스: 고객이 직접 웹사이트에서 버그를 제보하면 'CRH 에이전트'가 이를 자동으로 확인하고 수정하는 시스템을 구축하여 고객 경험을 개선했습니다. 또한, 에이전트의 지속적인 고도화를 위해 사용자 피드백 기반의 스킬 개선과 엄격한 권한 관리 시스템을 운영하여 AI 시스템의 신뢰성과 효율성을 확보하고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">고객 참여형 버그 티켓 자동화 및 에이전트 거버넌스:</span> 고객이 직접 웹사이트에서 버그를 제보하면 'CRH 에이전트'가 이를 자동으로 확인하고 수정하는 시스템을 구축하여 고객 경험을 개선했습니다. 또한, 에이전트의 지속적인 고도화를 위해 사용자 피드백 기반의 스킬 개선과 엄격한 권한 관리 시스템을 운영하여 AI 시스템의 신뢰성과 효율성을 확보하고 있습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상을 통해 리트머스가 어떻게 AI를 활용하여 조직 전체의 생산성을 혁신하고 새로운 비즈니스 모델을 창출했는지 구체적인 사례와 시스템 구축 노하우를 배울 수 있습니다. AI 시대에 기업의 경쟁력을 강화하고 싶다면, 이 영상에서 제시하는 AX(AI Transformation) 전략과 AIOS(AI Operating System) 구축 경험은 분명 큰 영감을 줄 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

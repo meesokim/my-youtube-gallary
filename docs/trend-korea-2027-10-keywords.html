@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 2027년 트렌드 코리아가 제시하는 10가지 핵심 키워드를 소개합니다. AI가 우리 삶에 보편화되어 더 이상 직접적인 키워드로 등장하지 않지만, 그 여파와 인간 및 조직의 대응 방식이 미래 사회의 중요한 흐름을 형성할 것임을 강조합니다. 권태 사회, 해봄 경제, 휴먼 엣지 등 다양한 관점에서 다가올 변화를 심층적으로 분석합니다.</p>
             <ul class="points-list">
                 
-                <li>AI 시대의 역설적 트렌드: AI가 공기처럼 보편화되어 직접적인 키워드에서 사라졌지만, AI가 스며든 사회에서 그 여파와 인간 및 조직의 대응 방식이 2027년 트렌드의 핵심으로 부상하고 있음을 설명합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 시대의 역설적 트렌드:</span> AI가 공기처럼 보편화되어 직접적인 키워드에서 사라졌지만, AI가 스며든 사회에서 그 여파와 인간 및 조직의 대응 방식이 2027년 트렌드의 핵심으로 부상하고 있음을 설명합니다.
+                    
+                </li>
                 
-                <li>과잉의 권태 사회와 심심함의 미학: 현대 사회의 과도한 자극과 바쁜 일상 속에서 발생하는 '과잉의 권태'를 진단하고, 역설적으로 심심함을 통해 새로운 변화와 창의성을 모색해야 하는 개인 및 조직의 대응 방안을 제시합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">과잉의 권태 사회와 심심함의 미학:</span> 현대 사회의 과도한 자극과 바쁜 일상 속에서 발생하는 '과잉의 권태'를 진단하고, 역설적으로 심심함을 통해 새로운 변화와 창의성을 모색해야 하는 개인 및 조직의 대응 방안을 제시합니다.
+                    
+                </li>
                 
-                <li>해봄 경제와 실행 중심의 성장 전략: 완벽함보다는 일단 실행하고 개선해 나가는 'done is better than perfect' 태도가 AI 시대에 개인과 기업의 성공을 이끄는 핵심 패러다임임을 강조하며, '하이 에이전시'의 중요성을 역설합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">해봄 경제와 실행 중심의 성장 전략:</span> 완벽함보다는 일단 실행하고 개선해 나가는 'done is better than perfect' 태도가 AI 시대에 개인과 기업의 성공을 이끄는 핵심 패러다임임을 강조하며, '하이 에이전시'의 중요성을 역설합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                2027년의 사회와 비즈니스 트렌드를 미리 파악하고 싶다면 이 영상을 꼭 시청하세요. AI가 일상이 된 시대에 우리가 무엇에 집중하고 어떻게 변화에 대응해야 할지 구체적인 인사이트를 얻을 수 있을 것입니다. 개인의 삶과 조직의 미래를 위한 현명한 전략을 세우는 데 큰 도움이 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

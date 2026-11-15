@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>GLP-1 계열 약물(위고비, 마운자로 등)이 비만 및 당뇨 치료를 넘어 알코올, 니코틴, 마약 등 다양한 중독 치료에도 긍정적인 효과를 보인다는 최신 연구 결과가 주목받고 있습니다. 이 약물은 뇌의 보상 회로에 작용하여 단순히 식욕을 억제하는 것을 넘어 '원하는 마음' 자체를 줄여주는 '좋은 부작용'을 나타내며, 이는 현대 의학의 새로운 지평을 열고 있습니다.</p>
             <ul class="points-list">
                 
-                <li>GLP-1의 중독 치료 효과 발견: 비만 치료제 위고비, 마운자로 등이 알코올, 니코틴, 마약 등 5대 중독 물질에 대한 갈망을 동시에 낮추는 '좋은 부작용'을 보이며, 미국 재향군인 60만 명 대상 관찰 연구 및 무작위 임상 시험을 통해 그 효과가 입증되었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">GLP-1의 중독 치료 효과 발견:</span> 비만 치료제 위고비, 마운자로 등이 알코올, 니코틴, 마약 등 5대 중독 물질에 대한 갈망을 동시에 낮추는 '좋은 부작용'을 보이며, 미국 재향군인 60만 명 대상 관찰 연구 및 무작위 임상 시험을 통해 그 효과가 입증되었습니다.
+                    
+                </li>
                 
-                <li>뇌 보상 회로 조절을 통한 '원함' 감소: GLP-1은 뇌의 복측 피계 영역(VTA)과 측좌액(Nucleus Accumbens)에 작용하여 도파민 분비 및 보상 동기, 갈망을 제어합니다. 이는 단순히 식욕을 줄이는 것을 넘어 '음식 노이즈'와 같은 강박적인 생각을 없애고, 특정 행동에 대한 '원함' 자체를 비정상적으로 비대해진 중독된 뇌의 균형을 되찾아주는 효과를 가져옵니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">뇌 보상 회로 조절을 통한 '원함' 감소:</span> GLP-1은 뇌의 복측 피계 영역(VTA)과 측좌액(Nucleus Accumbens)에 작용하여 도파민 분비 및 보상 동기, 갈망을 제어합니다. 이는 단순히 식욕을 줄이는 것을 넘어 '음식 노이즈'와 같은 강박적인 생각을 없애고, 특정 행동에 대한 '원함' 자체를 비정상적으로 비대해진 중독된 뇌의 균형을 되찾아주는 효과를 가져옵니다.
+                    
+                </li>
                 
-                <li>당뇨병 치료제에서 행동 조절제로의 확장: 원래 혈당 강하 목적으로 개발된 GLP-1은 식욕 감소 및 체중 감량 효과를 거쳐 이제는 중독 치료 가능성까지 제시하며 '항비만 제제'를 넘어 '행동 조절제'로서의 무한한 영토 확장을 보여주고 있습니다. 또한, 비당뇨 환자에게도 저혈당 위험 없이 혈당을 스마트하게 조절하는 특성을 가집니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">당뇨병 치료제에서 행동 조절제로의 확장:</span> 원래 혈당 강하 목적으로 개발된 GLP-1은 식욕 감소 및 체중 감량 효과를 거쳐 이제는 중독 치료 가능성까지 제시하며 '항비만 제제'를 넘어 '행동 조절제'로서의 무한한 영토 확장을 보여주고 있습니다. 또한, 비당뇨 환자에게도 저혈당 위험 없이 혈당을 스마트하게 조절하는 특성을 가집니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 단순히 살 빼는 약으로만 알았던 GLP-1 계열 약물이 우리의 뇌와 욕망에 어떤 놀라운 영향을 미치는지 심도 있게 알려줍니다. 중독의 본질과 최신 의학 기술이 어떻게 우리의 삶을 변화시킬 수 있는지 궁금하다면, 이 영상을 통해 새로운 의학적 통찰과 건강한 삶을 위한 희망을 얻어가세요.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

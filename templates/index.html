@@ -78,9 +78,37 @@
             font-weight: 700;
             color: var(--accent-3);
         }
+        html {
+            scroll-behavior: smooth;
+        }
         .hero .stat-label {
             font-size: 0.85rem;
             color: var(--text-secondary);
+        }
+        .hero-actions {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+        .rec-shortcut-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 999px;
+            background: rgba(102, 126, 234, 0.16);
+            border: 1px solid rgba(102, 126, 234, 0.45);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+        .rec-shortcut-link:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
         }
 
         /* Filter Bar */
@@ -315,7 +343,7 @@
         }
         .rec-textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 130px;
         }
         .btn-submit {
             padding: 14px 28px;
@@ -358,6 +386,9 @@
                 <div class="stat-label">카테고리</div>
             </div>
         </div>
+        <div class="hero-actions">
+            <a href="#recommendationSection" class="rec-shortcut-link">🎬 추천 입력 바로가기 ↓</a>
+        </div>
     </section>
 
     <div class="filter-bar" id="filterBar">
@@ -393,20 +424,16 @@
     </div>
 
     <!-- Video Recommendation Form -->
-    <div class="recommendation-section">
+    <div class="recommendation-section" id="recommendationSection">
         <div class="recommendation-card">
             <div class="rec-header">
                 <h2>🎬 이 갤러리에 영상을 추천하고 싶으신가요?</h2>
-                <p>유튜브 영상 링크와 본인이 생각하는 인사이트를 적어 제출해 주세요. 자동으로 검토 이슈(GitHub Issue)가 생성됩니다.</p>
+                <p>유튜브 영상 링크와 본인이 생각하는 인사이트를 함께 적어 제출해 주세요. 등록 시 주소와 내용이 자동으로 분리되어 GitHub 이슈가 생성됩니다.</p>
             </div>
             <div class="rec-form">
                 <div class="form-group">
-                    <label for="recUrl">유튜브 영상 URL</label>
-                    <input type="text" id="recUrl" class="rec-input" placeholder="https://www.youtube.com/watch?v=..." required>
-                </div>
-                <div class="form-group">
-                    <label for="recReason">내가 생각하는 영상의 인사이트 및 취지</label>
-                    <textarea id="recReason" class="rec-textarea" placeholder="이 영상의 서론에서 다룬 핵심 개념이 인상 깊었어요. AI 미래 지향점에 대해 요약해 주었으면 합니다." required></textarea>
+                    <label for="recContent">유튜브 영상 URL 및 추천 이유·인사이트</label>
+                    <textarea id="recContent" class="rec-textarea" placeholder="https://www.youtube.com/watch?v=...&#10;이 영상의 서론에서 다룬 핵심 개념이 인상 깊었어요. AI 미래 지향점에 대해 요약해 주었으면 합니다." required></textarea>
                 </div>
                 <button type="button" class="btn-submit" onclick="submitRecommendation()">🚀 추천 비디오 등록하기</button>
             </div>
@@ -460,39 +487,43 @@
     })();
 
     function submitRecommendation() {
-        const urlInput = document.getElementById('recUrl');
-        const reasonInput = document.getElementById('recReason');
-        const url = urlInput.value.trim();
-        const reason = reasonInput.value.trim();
-        
-        if (!url) {
-            alert('유튜브 영상 URL을 입력해 주세요.');
+        const contentInput = document.getElementById('recContent');
+        const rawContent = contentInput.value.trim();
+
+        if (!rawContent) {
+            alert('유튜브 영상 URL과 추천 이유 혹은 인사이트를 입력해 주세요.');
             return;
         }
-        
-        // 유튜브 정규식 검증
-        const youtubePattern = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-        if (!youtubePattern.test(url)) {
-            alert('올바른 유튜브 영상 링크 주소를 입력해 주세요.');
+
+        // 본문에서 유튜브 URL 추출 후 제목(URL)과 본문(내용)으로 분리
+        const youtubePattern = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:[^\s]*)?/;
+        const match = rawContent.match(youtubePattern);
+        if (!match) {
+            alert('내용 안에 올바른 유튜브 영상 링크 주소(youtube.com 또는 youtu.be)를 포함해 주세요.');
             return;
         }
-        
+
+        const extractedUrl = `https://www.youtube.com/watch?v=${match[1]}`;
+        const reason = rawContent
+            .replace(match[0], '')
+            .replace(/\n{3,}/g, '\n\n')
+            .trim();
+
         if (!reason) {
-            alert('이 영상의 추천 이유 혹은 인사이트를 적어 주세요.');
+            alert('유튜브 주소와 함께 추천 이유 혹은 인사이트도 적어 주세요.');
             return;
         }
-        
+
         const repo = "meesokim/my-youtube-gallary";
-        const issueTitle = encodeURIComponent(url);
+        const issueTitle = encodeURIComponent(extractedUrl);
         const issueBody = encodeURIComponent(reason);
         const githubUrl = `https://github.com/${repo}/issues/new?title=${issueTitle}&body=${issueBody}`;
-        
+
         alert('확인을 누르시면 GitHub 이슈 생성 창으로 이동합니다. 우측 상단의 "Submit new issue" 버튼을 누르시면 등록이 완료됩니다.');
         window.open(githubUrl, '_blank');
-        
+
         // 입력 폼 리셋
-        urlInput.value = '';
-        reasonInput.value = '';
+        contentInput.value = '';
     }
     </script>
 </body>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -342,20 +454,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>AI는 오랫동안 뇌를 모방하는 기계라는 프레임에 갇혀 있었지만, 현대 AI의 핵심인 LLM(Large Language Model)은 뇌와 무관하게 발전했습니다. 흥미롭게도 최근 연구들은 인간 뇌의 언어 처리 방식이 LLM과 유사하게 작동할 수 있음을 시사하며, 60년간 이어진 'AI 뇌 모방' 내러티브가 역전되는 현상을 보여줍니다. 이 영상은 AI 발전의 역사와 내러티브의 중요성을 깊이 있게 탐구합니다.</p>
             <ul class="points-list">
                 
-                <li>AI 뇌 모방 내러티브의 탄생과 한계: 1958년 퍼셉트론의 등장으로 AI가 뇌를 모방한다는 강력한 내러티브가 시작되었으나, 이는 실제 뇌의 복잡성을 극단적으로 단순화한 모델이었으며, 생물학적 비현실성에 대한 비판에도 불구하고 내러티브의 힘으로 지속되었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 뇌 모방 내러티브의 탄생과 한계:</span> 1958년 퍼셉트론의 등장으로 AI가 뇌를 모방한다는 강력한 내러티브가 시작되었으나, 이는 실제 뇌의 복잡성을 극단적으로 단순화한 모델이었으며, 생물학적 비현실성에 대한 비판에도 불구하고 내러티브의 힘으로 지속되었습니다.
+                    
+                </li>
                 
-                <li>트랜스포머와 LLM의 패러다임 전환: 2017년 구글의 'Attention is All You Need' 논문에서 소개된 트랜스포머 아키텍처는 뇌 모방이 아닌 언어 모델의 효율성 개선을 목표로 개발되었으며, 모든 종류의 데이터를 토큰화하여 처리하는 범용성을 입증하며 현대 AI의 핵심이자 새로운 패러다임을 제시했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">트랜스포머와 LLM의 패러다임 전환:</span> 2017년 구글의 'Attention is All You Need' 논문에서 소개된 트랜스포머 아키텍처는 뇌 모방이 아닌 언어 모델의 효율성 개선을 목표로 개발되었으며, 모든 종류의 데이터를 토큰화하여 처리하는 범용성을 입증하며 현대 AI의 핵심이자 새로운 패러다임을 제시했습니다.
+                    
+                </li>
                 
-                <li>LLM이 뇌 과학에 미치는 역방향 영향: 60년간 이어진 'AI가 뇌를 모방한다'는 내러티브와 달리, 최근 뇌 과학 연구들은 인간 뇌의 언어 처리 방식이 LLM처럼 다음 단어를 예측하는 원리와 유사할 수 있음을 밝혀내며, LLM이 뇌를 이해하는 가장 좋은 모델이 될 수 있다는 놀라운 가능성을 제시합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">LLM이 뇌 과학에 미치는 역방향 영향:</span> 60년간 이어진 'AI가 뇌를 모방한다'는 내러티브와 달리, 최근 뇌 과학 연구들은 인간 뇌의 언어 처리 방식이 LLM처럼 다음 단어를 예측하는 원리와 유사할 수 있음을 밝혀내며, LLM이 뇌를 이해하는 가장 좋은 모델이 될 수 있다는 놀라운 가능성을 제시합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI가 뇌를 모방한다는 익숙한 이야기에 가려진 진짜 AI의 발전사와 최신 트렌드를 알고 싶다면 이 영상을 꼭 시청해보세요. 복잡한 AI 기술의 핵심 원리를 쉽고 명확하게 이해하고, 기술 발전 이면에 숨겨진 '내러티브의 힘'이 시장과 과학에 어떤 영향을 미치는지 깊이 있는 통찰력을 얻을 수 있을 것입니다. AI에 대한 고정관념을 깨고 새로운 시각을 얻어갈 수 있는 귀중한 시간이 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

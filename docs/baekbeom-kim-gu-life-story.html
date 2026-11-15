@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>백범 김구 선생의 삶은 상놈 출신에서 대한민국 임시정부의 수반이 되기까지, 오직 조국의 독립과 통일을 위해 헌신한 파란만장한 여정이었습니다. 그는 일제강점기 의열 투쟁을 주도하며 독립 의지를 세계에 알렸고, 해방 후에는 분단된 조국을 막기 위해 목숨을 건 통일 운동을 펼쳤습니다. 이 영상은 김구 선생의 짧고 굵은 삶을 통해 그의 위대한 사상과 희생정신을 조명합니다.</p>
             <ul class="points-list">
                 
-                <li>신분 차별을 넘어선 독립운동가의 탄생: 상놈 출신으로 태어나 양반 사회의 모순을 목격하고 과거를 포기한 뒤 동학에 투신하며 민족의식을 키웠습니다. 이는 그가 단순한 개인의 영달이 아닌 민족 전체의 해방을 목표로 삼게 된 중요한 전환점이 됩니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">신분 차별을 넘어선 독립운동가의 탄생:</span> 상놈 출신으로 태어나 양반 사회의 모순을 목격하고 과거를 포기한 뒤 동학에 투신하며 민족의식을 키웠습니다. 이는 그가 단순한 개인의 영달이 아닌 민족 전체의 해방을 목표로 삼게 된 중요한 전환점이 됩니다.
+                    
+                </li>
                 
-                <li>임시정부의 수장, 의열 투쟁을 통한 독립 의지 표명: 대한민국 임시정부의 경무국장과 국무령, 주석을 역임하며 독립운동의 구심점 역할을 했습니다. 특히 이봉창, 윤봉길 의거를 주도하며 침체된 독립운동에 활력을 불어넣고 국제 사회에 한국의 독립 의지를 각인시켰습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">임시정부의 수장, 의열 투쟁을 통한 독립 의지 표명:</span> 대한민국 임시정부의 경무국장과 국무령, 주석을 역임하며 독립운동의 구심점 역할을 했습니다. 특히 이봉창, 윤봉길 의거를 주도하며 침체된 독립운동에 활력을 불어넣고 국제 사회에 한국의 독립 의지를 각인시켰습니다.
+                    
+                </li>
                 
-                <li>분단을 막기 위한 마지막 투쟁과 통일 염원: 해방 후 단독 정부 수립에 반대하며 남북 협상을 추진하는 등 분단된 조국을 막기 위해 모든 것을 걸었습니다. "나는 통일된 조국을 건설하려다 38선을 베고 쓰러질지언정"이라는 그의 절규는 죽음 앞에서도 변치 않았던 통일 조국에 대한 간절한 염원을 보여줍니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">분단을 막기 위한 마지막 투쟁과 통일 염원:</span> 해방 후 단독 정부 수립에 반대하며 남북 협상을 추진하는 등 분단된 조국을 막기 위해 모든 것을 걸었습니다. "나는 통일된 조국을 건설하려다 38선을 베고 쓰러질지언정"이라는 그의 절규는 죽음 앞에서도 변치 않았던 통일 조국에 대한 간절한 염원을 보여줍니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 백범 김구 선생의 파란만장한 삶과 그의 위대한 사상을 짧고 굵게 압축하여 전달합니다. 격동의 시대 속에서 오직 조국의 독립과 통일을 위해 헌신했던 한 인물의 진정성 있는 발자취를 따라가며, 오늘날 우리가 잊지 말아야 할 역사적 교훈과 깊은 감동을 얻을 수 있을 것입니다. 그의 삶을 통해 진정한 애국심과 리더십이 무엇인지 깨닫는 소중한 시간이 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 천문학자 이명현 박사님과 함께 외계 생명체의 존재 가능성과 이를 탐색하는 과학적 노력에 대해 심도 있게 다룹니다. 1977년 와우! 신호와 같은 미스터리한 전파 신호부터 외계 문명과의 접촉이 가져올 수 있는 위험성, 그리고 AI와 드레이크 방정식 같은 최신 과학 기술이 외계인 탐색에 어떻게 활용되는지 전반적인 내용을 명확하게 정리합니다.</p>
             <ul class="points-list">
                 
-                <li>외계 생명체 존재 가능성과 탐색 방법: 우주가 너무 넓어 존재 확률은 높지만, 직접 만남은 어렵기에 전파 망원경을 통한 인공 신호 탐색이 주를 이룹니다. 1977년의 '와우! 신호'와 같은 강력한 인공 전파 신호 포착 사례와 함께, 외계 행성의 대기에서 인공 오염 물질을 찾거나 핵전쟁 섬광을 감지하는 등 다양한 '테크노시그니처' 탐색 방법이 논의됩니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">외계 생명체 존재 가능성과 탐색 방법:</span> 우주가 너무 넓어 존재 확률은 높지만, 직접 만남은 어렵기에 전파 망원경을 통한 인공 신호 탐색이 주를 이룹니다. 1977년의 '와우! 신호'와 같은 강력한 인공 전파 신호 포착 사례와 함께, 외계 행성의 대기에서 인공 오염 물질을 찾거나 핵전쟁 섬광을 감지하는 등 다양한 '테크노시그니처' 탐색 방법이 논의됩니다.
+                    
+                </li>
                 
-                <li>외계 문명과의 접촉 위험성 및 문명 격차: 외계 문명과의 접촉이 위험할 수 있다는 우려에 대해, 대부분의 과학자들은 거리가 너무 멀고 문명 발전 속도에 한계가 있어 걱정할 필요가 없다고 봅니다. 그러나 공간을 조작하는 '중력파 문명'처럼 압도적으로 발전한 문명이라면, 우리를 인식조차 하지 않거나 쉽게 지구를 없앨 수도 있다는 과학적 상상력이 제시됩니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">외계 문명과의 접촉 위험성 및 문명 격차:</span> 외계 문명과의 접촉이 위험할 수 있다는 우려에 대해, 대부분의 과학자들은 거리가 너무 멀고 문명 발전 속도에 한계가 있어 걱정할 필요가 없다고 봅니다. 그러나 공간을 조작하는 '중력파 문명'처럼 압도적으로 발전한 문명이라면, 우리를 인식조차 하지 않거나 쉽게 지구를 없앨 수도 있다는 과학적 상상력이 제시됩니다.
+                    
+                </li>
                 
-                <li>외계인 탐색의 최신 과학 기술과 드레이크 방정식: AI는 이미 케플러 망원경 데이터에서 놓쳤던 외계 행성을 찾아내고 있으며, 미래에는 인공지능 로봇이 우주 탐사의 주역이 될 것입니다. 또한, 외계 문명의 수를 추정하는 '드레이크 방정식'은 우리가 외계 생명체와 우주에 대해 얼마나 많은 것을 모르는지 알려주며, 앞으로 어떤 연구가 필요한지 방향을 제시하는 중요한 도구입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">외계인 탐색의 최신 과학 기술과 드레이크 방정식:</span> AI는 이미 케플러 망원경 데이터에서 놓쳤던 외계 행성을 찾아내고 있으며, 미래에는 인공지능 로봇이 우주 탐사의 주역이 될 것입니다. 또한, 외계 문명의 수를 추정하는 '드레이크 방정식'은 우리가 외계 생명체와 우주에 대해 얼마나 많은 것을 모르는지 알려주며, 앞으로 어떤 연구가 필요한지 방향을 제시하는 중요한 도구입니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                과연 외계인은 존재할까요? 이 영상을 통해 천문학자의 시선으로 외계 생명체의 존재 가능성과 그들을 찾기 위한 인류의 과학적 노력을 생생하게 경험할 수 있습니다. 미스터리한 전파 신호부터 AI를 활용한 최신 탐색 기술, 그리고 외계 문명과의 접촉이 가져올 수 있는 흥미로운 상상까지, 우주에 대한 깊은 호기심을 채우고 새로운 지식을 얻어갈 수 있을 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>AI 기술의 발전으로 인해 많은 직업과 학습 방식이 변화하고 있습니다. 이 영상은 AI가 보편화된 '딸깍'의 시대에 대학 교육이 여전히 필수적인지에 대한 근본적인 질문을 던집니다. 미래 사회에서 대학의 역할과 가치에 대해 심도 있게 탐구합니다.</p>
             <ul class="points-list">
                 
-                <li>AI 시대의 교육 패러다임 변화: AI 기술의 발전이 전통적인 지식 습득 방식과 직업 시장에 미치는 영향을 분석하고, 이에 따라 대학 교육이 어떻게 변화해야 하는지 논의합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 시대의 교육 패러다임 변화:</span> AI 기술의 발전이 전통적인 지식 습득 방식과 직업 시장에 미치는 영향을 분석하고, 이에 따라 대학 교육이 어떻게 변화해야 하는지 논의합니다.
+                    
+                </li>
                 
-                <li>대학의 본질적 가치 재조명: AI가 대체할 수 없는 비판적 사고, 창의성, 문제 해결 능력 등 대학이 제공하는 고유한 가치와 역할에 대해 탐구하며, 단순 지식 전달을 넘어선 교육의 중요성을 강조합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">대학의 본질적 가치 재조명:</span> AI가 대체할 수 없는 비판적 사고, 창의성, 문제 해결 능력 등 대학이 제공하는 고유한 가치와 역할에 대해 탐구하며, 단순 지식 전달을 넘어선 교육의 중요성을 강조합니다.
+                    
+                </li>
                 
-                <li>미래 인재 양성을 위한 대학의 방향성: AI 시대에 필요한 인재를 양성하기 위해 대학이 어떤 교육과정을 제공하고, 어떤 역량을 길러주어야 하는지에 대한 구체적인 방안과 비전을 제시합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">미래 인재 양성을 위한 대학의 방향성:</span> AI 시대에 필요한 인재를 양성하기 위해 대학이 어떤 교육과정을 제공하고, 어떤 역량을 길러주어야 하는지에 대한 구체적인 방안과 비전을 제시합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI 시대에 대학 진학을 고민하는 분들이라면 이 영상을 꼭 보셔야 합니다. AI가 가져올 미래 사회에서 대학 교육의 진정한 의미와 가치를 깊이 있게 이해하고, 현명한 진로 선택에 필요한 통찰력을 얻을 수 있을 것입니다. 변화하는 시대에 맞춰 나의 교육 방향을 설정하는 데 큰 도움이 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

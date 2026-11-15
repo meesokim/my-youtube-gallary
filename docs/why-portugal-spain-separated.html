@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이베리아 반도에 위치한 스페인과 포르투갈은 지리적, 문화적으로 유사함에도 불구하고 오늘날까지 별개의 국가로 존재합니다. 이 영상은 포르투갈이 일찍이 독립적인 정체성을 확립하고, 카스티야의 합병 시도에 맞서 독립을 수호하며, 대항해 시대에 각자의 길을 걸었던 역사적 과정을 통해 두 나라가 분리된 채 유지될 수 있었던 이유를 심층적으로 분석합니다.</p>
             <ul class="points-list">
                 
-                <li>독립적인 정체성 조기 확립: 포르투갈은 11세기 후반 레온 왕국의 변방 백작령에서 시작하여 아폰수 엔리케스 백작의 독립 의지와 교황의 승인을 통해 1179년 공식적인 왕국으로 인정받았으며, 1297년 카스티야와 국경을 확정하고 리스본 중심의 독자적인 정치 문화와 언어를 형성하며 일찍이 독립적인 정체성을 확립했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">독립적인 정체성 조기 확립:</span> 포르투갈은 11세기 후반 레온 왕국의 변방 백작령에서 시작하여 아폰수 엔리케스 백작의 독립 의지와 교황의 승인을 통해 1179년 공식적인 왕국으로 인정받았으며, 1297년 카스티야와 국경을 확정하고 리스본 중심의 독자적인 정치 문화와 언어를 형성하며 일찍이 독립적인 정체성을 확립했습니다.
+                    
+                </li>
                 
-                <li>카스티야 합병 시도 저항과 강력한 외부 동맹: 14세기 후반 왕위 계승 위기 시 카스티야 왕국의 합병 시도에 맞서 포르투갈 민중과 귀족들은 주앙을 새로운 국왕으로 추대하고 알주바로타 전투에서 승리했습니다. 이후 잉글랜드와의 윈저 조약(1386)을 통해 강력한 군사 동맹을 맺어 카스티야의 재침략을 효과적으로 견제하며 독립을 수호했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">카스티야 합병 시도 저항과 강력한 외부 동맹:</span> 14세기 후반 왕위 계승 위기 시 카스티야 왕국의 합병 시도에 맞서 포르투갈 민중과 귀족들은 주앙을 새로운 국왕으로 추대하고 알주바로타 전투에서 승리했습니다. 이후 잉글랜드와의 윈저 조약(1386)을 통해 강력한 군사 동맹을 맺어 카스티야의 재침략을 효과적으로 견제하며 독립을 수호했습니다.
+                    
+                </li>
                 
-                <li>대항해 시대의 독자적 궤적과 이베리아 연합의 실패: 대항해 시대에 포르투갈과 스페인은 교황의 중재로 세계를 양분하여 각자의 해상 제국을 건설하며 굳이 이베리아 반도 내에서 통합할 필요성을 잃었습니다. 비록 1580년 이베리아 연합으로 잠시 통합되었으나, 스페인의 적대국으로부터 포르투갈 식민지가 공격받고 과도한 세금 요구에 불만이 폭발하여 1640년 독립 전쟁을 일으켰고, 잉글랜드의 지원과 스페인의 국제적 고립 속에 1668년 리스본 조약으로 다시 완전한 독립을 쟁취했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">대항해 시대의 독자적 궤적과 이베리아 연합의 실패:</span> 대항해 시대에 포르투갈과 스페인은 교황의 중재로 세계를 양분하여 각자의 해상 제국을 건설하며 굳이 이베리아 반도 내에서 통합할 필요성을 잃었습니다. 비록 1580년 이베리아 연합으로 잠시 통합되었으나, 스페인의 적대국으로부터 포르투갈 식민지가 공격받고 과도한 세금 요구에 불만이 폭발하여 1640년 독립 전쟁을 일으켰고, 잉글랜드의 지원과 스페인의 국제적 고립 속에 1668년 리스본 조약으로 다시 완전한 독립을 쟁취했습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                지리적으로 가까운 두 나라가 왜 다른 길을 걷게 되었는지 궁금하셨다면 이 영상을 꼭 시청해보세요. 포르투갈의 독립 과정과 스페인과의 복잡한 관계를 통해 유럽 역사의 흥미로운 한 단면을 이해하고, 국가 정체성과 외교의 중요성을 깨달을 수 있을 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

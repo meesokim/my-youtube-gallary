@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>시장 예측의 어려움을 깨달은 애널리스트의 경험을 시작으로, 정보 이론의 아버지 클로드 쉐넌과 수학자 에드워드 소프, 존 켈리의 이야기를 통해 자산 관리의 핵심 원칙을 탐구합니다. 특히 켈리 공식을 통해 어떤 상황에서도 파산하지 않고 자산을 가장 빠르게 불릴 수 있는 최적의 배팅 비율과 현금 보유의 중요성을 '독하게' 파고듭니다.</p>
             <ul class="points-list">
                 
-                <li>시장 예측의 한계와 원칙의 중요성: 2007년 고점에 팔았던 자사주가 20년 만에 회복된 사례처럼 시장은 예측 불가능하므로, 어떤 상황에서도 무너지지 않는 구조, 시스템, 원칙을 설계하는 것이 자산 관리의 핵심입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">시장 예측의 한계와 원칙의 중요성:</span> 2007년 고점에 팔았던 자사주가 20년 만에 회복된 사례처럼 시장은 예측 불가능하므로, 어떤 상황에서도 무너지지 않는 구조, 시스템, 원칙을 설계하는 것이 자산 관리의 핵심입니다.
+                    
+                </li>
                 
-                <li>천재들의 '독한' 탐구 정신: 정보 이론의 아버지 클로드 쉐넌과 수학자 에드워드 소프가 룰렛 예측 시스템을 8개월간 연구하고 실제 카지노에서 검증하는 등, 놀이와 도박조차 수학적으로 '독하게' 파고들어 세상을 바꾼 통찰을 얻었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">천재들의 '독한' 탐구 정신:</span> 정보 이론의 아버지 클로드 쉐넌과 수학자 에드워드 소프가 룰렛 예측 시스템을 8개월간 연구하고 실제 카지노에서 검증하는 등, 놀이와 도박조차 수학적으로 '독하게' 파고들어 세상을 바꾼 통찰을 얻었습니다.
+                    
+                </li>
                 
-                <li>켈리 공식과 파산의 수학: 존 켈리의 공식은 승률 60%일 때 전재산의 20%만 배팅하는 것이 자산을 가장 빠르게 불리는 최적의 비율임을 제시합니다. 이는 '파산의 수학'을 피하고 언제든 다시 게임에 참여할 수 있는 '입장권(현금)'을 남겨두는 '독한' 보수적 전략의 중요성을 강조합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">켈리 공식과 파산의 수학:</span> 존 켈리의 공식은 승률 60%일 때 전재산의 20%만 배팅하는 것이 자산을 가장 빠르게 불리는 최적의 비율임을 제시합니다. 이는 '파산의 수학'을 피하고 언제든 다시 게임에 참여할 수 있는 '입장권(현금)'을 남겨두는 '독한' 보수적 전략의 중요성을 강조합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상을 통해 시장의 예측 불가능성을 인정하고, 천재들이 '독하게' 탐구한 자산 관리의 본질적인 원칙을 배울 수 있습니다. 특히 켈리 공식을 통해 파산하지 않고 꾸준히 자산을 불려나가는 현명한 투자 전략과 현금 보유의 중요성을 깨달아, 흔들리는 시장 속에서도 나만의 굳건한 투자 철학을 세울 수 있을 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

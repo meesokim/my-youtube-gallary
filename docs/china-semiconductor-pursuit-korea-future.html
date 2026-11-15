@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -344,20 +456,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 미국 정부의 강력한 규제에도 불구하고 중국 반도체 산업이 어떻게 빠르게 성장하며 한국을 추격하고 있는지 분석합니다. 권석준 교수는 미국의 제재가 오히려 중국의 자립을 가속화하고 있으며, 중국의 HBM 및 첨단 패키징 기술 발전과 정부의 전폭적인 지원이 한국 반도체 시장에 심각한 위협이 될 수 있음을 경고합니다. 한국이 글로벌 반도체 시장에서 경쟁력을 유지하기 위한 새로운 차원의 혁신 전략이 필요함을 강조합니다.</p>
             <ul class="points-list">
                 
-                <li>미국 제재의 역설과 중국의 자립 가속화: 미국 정부의 강력한 제재가 오히려 중국의 자국 기술 개발 및 내수 시장 활용을 가속화하여 반도체 자립 생태계를 구축하게 만들고 있으며, 이는 장기적으로 한국에 더 큰 위협이 될 수 있음을 지적합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">미국 제재의 역설과 중국의 자립 가속화:</span> 미국 정부의 강력한 제재가 오히려 중국의 자국 기술 개발 및 내수 시장 활용을 가속화하여 반도체 자립 생태계를 구축하게 만들고 있으며, 이는 장기적으로 한국에 더 큰 위협이 될 수 있음을 지적합니다.
+                    
+                </li>
                 
-                <li>중국의 HBM 및 첨단 패키징 기술 추격: CXMT의 D램, YMTC의 낸드, 화웨이의 로직 폴딩 기술 연합을 통해 중국판 HBM이 예상보다 빠르게 현실화될 가능성이 높으며, 이는 한국 메모리 반도체 시장에 가격 경쟁력 기반의 대량 공세를 예고합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">중국의 HBM 및 첨단 패키징 기술 추격:</span> CXMT의 D램, YMTC의 낸드, 화웨이의 로직 폴딩 기술 연합을 통해 중국판 HBM이 예상보다 빠르게 현실화될 가능성이 높으며, 이는 한국 메모리 반도체 시장에 가격 경쟁력 기반의 대량 공세를 예고합니다.
+                    
+                </li>
                 
-                <li>중국 정부의 전폭적 지원과 풀스택 전략: 중앙 및 지방 정부의 막대한 자본, 인프라, R&D 지원과 화웨이의 풀스택(칩 설계부터 클라우드 서비스까지) 전략은 중국 반도체 산업의 경쟁력을 극대화하고 있으며, 한국은 새로운 차원의 혁신을 통해 격차를 벌려야 한다고 강조합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">중국 정부의 전폭적 지원과 풀스택 전략:</span> 중앙 및 지방 정부의 막대한 자본, 인프라, R&D 지원과 화웨이의 풀스택(칩 설계부터 클라우드 서비스까지) 전략은 중국 반도체 산업의 경쟁력을 극대화하고 있으며, 한국은 새로운 차원의 혁신을 통해 격차를 벌려야 한다고 강조합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                미국과 중국의 반도체 전쟁 속에서 한국의 미래를 고민하는 분이라면 이 영상을 꼭 시청해야 합니다. 권석준 교수님의 깊이 있는 분석을 통해 중국 반도체 산업의 현주소와 미래 전략, 그리고 한국이 나아가야 할 방향에 대한 통찰을 얻을 수 있을 것입니다. 급변하는 글로벌 기술 패권 경쟁에서 우리의 위치를 정확히 파악하고 대비하는 데 큰 도움이 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

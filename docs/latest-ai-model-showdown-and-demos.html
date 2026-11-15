@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>최근 며칠 사이 오픈AI, 메타, 그록 등 주요 AI 기업들이 신규 모델을 대거 출시하며 AI 시장의 경쟁이 심화되고 있습니다. 이제는 단순히 최고 성능을 넘어 비용 효율성과 실용적인 활용성에 초점을 맞추고 있으며, 특히 GPT 5.6의 디자인 판단력, 인터랙티브 설명, 서비스 구축 능력, 그리고 GPT 라이브의 실시간 통번역 기능 등 놀라운 데모 사례들을 통해 AI의 발전상을 생생하게 확인할 수 있습니다.</p>
             <ul class="points-list">
                 
-                <li>AI의 혁신적인 디자인 및 인터랙티브 구현 능력: GPT 5.6은 단 한 줄의 지시만으로 바다를 항해하는 3D 게임을 2분 만에 제작하고, 주식 투자 개념을 시각적으로 조절 가능한 인터랙티브 차트로 설명하는 등 고도화된 디자인 판단력과 사용자 경험 구현 능력을 선보였습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI의 혁신적인 디자인 및 인터랙티브 구현 능력:</span> GPT 5.6은 단 한 줄의 지시만으로 바다를 항해하는 3D 게임을 2분 만에 제작하고, 주식 투자 개념을 시각적으로 조절 가능한 인터랙티브 차트로 설명하는 등 고도화된 디자인 판단력과 사용자 경험 구현 능력을 선보였습니다.
+                    
+                </li>
                 
-                <li>AI 코딩 에이전트의 서비스 구축 경쟁력: ChatGPT의 코덱스와 클로드의 코드 에이전트가 '김덕진 답변 연대기' 웹 서비스를 구축하는 과정을 통해, ChatGPT는 빠른 디자인 구현에 강점을 보인 반면 클로드는 유튜브 API 우회 등 심층적인 데이터 분석 능력에서 우위를 보여 각 모델의 차별화된 강점을 입증했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 코딩 에이전트의 서비스 구축 경쟁력:</span> ChatGPT의 코덱스와 클로드의 코드 에이전트가 '김덕진 답변 연대기' 웹 서비스를 구축하는 과정을 통해, ChatGPT는 빠른 디자인 구현에 강점을 보인 반면 클로드는 유튜브 API 우회 등 심층적인 데이터 분석 능력에서 우위를 보여 각 모델의 차별화된 강점을 입증했습니다.
+                    
+                </li>
                 
-                <li>GPT 라이브의 혁신적인 실시간 통번역 기능: 오픈AI의 새로운 음성 모델 GPT 라이브는 AI가 사람의 맥락을 인지하며 대화에 자연스럽게 개입하고, 한국어를 영어로 실시간 동시 통역하는 놀라운 성능을 무료로 제공하며 언어 장벽을 허무는 AI의 잠재력을 보여주었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">GPT 라이브의 혁신적인 실시간 통번역 기능:</span> 오픈AI의 새로운 음성 모델 GPT 라이브는 AI가 사람의 맥락을 인지하며 대화에 자연스럽게 개입하고, 한국어를 영어로 실시간 동시 통역하는 놀라운 성능을 무료로 제공하며 언어 장벽을 허무는 AI의 잠재력을 보여주었습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                최신 AI 기술이 어디까지 발전했는지 궁금하신가요? 이 영상을 통해 오픈AI의 GPT 5.6과 클로드 등 주요 AI 모델들의 성능 비교는 물론, AI가 3D 게임을 만들고, 복잡한 주식 개념을 시각화하며, 심지어 실시간 동시 통역까지 해내는 놀라운 데모들을 직접 확인하실 수 있습니다. AI의 현재와 미래를 한눈에 파악하고, 실생활 및 비즈니스에 어떻게 적용될지 영감을 얻어가세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

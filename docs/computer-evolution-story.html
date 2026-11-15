@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 인류가 숫자를 기록하고 계산하기 시작한 4만 년 전부터 현대의 스마트폰에 이르기까지, 컴퓨터가 어떻게 발전해왔는지 그 장대한 역사를 탐구합니다. 단순한 0과 1의 원리가 수많은 발명가와 시행착오를 거쳐 오늘날 우리 삶의 필수 도구가 되기까지의 과정을 흥미롭게 조명합니다.</p>
             <ul class="points-list">
                 
-                <li>계산의 시작과 인간 컴퓨터의 시대: 고대 유물에서 주판, 그리고 '컴퓨터'라 불린 여성들의 역할까지: 4만 년 전 레본보 뼈의 새김부터 메소포타미아의 조약돌 계산, 그리고 주판의 발전까지 인류가 계산을 외부 도구에 맡겨온 역사를 다룹니다. 특히 17세기부터 수백 년간 '컴퓨터'가 계산을 잘하는 사람, 주로 여성을 지칭하는 직업명이었으며, 이들이 훗날 거대한 기계를 다루는 주역이 되었음을 설명합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">계산의 시작과 인간 컴퓨터의 시대:</span> 고대 유물에서 주판, 그리고 '컴퓨터'라 불린 여성들의 역할까지: 4만 년 전 레본보 뼈의 새김부터 메소포타미아의 조약돌 계산, 그리고 주판의 발전까지 인류가 계산을 외부 도구에 맡겨온 역사를 다룹니다. 특히 17세기부터 수백 년간 '컴퓨터'가 계산을 잘하는 사람, 주로 여성을 지칭하는 직업명이었으며, 이들이 훗날 거대한 기계를 다루는 주역이 되었음을 설명합니다.
+                    
+                </li>
                 
-                <li>프로그래밍 가능한 기계의 탄생과 이론적 토대: 베비지, 러브레이스, 불, 튜링의 선구적 발상: 1800년대 찰스 베비지의 해석 기관 설계(현대 컴퓨터의 원형)와 에이다 러브레이스의 세계 최초 프로그램 구상, 그리고 0과 1의 이진법과 불 대수, 쉐넌의 전기 회로 논리 적용, 튜링의 가상 기계(튜링 머신) 등 컴퓨터 작동의 핵심 이론적 기반이 어떻게 마련되었는지 상세히 다룹니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">프로그래밍 가능한 기계의 탄생과 이론적 토대:</span> 베비지, 러브레이스, 불, 튜링의 선구적 발상: 1800년대 찰스 베비지의 해석 기관 설계(현대 컴퓨터의 원형)와 에이다 러브레이스의 세계 최초 프로그램 구상, 그리고 0과 1의 이진법과 불 대수, 쉐넌의 전기 회로 논리 적용, 튜링의 가상 기계(튜링 머신) 등 컴퓨터 작동의 핵심 이론적 기반이 어떻게 마련되었는지 상세히 다룹니다.
+                    
+                </li>
                 
-                <li>전자 컴퓨터의 발전과 디지털 시대의 개막: 진공관에서 트랜지스터, 인터넷, 그리고 스마트폰까지: 제2차 세계대전 중 암호 해독을 위해 개발된 콜로서스와 애니악, 폰 노이만의 프로그램 내장 방식, 그리고 진공관을 대체한 트랜지스터와 집적 회로의 발명(무어의 법칙), 마이크로프로세서의 등장으로 개인용 컴퓨터 시대가 열리는 과정을 설명합니다. 나아가 GUI, 소프트웨어의 발전, 인터넷과 월드 와이드 웹의 탄생, 그리고 아이폰으로 대표되는 모바일 컴퓨팅 시대까지 디지털 혁명의 주요 전환점을 짚어줍니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">전자 컴퓨터의 발전과 디지털 시대의 개막:</span> 진공관에서 트랜지스터, 인터넷, 그리고 스마트폰까지: 제2차 세계대전 중 암호 해독을 위해 개발된 콜로서스와 애니악, 폰 노이만의 프로그램 내장 방식, 그리고 진공관을 대체한 트랜지스터와 집적 회로의 발명(무어의 법칙), 마이크로프로세서의 등장으로 개인용 컴퓨터 시대가 열리는 과정을 설명합니다. 나아가 GUI, 소프트웨어의 발전, 인터넷과 월드 와이드 웹의 탄생, 그리고 아이폰으로 대표되는 모바일 컴퓨팅 시대까지 디지털 혁명의 주요 전환점을 짚어줍니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                컴퓨터가 어떻게 우리 삶의 중심이 되었는지 궁금하신가요? 이 영상은 4만 년 전 인류의 첫 계산 시도부터 현대 스마트폰까지, 컴퓨터 발전의 모든 중요한 순간들을 생생하게 전달합니다. 기술의 거대한 흐름 속에서 수많은 천재와 평범한 사람들의 노력이 어떻게 세상을 바꾸었는지 깨닫고, 미래 기술의 방향을 통찰하는 값진 경험을 얻어가세요.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

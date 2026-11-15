@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -342,20 +454,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>최근 미일 환율 공조 개입은 일본의 저성장 돌파를 위한 경제 실험의 일환입니다. 미국은 자국 국채 시장 안정과 일본의 대미 투자 이행을, 일본은 과도한 엔저를 막고 적극 재정을 통해 경제 체질을 개선하려는 복합적인 목표를 가지고 있습니다. 이번 개입은 과거와 달리 옐런 재무장관의 전략적 개입으로 엔저 상한선을 설정하는 데 효과적일 것으로 분석됩니다.</p>
             <ul class="points-list">
                 
-                <li>미일 환율 공조의 숨겨진 의도: 미국은 자국 국채 시장 안정과 일본의 대미 투자 이행 부담 경감을 위해 엔화 강세를 유도하며, 일본은 155엔을 심리적 마지노선으로 보고 과도한 엔저를 막아 적극 재정 정책을 펼칠 시간을 벌고자 하는 양국의 복합적인 전략적 이해관계가 얽혀 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">미일 환율 공조의 숨겨진 의도:</span> 미국은 자국 국채 시장 안정과 일본의 대미 투자 이행 부담 경감을 위해 엔화 강세를 유도하며, 일본은 155엔을 심리적 마지노선으로 보고 과도한 엔저를 막아 적극 재정 정책을 펼칠 시간을 벌고자 하는 양국의 복합적인 전략적 이해관계가 얽혀 있습니다.
+                    
+                </li>
                 
-                <li>옐런 재무장관의 '화이트 해커' 전략: 과거 헤지펀드 출신인 옐런 재무장관은 시장 참가자들의 심리를 꿰뚫어 FIMA Repo 제도 도입으로 일본 중앙은행의 실탄 한계 문제를 해결하고, 의도적인 메모 유출을 통한 구두 개입으로 투기 세력에 강력한 경고를 보내 엔저의 상한선을 효과적으로 설정하는 데 기여하고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">옐런 재무장관의 '화이트 해커' 전략:</span> 과거 헤지펀드 출신인 옐런 재무장관은 시장 참가자들의 심리를 꿰뚫어 FIMA Repo 제도 도입으로 일본 중앙은행의 실탄 한계 문제를 해결하고, 의도적인 메모 유출을 통한 구두 개입으로 투기 세력에 강력한 경고를 보내 엔저의 상한선을 효과적으로 설정하는 데 기여하고 있습니다.
+                    
+                </li>
                 
-                <li>일본 적극 재정파의 '번개탄' 경제 실험: 일본의 적극 재정파는 30년 불황의 원인을 기업의 투자 부재로 진단하고, 정부가 대규모 재정 지출로 '번개탄' 역할을 하여 경제를 뜨겁게 달궈 기업 투자를 유도해야 한다고 주장합니다. 금리 인상은 경제 회복 이후로 미루고 엔저로 인한 물가 상승은 감세와 보조금으로 대응하는 시차를 둔 투자 주도 성장 전략을 펼치고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">일본 적극 재정파의 '번개탄' 경제 실험:</span> 일본의 적극 재정파는 30년 불황의 원인을 기업의 투자 부재로 진단하고, 정부가 대규모 재정 지출로 '번개탄' 역할을 하여 경제를 뜨겁게 달궈 기업 투자를 유도해야 한다고 주장합니다. 금리 인상은 경제 회복 이후로 미루고 엔저로 인한 물가 상승은 감세와 보조금으로 대응하는 시차를 둔 투자 주도 성장 전략을 펼치고 있습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                일본 경제가 왜 30년간 침체했는지, 그리고 지금 일본 정부가 어떤 파격적인 경제 실험을 하고 있는지 궁금하신가요? 이 영상을 통해 미일 환율 공조의 숨겨진 의도와 옐런 재무장관의 치밀한 전략, 그리고 일본 적극 재정파의 독특한 경제 철학까지 깊이 있게 이해할 수 있습니다. 복잡해 보이는 일본 경제의 미스터리를 명쾌하게 풀어줄 이 영상을 놓치지 마세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>최근 폭염, 폭우 등 변덕스러운 이상 기후 현상의 원인을 서울대 김정훈 교수와 함께 과학적으로 분석합니다. 열돔 현상부터 편서풍 파동의 변화, 그리고 지구온난화가 이러한 극단적인 날씨 패턴을 어떻게 심화시키는지 명확하게 설명하며, 우리가 겪는 기후 변화의 본질을 이해하는 시간을 가집니다.</p>
             <ul class="points-list">
                 
-                <li>열돔 현상과 태풍의 역설적 영향: 북태평양 고기압과 티베트 고기압의 중첩으로 발생하는 이중 열돔이 폭염을 심화시키며, 태풍이 고기압 세력을 끌어올려 폭염을 유발하거나 소멸 후 국지성 호우를 남기는 등 복합적인 기상 변화를 초래합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">열돔 현상과 태풍의 역설적 영향:</span> 북태평양 고기압과 티베트 고기압의 중첩으로 발생하는 이중 열돔이 폭염을 심화시키며, 태풍이 고기압 세력을 끌어올려 폭염을 유발하거나 소멸 후 국지성 호우를 남기는 등 복합적인 기상 변화를 초래합니다.
+                    
+                </li>
                 
-                <li>지구온난화로 인한 편서풍 파동의 변동성 증폭: 인간 활동으로 인한 CO2 증가가 극지방의 온도를 적도보다 빠르게 상승시키는 '극 증폭' 현상을 일으켜, 편서풍 파동의 구비침을 심화시키고 이동 속도를 늦춰 특정 지역에 고기압이 장기 체류하며 폭염을 장기화시키는 원인이 됩니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">지구온난화로 인한 편서풍 파동의 변동성 증폭:</span> 인간 활동으로 인한 CO2 증가가 극지방의 온도를 적도보다 빠르게 상승시키는 '극 증폭' 현상을 일으켜, 편서풍 파동의 구비침을 심화시키고 이동 속도를 늦춰 특정 지역에 고기압이 장기 체류하며 폭염을 장기화시키는 원인이 됩니다.
+                    
+                </li>
                 
-                <li>잦아지는 스콜성 국지성 호우의 원리: 지구온난화로 인해 고온다습한 기류가 중위도 지역으로 강하게 유입되고, 한국의 복잡한 산악 지형이 공기 상승을 촉진하여 작은 지역에서 갑작스럽게 강한 비구름이 형성되어 게릴라성 폭우, 즉 스콜성 강우가 빈번해지고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">잦아지는 스콜성 국지성 호우의 원리:</span> 지구온난화로 인해 고온다습한 기류가 중위도 지역으로 강하게 유입되고, 한국의 복잡한 산악 지형이 공기 상승을 촉진하여 작은 지역에서 갑작스럽게 강한 비구름이 형성되어 게릴라성 폭우, 즉 스콜성 강우가 빈번해지고 있습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                매년 심해지는 폭염과 예측 불가능한 폭우, 대체 왜 이런 걸까요? 이 영상을 통해 열돔 현상부터 편서풍 파동까지, 이상 기후의 과학적 원리와 지구온난화의 연결고리를 명확하게 이해할 수 있습니다. 복잡한 기후 변화를 쉽고 깊이 있게 배우고, 다가올 미래에 현명하게 대비할 지식을 얻어가세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

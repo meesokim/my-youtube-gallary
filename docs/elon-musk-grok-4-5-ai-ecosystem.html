@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -344,20 +456,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 일론 머스크가 설립한 스페이스X, XAI, 테슬라 등 AI 기반 생태계의 연결고리를 설명하고, 특히 그록 4.5 모델의 혁신적인 특징을 다룹니다. 커서 AI 인수합병을 통해 탄생한 그록 4.5는 압도적인 성능과 파격적인 가격 효율성을 자랑하며, AI 코딩 및 디자인 분야에 새로운 지평을 열고 있습니다.</p>
             <ul class="points-list">
                 
-                <li>그록 4.5의 압도적인 성능과 가격 혁신: 커서 AI 인수합병 이후 출시된 그록 4.5는 클로드 페이블 5를 능가하는 성능 지표를 보이며, 동시에 토큰 비용은 10분의 1 수준으로 대폭 절감하여 고성능 AI 모델의 접근성을 획기적으로 높였습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">그록 4.5의 압도적인 성능과 가격 혁신:</span> 커서 AI 인수합병 이후 출시된 그록 4.5는 클로드 페이블 5를 능가하는 성능 지표를 보이며, 동시에 토큰 비용은 10분의 1 수준으로 대폭 절감하여 고성능 AI 모델의 접근성을 획기적으로 높였습니다.
+                    
+                </li>
                 
-                <li>일론 머스크의 AI 기반 생태계 통합 전략: 페이팔, 테슬라, 스페이스X, XAI, 그리고 커서 AI까지, 일론 머스크는 이 모든 회사를 AI와 로봇, 우주 데이터 센터를 연결하는 피지컬 AI 기반의 통합 생태계로 구축하며 그록 4.5를 핵심 에이전트로 활용하고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">일론 머스크의 AI 기반 생태계 통합 전략:</span> 페이팔, 테슬라, 스페이스X, XAI, 그리고 커서 AI까지, 일론 머스크는 이 모든 회사를 AI와 로봇, 우주 데이터 센터를 연결하는 피지컬 AI 기반의 통합 생태계로 구축하며 그록 4.5를 핵심 에이전트로 활용하고 있습니다.
+                    
+                </li>
                 
-                <li>UX/UI 디자인 및 개발 환경의 변화: 그록 4.5와 같은 고성능 저비용 AI 모델의 등장은 UX/UI 디자이너와 개발자들이 '바이브 코딩' 및 '바이브 디자인'을 통해 아이디어를 빠르게 구현하고 프로덕트를 만드는 데 필요한 진입 장벽을 낮춰 새로운 창작 시대를 열 것입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">UX/UI 디자인 및 개발 환경의 변화:</span> 그록 4.5와 같은 고성능 저비용 AI 모델의 등장은 UX/UI 디자이너와 개발자들이 '바이브 코딩' 및 '바이브 디자인'을 통해 아이디어를 빠르게 구현하고 프로덕트를 만드는 데 필요한 진입 장벽을 낮춰 새로운 창작 시대를 열 것입니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                일론 머스크의 광범위한 AI 비전과 그 핵심인 그록 4.5 모델의 놀라운 성능 및 가격 효율성을 이 영상에서 확인해보세요. AI 코딩과 디자인의 미래가 어떻게 변화할지, 그리고 여러분의 업무 방식에 어떤 혁신을 가져올지 궁금하다면 이 영상을 통해 최신 AI 트렌드를 놓치지 마세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

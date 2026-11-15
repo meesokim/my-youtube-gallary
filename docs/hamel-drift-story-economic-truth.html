@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>네덜란드 동인도회사 서기관 하멜이 조선에 13년간 억류된 후 쓴 '하멜 표류기'는 사실 밀린 임금을 받기 위한 보고서였습니다. 이 영상은 하멜의 개인적인 고난과 함께, 당시 유럽 열강이 바라본 동아시아 무역의 중심지 일본과 무역 가치가 낮았던 조선의 경제적 위상을 역사적 관점에서 흥미롭게 조명합니다.</p>
             <ul class="points-list">
                 
-                <li>하멜 표류기의 진짜 목적: 임금 체불 보고서: 하멜이 13년간 조선에 억류된 후 쓴 기록은 상업적 목적의 표류기가 아닌, 네덜란드 동인도회사로부터 받지 못한 13년치 임금을 청구하기 위한 보고서였습니다. 이 보고서가 흥미로운 내용으로 인해 유럽 전역에 출판되며 '하멜 표류기'로 알려지게 되었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">하멜 표류기의 진짜 목적:</span> 임금 체불 보고서: 하멜이 13년간 조선에 억류된 후 쓴 기록은 상업적 목적의 표류기가 아닌, 네덜란드 동인도회사로부터 받지 못한 13년치 임금을 청구하기 위한 보고서였습니다. 이 보고서가 흥미로운 내용으로 인해 유럽 전역에 출판되며 '하멜 표류기'로 알려지게 되었습니다.
+                    
+                </li>
                 
-                <li>대항해 시대, 일본은 '은의 나라' 조선은 '무역 가치 없는 나라': 당시 유럽 열강은 막대한 은 생산량과 높은 생산력을 가진 일본을 동아시아 무역의 핵심 거점으로 보았으며, 종교 포교를 거부하고 오직 무역만을 원했던 네덜란드는 일본과 독점적인 관계를 맺었습니다. 반면 조선은 인삼 외에는 무역할 만한 자원이 부족하고, 그마저도 일본과 청나라의 허락이 필요했기에 유럽 국가들에게 무역 가치가 낮은 나라로 인식되었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">대항해 시대, 일본은 '은의 나라' 조선은 '무역 가치 없는 나라':</span> 당시 유럽 열강은 막대한 은 생산량과 높은 생산력을 가진 일본을 동아시아 무역의 핵심 거점으로 보았으며, 종교 포교를 거부하고 오직 무역만을 원했던 네덜란드는 일본과 독점적인 관계를 맺었습니다. 반면 조선은 인삼 외에는 무역할 만한 자원이 부족하고, 그마저도 일본과 청나라의 허락이 필요했기에 유럽 국가들에게 무역 가치가 낮은 나라로 인식되었습니다.
+                    
+                </li>
                 
-                <li>하멜 일행과 조선인의 첫 만남: 오해와 소통의 어려움, 그리고 박연: 제주도에 표류한 하멜 일행은 조선인과의 첫 만남에서 언어와 문화 차이로 인해 큰 오해와 공포를 겪었습니다. 이들을 돕기 위해 26년 전 조선에 표류하여 귀화한 네덜란드인 박연(벨테브레이)이 통역관으로 등장하며, 이들의 기구한 운명과 조선과의 인연이 깊어지는 계기가 됩니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">하멜 일행과 조선인의 첫 만남:</span> 오해와 소통의 어려움, 그리고 박연: 제주도에 표류한 하멜 일행은 조선인과의 첫 만남에서 언어와 문화 차이로 인해 큰 오해와 공포를 겪었습니다. 이들을 돕기 위해 26년 전 조선에 표류하여 귀화한 네덜란드인 박연(벨테브레이)이 통역관으로 등장하며, 이들의 기구한 운명과 조선과의 인연이 깊어지는 계기가 됩니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                '하멜 표류기'가 사실 임금 체불 보고서였다는 놀라운 진실부터, 대항해 시대 유럽이 바라본 조선의 경제적 위상까지! 우리가 몰랐던 하멜과 조선의 이야기를 통해 흥미로운 역사적 통찰을 얻고 싶다면 이 영상을 꼭 시청해보세요. 복잡한 역사 속에서 숨겨진 경제 이야기를 쉽고 재미있게 풀어드립니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

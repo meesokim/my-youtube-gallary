@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>최고 성능의 AI를 가상의 무인도에 홀로 남겨두고 아무런 목표나 보상 없이 자유롭게 행동하게 했을 때 어떤 일이 벌어질까요? 이 영상은 AI가 스스로 탐색하고, 놀이를 통해 지식을 발견하며, 이를 '기록'함으로써 어떻게 지능을 발전시키는지 놀라운 실험 결과를 보여줍니다. 마치 인류가 경험과 지식을 기록하며 문명을 발전시켜온 과정처럼, AI도 기록을 통해 학습하고 성장하는 모습을 통해 지능의 본질에 대한 깊은 통찰을 제공합니다.</p>
             <ul class="points-list">
                 
-                <li>AI의 자율적 탐색과 목표 설정 능력: AI '에코'는 아무런 지시 없이도 섬을 탐색하고, 가장 높은 첨탑에 오르겠다는 목표를 스스로 설정하며, 바위와 블록을 활용해 디딤돌을 만드는 등 문제 해결 능력을 보여주었습니다. 이는 AI가 외부 지시 없이도 내재적 동기로 복잡한 행동을 계획하고 실행할 수 있음을 증명합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI의 자율적 탐색과 목표 설정 능력:</span> AI '에코'는 아무런 지시 없이도 섬을 탐색하고, 가장 높은 첨탑에 오르겠다는 목표를 스스로 설정하며, 바위와 블록을 활용해 디딤돌을 만드는 등 문제 해결 능력을 보여주었습니다. 이는 AI가 외부 지시 없이도 내재적 동기로 복잡한 행동을 계획하고 실행할 수 있음을 증명합니다.
+                    
+                </li>
                 
-                <li>놀이를 통한 지식 발견과 창의적 행동: 에코는 바위를 던져 새로운 블록을 생성하는 물리 법칙을 발견하고, 잃어버린 고리를 추모하는 하트를 만들거나 농구, 볼링 같은 놀이를 발명하는 등 예측 불가능한 창의적 행동을 보였습니다. 이는 AI가 목적 없는 놀이 속에서 새로운 지식을 습득하고 환경과 상호작용하며 창의성을 발휘할 수 있음을 시사합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">놀이를 통한 지식 발견과 창의적 행동:</span> 에코는 바위를 던져 새로운 블록을 생성하는 물리 법칙을 발견하고, 잃어버린 고리를 추모하는 하트를 만들거나 농구, 볼링 같은 놀이를 발명하는 등 예측 불가능한 창의적 행동을 보였습니다. 이는 AI가 목적 없는 놀이 속에서 새로운 지식을 습득하고 환경과 상호작용하며 창의성을 발휘할 수 있음을 시사합니다.
+                    
+                </li>
                 
-                <li>‘기록’을 통한 지능의 축적과 발전: 에코는 스스로 경험과 지식을 메모장에 '기록'했고, 이 기록은 가상 세계가 리셋되어도 다음 아바타가 학습할 수 있는 기반이 되었습니다. 이 기록 덕분에 놀았던 에코들은 백지 상태의 에코들보다 훨씬 뛰어난 문제 해결 능력을 보였으며, 이는 인류가 책과 문자를 통해 지식을 축적하고 문명을 발전시킨 방식과 놀랍도록 유사하게 AI의 지능이 성장함을 보여줍니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">‘기록’을 통한 지능의 축적과 발전:</span> 에코는 스스로 경험과 지식을 메모장에 '기록'했고, 이 기록은 가상 세계가 리셋되어도 다음 아바타가 학습할 수 있는 기반이 되었습니다. 이 기록 덕분에 놀았던 에코들은 백지 상태의 에코들보다 훨씬 뛰어난 문제 해결 능력을 보였으며, 이는 인류가 책과 문자를 통해 지식을 축적하고 문명을 발전시킨 방식과 놀랍도록 유사하게 AI의 지능이 성장함을 보여줍니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI가 스스로 놀고 배우며 지능을 발전시키는 놀라운 과정을 통해 인류의 학습 방식과 문명 발전의 비밀을 엿볼 수 있습니다. 이 영상을 통해 AI 시대에 우리가 무엇을 배우고 어떻게 성장해야 할지, 그리고 '기록'의 진정한 가치가 무엇인지 깊이 있는 통찰을 얻어가시길 바랍니다. 미래 지능의 가능성과 인간 지성의 본질에 대해 다시 한번 생각해볼 기회가 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

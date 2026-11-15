@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>지난 반세기 동안 반복된 인플레이션은 화폐 가치 하락을 통해 부의 불평등을 심화시키며 세대와 계층 간 깊은 격차를 만들었습니다. 특히 프랑스 청년 시위는 이러한 구조적 문제가 일상생활의 고통으로 드러난 단면을 보여주며, 미국 달러 패권과 유럽의 지정학적 변화가 부의 흐름을 어떻게 재편하고 있는지 조명합니다. 결국 부의 운명은 소수의 자산가와 특정 국가에 집중되고, 그 부담은 미래 세대와 취약 계층에 전가되는 악순환을 낳고 있습니다.</p>
             <ul class="points-list">
                 
-                <li>화폐 가치 하락과 부의 집중: 1971년 닉슨 쇼크 이후 금 본위제 폐지로 국가의 무분별한 화폐 발행이 가능해졌고, 이는 인플레이션을 통해 돈의 가치를 지속적으로 하락시켰습니다. 이 과정에서 시중에 풀린 돈은 자산 가격을 밀어 올리고, 금리 인상-자산 매각-저가 매수-자산 재상승의 순환을 반복하며 실물 자산을 소수의 현금 부유층에게 집중시키는 결과를 낳았습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">화폐 가치 하락과 부의 집중:</span> 1971년 닉슨 쇼크 이후 금 본위제 폐지로 국가의 무분별한 화폐 발행이 가능해졌고, 이는 인플레이션을 통해 돈의 가치를 지속적으로 하락시켰습니다. 이 과정에서 시중에 풀린 돈은 자산 가격을 밀어 올리고, 금리 인상-자산 매각-저가 매수-자산 재상승의 순환을 반복하며 실물 자산을 소수의 현금 부유층에게 집중시키는 결과를 낳았습니다.
+                    
+                </li>
                 
-                <li>세대 및 계층 간 부의 격차 심화: 인플레이션으로 인한 자산 가격 상승은 이미 자산을 보유한 기성세대의 부를 증식시킨 반면, 월급을 모아 자산을 마련해야 하는 청년 세대에게는 불가능에 가까운 장벽이 되었습니다. 이는 프랑스 청년들의 월세, 기름값 시위처럼 일상생활의 고통으로 발현되며, 자산 유무에 따른 계층 간, 도심과 외곽 지역 간의 격차를 더욱 벌리고 사회적 갈등을 증폭시키고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">세대 및 계층 간 부의 격차 심화:</span> 인플레이션으로 인한 자산 가격 상승은 이미 자산을 보유한 기성세대의 부를 증식시킨 반면, 월급을 모아 자산을 마련해야 하는 청년 세대에게는 불가능에 가까운 장벽이 되었습니다. 이는 프랑스 청년들의 월세, 기름값 시위처럼 일상생활의 고통으로 발현되며, 자산 유무에 따른 계층 간, 도심과 외곽 지역 간의 격차를 더욱 벌리고 사회적 갈등을 증폭시키고 있습니다.
+                    
+                </li>
                 
-                <li>달러 패권과 유럽 경제의 재편: 미국은 달러의 기축 통화 지위를 유지하기 위해 유럽에 비싼 에너지를 판매하고 국방비 증액을 요구하며, 이는 유럽 경제의 자생력을 약화시키고 있습니다. 이 과정에서 미국의 에너지 기업, 글로벌 금융 자본, 현금 부유층은 이득을 얻는 반면, 유럽의 제조업과 수출 의존 국가, 그리고 미래 세대는 그 비용을 떠안게 되면서 전 세계적인 부의 재분배가 특정 방향으로 가속화되고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">달러 패권과 유럽 경제의 재편:</span> 미국은 달러의 기축 통화 지위를 유지하기 위해 유럽에 비싼 에너지를 판매하고 국방비 증액을 요구하며, 이는 유럽 경제의 자생력을 약화시키고 있습니다. 이 과정에서 미국의 에너지 기업, 글로벌 금융 자본, 현금 부유층은 이득을 얻는 반면, 유럽의 제조업과 수출 의존 국가, 그리고 미래 세대는 그 비용을 떠안게 되면서 전 세계적인 부의 재분배가 특정 방향으로 가속화되고 있습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 프랑스 청년 시위라는 표면적인 현상 뒤에 숨겨진 인플레이션, 부의 불평등, 그리고 미국 달러 패권이라는 복잡한 세계 경제의 작동 원리를 명쾌하게 분석합니다. 현재 우리가 겪는 경제적 어려움이 개인의 문제가 아닌 구조적인 결과임을 이해하고, 다가올 미래에 부의 운명이 어떻게 흘러갈지 통찰력을 얻고 싶은 분들께 강력히 추천합니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>드래곤 퀘스트의 아버지 호리이 유지가 30분 만에 AI로 만든 게임 '취조실의 코미야'를 통해 AI 시대 창작의 본질과 미래를 조명합니다. 이 영상은 AI 활용에 대한 대중의 우려와 함께, 게임 창작의 노력이 아닌 공감 능력과 인간 고유의 개성이 더욱 중요해지는 새로운 산업적 기준을 제시하는 거장의 메시지를 심층 분석합니다. 기술 발전 속에서 인간 창작자의 역할과 가치를 재정의하는 중요한 통찰을 얻을 수 있습니다.</p>
             <ul class="points-list">
                 
-                <li>AI 시대, 창작의 민주화와 인간 개성의 중요성: 호리이 유지는 '포토피아 연속 살인 사건'과 '드래곤 퀘스트'를 통해 게임 진입 장벽을 낮추는 데 평생을 바쳤으며, AI를 코딩이나 그래픽 지식 없이도 아이디어만으로 창작자가 될 수 있는 궁극의 민주화 도구로 보았습니다. 그의 AI 게임 '취조실의 코미야'는 AI가 만든 보편적인 시스템에 인간 크리에이터의 독특한 개성을 입혀 결과물의 가치를 높였음을 보여주며, 기술이 발전해도 인간 고유의 오리지널리티와 공감 능력이 최종적인 차별점이 됨을 증명합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 시대, 창작의 민주화와 인간 개성의 중요성:</span> 호리이 유지는 '포토피아 연속 살인 사건'과 '드래곤 퀘스트'를 통해 게임 진입 장벽을 낮추는 데 평생을 바쳤으며, AI를 코딩이나 그래픽 지식 없이도 아이디어만으로 창작자가 될 수 있는 궁극의 민주화 도구로 보았습니다. 그의 AI 게임 '취조실의 코미야'는 AI가 만든 보편적인 시스템에 인간 크리에이터의 독특한 개성을 입혀 결과물의 가치를 높였음을 보여주며, 기술이 발전해도 인간 고유의 오리지널리티와 공감 능력이 최종적인 차별점이 됨을 증명합니다.
+                    
+                </li>
                 
-                <li>거장의 AI 활용에 대한 대중의 공포와 시장 생태계 변화: 이름 없는 개인의 AI 활용과 달리, 호리이 유지와 같은 업계 거장의 AI 게임 출시는 현직 개발자들의 구조조정 및 신입 진입 장벽 상승에 대한 공포를 야기합니다. 대중은 AI가 무단 데이터 크롤링 및 저작권 이슈를 내포한 불투명한 툴로 인식하며, 거장이 고뇌 없이 AI를 사용해 'AI 슬롭'을 양산하고 장르의 가치를 가볍게 만들 수 있다는 비판을 제기합니다. 이는 게임 산업이 단순한 노력 투입이 아닌, 공감과 윤리적 기준을 재정립해야 하는 과도기에 있음을 시사합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">거장의 AI 활용에 대한 대중의 공포와 시장 생태계 변화:</span> 이름 없는 개인의 AI 활용과 달리, 호리이 유지와 같은 업계 거장의 AI 게임 출시는 현직 개발자들의 구조조정 및 신입 진입 장벽 상승에 대한 공포를 야기합니다. 대중은 AI가 무단 데이터 크롤링 및 저작권 이슈를 내포한 불투명한 툴로 인식하며, 거장이 고뇌 없이 AI를 사용해 'AI 슬롭'을 양산하고 장르의 가치를 가볍게 만들 수 있다는 비판을 제기합니다. 이는 게임 산업이 단순한 노력 투입이 아닌, 공감과 윤리적 기준을 재정립해야 하는 과도기에 있음을 시사합니다.
+                    
+                </li>
                 
-                <li>AI 기술 실험을 통한 미래 전략 모색과 동료 창작자를 향한 메시지: 호리이 유지는 AI를 탐구해야 할 새로운 장난감으로 여기는 도전적인 얼리 어댑터로서, '취조실의 코미야'를 통해 대중의 AI 반응을 미리 살피고 차기작 '드래곤 퀘스트 XII'의 리스크를 관리하려는 전략적 의도를 가졌습니다. 또한, 그는 인력 부족과 소통 부재로 어려움을 겪는 올드 거장들에게 AI가 핵심 기획력을 온전히 발휘할 수 있는 도구가 될 수 있음을 몸소 보여주며, 자본과 인력이 없어도 AI를 활용해 새로운 창작의 길을 열 수 있다는 희망적인 메시지를 전달합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 기술 실험을 통한 미래 전략 모색과 동료 창작자를 향한 메시지:</span> 호리이 유지는 AI를 탐구해야 할 새로운 장난감으로 여기는 도전적인 얼리 어댑터로서, '취조실의 코미야'를 통해 대중의 AI 반응을 미리 살피고 차기작 '드래곤 퀘스트 XII'의 리스크를 관리하려는 전략적 의도를 가졌습니다. 또한, 그는 인력 부족과 소통 부재로 어려움을 겪는 올드 거장들에게 AI가 핵심 기획력을 온전히 발휘할 수 있는 도구가 될 수 있음을 몸소 보여주며, 자본과 인력이 없어도 AI를 활용해 새로운 창작의 길을 열 수 있다는 희망적인 메시지를 전달합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI 시대, 게임 창작의 미래와 인간 창작자의 역할에 대해 깊이 고민하고 있다면 이 영상을 꼭 시청해보세요. 드래곤 퀘스트의 거장 호리이 유지가 AI로 만든 게임을 둘러싼 논란과 그 이면에 담긴 진정한 메시지를 통해, 기술 발전 속에서 우리가 무엇에 집중해야 할지 중요한 통찰을 얻을 수 있을 것입니다. 단순한 기술 트렌드를 넘어 창작의 본질과 공감 능력의 가치를 재발견하는 시간이 될 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 AI가 일자리를 대체한다는 통념을 깨고, 실리콘밸리 AI 리더들이 강조하는 미래 커리어 전략을 제시합니다. AI가 업무를 대체하지만 직업은 대체하지 않으며, 인간의 판단력과 커뮤니케이션 능력이 더욱 중요해지는 시대에 어떻게 준비해야 할지 구체적인 인사이트를 제공합니다. 글로벌 무대에서 AI를 파트너로 활용하여 개인의 역량을 극대화하는 방법을 배울 수 있습니다.</p>
             <ul class="points-list">
                 
-                <li>AI는 직업이 아닌 업무를 대체: AI를 잘 활용하는 사람이 진화하는 시대: 오픈AI 관계자가 "AI replaces tasks, not jobs"라고 강조했듯이, AI는 인간의 생산성을 극대화하는 도구이며, AI를 능숙하게 사용하는 개발자나 전문가의 역량은 오히려 급상승합니다. AI가 만들어낸 결과물을 판단하고 책임지는 인간의 역할이 더욱 중요해집니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI는 직업이 아닌 업무를 대체:</span> AI를 잘 활용하는 사람이 진화하는 시대: 오픈AI 관계자가 "AI replaces tasks, not jobs"라고 강조했듯이, AI는 인간의 생산성을 극대화하는 도구이며, AI를 능숙하게 사용하는 개발자나 전문가의 역량은 오히려 급상승합니다. AI가 만들어낸 결과물을 판단하고 책임지는 인간의 역할이 더욱 중요해집니다.
+                    
+                </li>
                 
-                <li>AI 시대의 핵심 역량: 판단력과 커뮤니케이션: 링크드인 조사에서 커뮤니케이션 능력이 가장 많이 찾는 역량 1위로 부상했으며, AI가 기술적 업무를 보조하면서 인간 고유의 판단력과 맥락을 이해하고 소통하는 능력이 연봉 상승과 직결되는 핵심 소프트 스킬이 되었습니다. 이제 프로그래밍 언어는 자연어가 될 것입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 시대의 핵심 역량:</span> 판단력과 커뮤니케이션: 링크드인 조사에서 커뮤니케이션 능력이 가장 많이 찾는 역량 1위로 부상했으며, AI가 기술적 업무를 보조하면서 인간 고유의 판단력과 맥락을 이해하고 소통하는 능력이 연봉 상승과 직결되는 핵심 소프트 스킬이 되었습니다. 이제 프로그래밍 언어는 자연어가 될 것입니다.
+                    
+                </li>
                 
-                <li>글로벌 무대에서 AI를 파트너로 활용: 개인의 역량을 극대화하는 기록과 공유: AI 활용이 보편화되면서 업무 방식이 비슷해지고 국제 무역이 활성화될 전망입니다. AI를 잘 쓰기 위해서는 문제 정의, 시스템화, 좋은 결과물 판단, 책임감 있는 활용이 필수적이며, 이를 위해 꾸준한 기록과 자신의 성과를 적극적으로 공유하는 글로벌 프레임의 사고방식이 중요합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">글로벌 무대에서 AI를 파트너로 활용:</span> 개인의 역량을 극대화하는 기록과 공유: AI 활용이 보편화되면서 업무 방식이 비슷해지고 국제 무역이 활성화될 전망입니다. AI를 잘 쓰기 위해서는 문제 정의, 시스템화, 좋은 결과물 판단, 책임감 있는 활용이 필수적이며, 이를 위해 꾸준한 기록과 자신의 성과를 적극적으로 공유하는 글로벌 프레임의 사고방식이 중요합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI 시대에 대한 막연한 불안감을 가지고 계신가요? 이 영상은 실리콘밸리 AI 리더들의 생생한 인사이트를 통해 AI가 당신의 일자리를 빼앗는 것이 아니라, 오히려 당신의 역량을 폭발적으로 성장시킬 기회임을 명확히 보여줍니다. 판단력과 커뮤니케이션 능력을 키우고 AI를 현명하게 활용하여 글로벌 무대에서 한 발 앞서 나갈 수 있는 실질적인 액션 플랜을 얻어가세요!
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>출판 불황 속에서도 민음사가 영업이익 72% 증가라는 이례적인 성과를 달성한 비결은 혁신적인 비즈니스 모델 변화에 있습니다. 유튜브 채널 '민음사TV'를 통한 팬덤 구축과 백리스트 도서 판매 증대, 그리고 60년간 이어온 출판 혁신 DNA가 결합되어 지속 가능한 성장을 이끌었습니다.</p>
             <ul class="points-list">
                 
-                <li>유튜브 채널 혁신: 책을 노골적으로 홍보하는 대신 내부 직원들의 솔직한 브랜딩과 소통에 집중하여 강력한 유료 팬덤을 성공적으로 형성했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">유튜브 채널 혁신:</span> 책을 노골적으로 홍보하는 대신 내부 직원들의 솔직한 브랜딩과 소통에 집중하여 강력한 유료 팬덤을 성공적으로 형성했습니다.
+                    
+                </li>
                 
-                <li>백리스트 수익 극대화: 신간 제작비 리스크를 피하고 이미 제작비가 회수된 구간 도서와 세계 문학 전집 IP 판매를 결합하여 압도적인 영업이익률을 확보했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">백리스트 수익 극대화:</span> 신간 제작비 리스크를 피하고 이미 제작비가 회수된 구간 도서와 세계 문학 전집 IP 판매를 결합하여 압도적인 영업이익률을 확보했습니다.
+                    
+                </li>
                 
-                <li>자율적 기획 문화: 책 기획과 제작 전반에 대한 편집자들의 의사결정 권한을 전적으로 신뢰하고 보장하는 '한번 해보게' 문화가 혁신의 뿌리가 되었습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">자율적 기획 문화:</span> 책 기획과 제작 전반에 대한 편집자들의 의사결정 권한을 전적으로 신뢰하고 보장하는 '한번 해보게' 문화가 혁신의 뿌리가 되었습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                출판 업계의 패러다임을 바꾼 민음사의 영리한 유튜브 소통법과 장기적인 IP 비즈니스 구조를 배울 수 있습니다. 전통 산업군에서 새로운 마케팅 돌파구를 모색하는 모든 비즈니스 리더와 기획자에게 시청을 강력히 권장합니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

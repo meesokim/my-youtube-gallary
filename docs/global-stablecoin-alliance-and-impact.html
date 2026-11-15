@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>글로벌 140여 개 기업이 연대하여 새로운 달러 기반 스테이블 코인 'OUSD'를 발행하고 유통하려는 움직임이 포착되었습니다. 이는 미국 지니어스 액트법 제정 이후 본격화된 것으로, 중남미와 아프리카 등에서 급속히 확산되는 스테이블 코인이 각국 화폐의 위상과 금융 시스템에 미치는 영향에 대해 심층적으로 분석합니다.</p>
             <ul class="points-list">
                 
-                <li>글로벌 기업 연합의 새로운 달러 스테이블 코인 발행: 비자, 마스터카드, 구글, 삼성전자 등 140여 개 글로벌 기업이 '오픈 스탠더드'라는 법인을 설립하고 달러 기반 스테이블 코인 'OUSD'를 연내 출시할 계획입니다. 이는 미국 지니어스 액트법 제정 이후 스테이블 코인 발행의 법적 근거가 마련되면서 본격화된 대규모 움직임으로, 기존 금융 및 결제 시스템을 넘어선 새로운 글로벌 결제 생태계 구축을 목표로 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">글로벌 기업 연합의 새로운 달러 스테이블 코인 발행:</span> 비자, 마스터카드, 구글, 삼성전자 등 140여 개 글로벌 기업이 '오픈 스탠더드'라는 법인을 설립하고 달러 기반 스테이블 코인 'OUSD'를 연내 출시할 계획입니다. 이는 미국 지니어스 액트법 제정 이후 스테이블 코인 발행의 법적 근거가 마련되면서 본격화된 대규모 움직임으로, 기존 금융 및 결제 시스템을 넘어선 새로운 글로벌 결제 생태계 구축을 목표로 합니다.
+                    
+                </li>
                 
-                <li>불안정한 국가의 스테이블 코인 급속 확산과 편리성: 중남미 및 아프리카 지역에서는 높은 인플레이션, 자국 화폐 가치 하락, 국가의 외환 통제, 높은 해외 송금 수수료 등의 문제로 인해 달러 기반 스테이블 코인 사용이 연평균 48%에 달하는 폭발적인 성장세를 보이고 있습니다. 스테이블 코인은 은행을 거치지 않아 수수료가 거의 없고 즉시 결제가 가능하며, 국가의 통제를 우회할 수 있어 소비자들에게 큰 편리성을 제공합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">불안정한 국가의 스테이블 코인 급속 확산과 편리성:</span> 중남미 및 아프리카 지역에서는 높은 인플레이션, 자국 화폐 가치 하락, 국가의 외환 통제, 높은 해외 송금 수수료 등의 문제로 인해 달러 기반 스테이블 코인 사용이 연평균 48%에 달하는 폭발적인 성장세를 보이고 있습니다. 스테이블 코인은 은행을 거치지 않아 수수료가 거의 없고 즉시 결제가 가능하며, 국가의 통제를 우회할 수 있어 소비자들에게 큰 편리성을 제공합니다.
+                    
+                </li>
                 
-                <li>스테이블 코인 확산이 국가 화폐 위상과 금융 시스템에 미치는 영향: 브라질과 아르헨티나처럼 스테이블 코인이 국가 결제 시스템에 연동되거나 성인 인구의 60%가 사용할 정도로 주류화되면서, 자국 화폐의 사용 비중이 줄어들고 외화 보유고에 심각한 문제가 발생하고 있습니다. 이는 국가의 통화 정책 통제력을 약화시키고 자국 화폐 가치를 위축시키며, 장기적으로는 달러의 위상을 더욱 공고히 하는 결과를 초래할 수 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">스테이블 코인 확산이 국가 화폐 위상과 금융 시스템에 미치는 영향:</span> 브라질과 아르헨티나처럼 스테이블 코인이 국가 결제 시스템에 연동되거나 성인 인구의 60%가 사용할 정도로 주류화되면서, 자국 화폐의 사용 비중이 줄어들고 외화 보유고에 심각한 문제가 발생하고 있습니다. 이는 국가의 통화 정책 통제력을 약화시키고 자국 화폐 가치를 위축시키며, 장기적으로는 달러의 위상을 더욱 공고히 하는 결과를 초래할 수 있습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 글로벌 140여 개 기업이 연대하여 새로운 달러 스테이블 코인을 발행하려는 움직임과 이것이 전 세계 금융 시장에 미칠 파급력을 심층적으로 다룹니다. 스테이블 코인이 각국 화폐의 위상과 우리의 일상 결제 방식에 어떤 변화를 가져올지 궁금하다면, 이 영상을 통해 미래 금융 트렌드에 대한 핵심 인사이트를 얻어가세요.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

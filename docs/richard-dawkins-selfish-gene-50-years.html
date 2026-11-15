@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>리처드 도킨스 교수가 그의 명저 '이기적 유전자' 출간 50주년을 맞아 심층 인터뷰를 진행합니다. 이 영상은 유전자가 자연 선택의 단위로서 어떻게 이기적인 방식으로 작동하며, 인간의 이타적 행동과 문화적 현상인 '밈'의 탄생에 어떤 영향을 미쳤는지 탐구합니다. 또한, 인간이 유전자의 '폭정'에 저항하고 미래를 계획할 수 있는 유일한 종으로서 갖는 특별한 능력에 대해 깊이 있는 통찰을 제공합니다.</p>
             <ul class="points-list">
                 
-                <li>이기적 유전자의 본질: 유전자는 자연 선택의 단위: '이기적 유전자'는 개인이 아닌 유전자가 세대를 거쳐 생존하는 자연 선택의 단위임을 의미합니다. 유전자는 자신의 복제를 최적화하기 위해 개체의 이타적인 행동을 프로그래밍할 수도 있으며, 이는 이기적인 행동의 정당화가 아닌 생존 전략의 결과입니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">이기적 유전자의 본질:</span> 유전자는 자연 선택의 단위: '이기적 유전자'는 개인이 아닌 유전자가 세대를 거쳐 생존하는 자연 선택의 단위임을 의미합니다. 유전자는 자신의 복제를 최적화하기 위해 개체의 이타적인 행동을 프로그래밍할 수도 있으며, 이는 이기적인 행동의 정당화가 아닌 생존 전략의 결과입니다.
+                    
+                </li>
                 
-                <li>밈(Meme)의 탄생과 문화적 진화: 리처드 도킨스는 유전자처럼 모방을 통해 뇌에서 뇌로 전달되는 문화적 유전의 단위를 설명하기 위해 '밈'이라는 개념을 창안했습니다. 인터넷은 밈이 전파되는 새로운 생태계를 제공하며, 이는 인간 문화의 다윈적 선택과 진화를 이해하는 중요한 틀을 제시합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">밈(Meme)의 탄생과 문화적 진화:</span> 리처드 도킨스는 유전자처럼 모방을 통해 뇌에서 뇌로 전달되는 문화적 유전의 단위를 설명하기 위해 '밈'이라는 개념을 창안했습니다. 인터넷은 밈이 전파되는 새로운 생태계를 제공하며, 이는 인간 문화의 다윈적 선택과 진화를 이해하는 중요한 틀을 제시합니다.
+                    
+                </li>
                 
-                <li>인간의 특별한 능력: 유전자의 폭정에 저항하고 미래를 계획: 인간은 유일하게 유전자의 맹목적인 복제 욕구에 저항할 수 있는 종입니다. 피임과 같은 행위나 음악, 책을 만드는 문화 활동은 유전자 복제라는 본래의 프로그래밍을 '전복'하는 것이며, 상상력을 통해 먼 미래를 계획하고 종 전체의 생존을 도모하는 이타적 행동을 가능하게 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">인간의 특별한 능력:</span> 유전자의 폭정에 저항하고 미래를 계획: 인간은 유일하게 유전자의 맹목적인 복제 욕구에 저항할 수 있는 종입니다. 피임과 같은 행위나 음악, 책을 만드는 문화 활동은 유전자 복제라는 본래의 프로그래밍을 '전복'하는 것이며, 상상력을 통해 먼 미래를 계획하고 종 전체의 생존을 도모하는 이타적 행동을 가능하게 합니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                50년 전 출간된 '이기적 유전자'가 오늘날 우리 사회와 개인의 삶에 어떤 의미를 가지는지 궁금하신가요? 리처드 도킨스 교수와의 심층 대화를 통해 유전자와 밈, 그리고 인간의 특별한 능력을 이해하며 세상을 바라보는 새로운 시각을 얻게 될 것입니다. 이 영상을 통해 과학적 진실과 인간 본성에 대한 깊이 있는 통찰을 경험하고, 우리 사회의 미래를 함께 고민하는 시간을 가져보세요.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

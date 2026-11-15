@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 노션과 AI를 활용해 모든 업무 과정을 체계적으로 기록하고 관리함으로써, 뇌의 인지 부하를 줄이고 업무 효율성을 극대화하는 방법을 소개합니다. 반복적인 작업을 AI에 맡기고 본질적인 업무에 집중하며, 미래 사업 계획까지 데이터 기반으로 수립하는 혁신적인 워크플로우를 제시합니다.</p>
             <ul class="points-list">
                 
-                <li>뇌 외주화와 인지 부하 감소: 노션에 모든 업무 기록을 체계적으로 남겨 뇌의 인지 부하를 줄이고, 중요한 본질적 업무에 집중할 수 있도록 사고 과정을 '외주화'하여 정신적 에너지를 아낄 수 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">뇌 외주화와 인지 부하 감소:</span> 노션에 모든 업무 기록을 체계적으로 남겨 뇌의 인지 부하를 줄이고, 중요한 본질적 업무에 집중할 수 있도록 사고 과정을 '외주화'하여 정신적 에너지를 아낄 수 있습니다.
+                    
+                </li>
                 
-                <li>AX(자동화 효율화)를 위한 데이터 축적: 업무 자동화 및 효율화를 위해서는 어떤 일이 반복되는지 파악하고 그 데이터를 노션에 먼저 쌓는 것이 필수적이며, 이를 통해 AI가 학습하고 업무를 자동화할 수 있는 견고한 기반을 마련합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AX(자동화 효율화)를 위한 데이터 축적:</span> 업무 자동화 및 효율화를 위해서는 어떤 일이 반복되는지 파악하고 그 데이터를 노션에 먼저 쌓는 것이 필수적이며, 이를 통해 AI가 학습하고 업무를 자동화할 수 있는 견고한 기반을 마련합니다.
+                    
+                </li>
                 
-                <li>AI 툴 연동을 통한 업무 기록 시스템 구축: 클로드, GPT 등 AI 툴과의 대화 기록까지 노션에 통합 관리함으로써, AI가 과거 데이터를 기반으로 프로젝트 초안 작성, 회의록 요약 등 다양한 업무를 자동화하고, 사용자는 본질적인 대화와 창의적 사고에 집중할 수 있게 됩니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">AI 툴 연동을 통한 업무 기록 시스템 구축:</span> 클로드, GPT 등 AI 툴과의 대화 기록까지 노션에 통합 관리함으로써, AI가 과거 데이터를 기반으로 프로젝트 초안 작성, 회의록 요약 등 다양한 업무를 자동화하고, 사용자는 본질적인 대화와 창의적 사고에 집중할 수 있게 됩니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                당신의 업무 방식에 혁신을 가져오고 싶다면 이 영상을 꼭 시청하세요. 노션과 AI를 활용해 어떻게 뇌를 '외주화'하고, 반복적인 업무에서 벗어나 핵심 가치 창출에 집중할 수 있는지 구체적인 방법을 배울 수 있습니다. 더 이상 불안함에 시달리지 않고, 오직 중요한 일에만 몰입하는 새로운 업무 경험을 시작해보세요.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

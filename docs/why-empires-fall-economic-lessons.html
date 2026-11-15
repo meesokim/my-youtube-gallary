@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -346,20 +458,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>2000년간 세계를 호령했던 로마, 스페인, 네덜란드, 대영제국이 외부의 적이 아닌 내부의 문제로 몰락한 과정을 분석합니다. 땀 흘리는 실물 경제를 외면하고 화폐 꼼수와 이자 놀음에 취한 순간, 영원할 것 같던 제국들이 어떻게 스스로 무너져 내렸는지 그 단순하고도 반복적인 공식을 명확히 보여줍니다.</p>
             <ul class="points-list">
                 
-                <li>로마 제국의 몰락: 실물 경제 외면과 화폐 사기극의 대가: 시민군 대신 용병에게 국방을 외주하고, 용병 급여를 위해 순은 함량을 낮춘 가짜 은화를 발행하여 화폐 경제를 붕괴시켰습니다. 이는 결국 내부로부터의 자멸을 초래했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">로마 제국의 몰락:</span> 실물 경제 외면과 화폐 사기극의 대가: 시민군 대신 용병에게 국방을 외주하고, 용병 급여를 위해 순은 함량을 낮춘 가짜 은화를 발행하여 화폐 경제를 붕괴시켰습니다. 이는 결국 내부로부터의 자멸을 초래했습니다.
+                    
+                </li>
                 
-                <li>스페인 제국의 몰락: 공짜 은에 취해 제조업을 버린 오만: 남미 은광에서 쏟아지는 은에 취해 노동과 제조업을 천시하고 기술자들을 내쫓았습니다. 그 결과 물가 폭등과 생산력 상실로 이어져, 결국 적국 네덜란드에 전쟁 자금과 물자를 의존하며 부도를 반복했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">스페인 제국의 몰락:</span> 공짜 은에 취해 제조업을 버린 오만: 남미 은광에서 쏟아지는 은에 취해 노동과 제조업을 천시하고 기술자들을 내쫓았습니다. 그 결과 물가 폭등과 생산력 상실로 이어져, 결국 적국 네덜란드에 전쟁 자금과 물자를 의존하며 부도를 반복했습니다.
+                    
+                </li>
                 
-                <li>네덜란드와 대영제국의 몰락: 금융업에만 몰두하여 라이벌을 키우다: 제조업 기반을 버리고 금융업(돈놀이)에만 집중한 결과, 심지어 자신들의 패권을 위협하는 라이벌 영국에 자본과 기술을 빌려주며 스스로 몰락을 자초했습니다. 이는 실물 경제를 등한시한 대가가 어떻게 패권 상실로 이어지는지 보여줍니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">네덜란드와 대영제국의 몰락:</span> 금융업에만 몰두하여 라이벌을 키우다: 제조업 기반을 버리고 금융업(돈놀이)에만 집중한 결과, 심지어 자신들의 패권을 위협하는 라이벌 영국에 자본과 기술을 빌려주며 스스로 몰락을 자초했습니다. 이는 실물 경제를 등한시한 대가가 어떻게 패권 상실로 이어지는지 보여줍니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 2000년 역사를 통해 반복되는 제국의 흥망성쇠 공식을 명쾌하게 파헤칩니다. 눈앞의 편안함과 금융 꼼수에 빠져 실물 경제를 등한시할 때 어떤 비극이 찾아오는지 생생하게 배울 수 있습니다. 현재 우리의 경제와 사회를 돌아보는 깊은 통찰을 얻고 싶다면 반드시 시청해야 할 영상입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>이 영상은 한국이 현재의 제조 강국으로 성장하기까지 단순히 경제적 노력뿐만 아니라 냉전 시대의 지정학적 상황이 얼마나 결정적인 역할을 했는지 심층적으로 분석합니다. 특히 1997년 IMF 외환 위기 이전에 한국이 겪었던 네 번의 심각한 경제 위기를 미국과 일본의 안보적 지원을 통해 어떻게 극복하고 제조업 기반을 다질 수 있었는지 구체적인 사례와 함께 설명합니다.</p>
             <ul class="points-list">
                 
-                <li>냉전 시대의 안보적 지원: 한국 경제 위기 극복의 핵심 동력: 한국은 산업화 과정에서 겪은 네 번의 심각한 외환 위기(1960년대 1차/2차 경제개발, 1차/2차 오일쇼크 및 정치 불안정 시기)를 미국과 일본의 안보적 목적의 금융 지원 덕분에 디폴트 없이 극복했습니다. 이는 한국이 공산주의 진영의 방파제 역할을 한다는 명분 아래 이루어졌습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">냉전 시대의 안보적 지원:</span> 한국 경제 위기 극복의 핵심 동력: 한국은 산업화 과정에서 겪은 네 번의 심각한 외환 위기(1960년대 1차/2차 경제개발, 1차/2차 오일쇼크 및 정치 불안정 시기)를 미국과 일본의 안보적 목적의 금융 지원 덕분에 디폴트 없이 극복했습니다. 이는 한국이 공산주의 진영의 방파제 역할을 한다는 명분 아래 이루어졌습니다.
+                    
+                </li>
                 
-                <li>제조업 성장 기반 마련: 외부 자본을 통한 인프라 및 산업 투자: 미국과 일본의 지원금은 단순히 위기 모면을 넘어, 한국이 철도, 도로, 항만 등 핵심 인프라를 구축하고, 제분, 면직, 제당 산업을 시작으로 포항제철 같은 중화학 공업을 발전시키는 데 필요한 자본으로 활용되었습니다. 이는 한국 제조업의 초기 기반을 다지는 결정적인 역할을 했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">제조업 성장 기반 마련:</span> 외부 자본을 통한 인프라 및 산업 투자: 미국과 일본의 지원금은 단순히 위기 모면을 넘어, 한국이 철도, 도로, 항만 등 핵심 인프라를 구축하고, 제분, 면직, 제당 산업을 시작으로 포항제철 같은 중화학 공업을 발전시키는 데 필요한 자본으로 활용되었습니다. 이는 한국 제조업의 초기 기반을 다지는 결정적인 역할을 했습니다.
+                    
+                </li>
                 
-                <li>지정학적 위치의 경제적 이점: 베트남전 특수와 국제적 압력: 베트남전 파병을 통해 미국으로부터 군수물자 납품 및 인프라 구축 우선권을 얻어 경제적 위기를 넘겼으며, 1980년대에는 미국이 일본에 한국 지원을 강력히 압박하여 대규모 경제 협력 자금을 유치하는 등, 한국의 지정학적 중요성이 경제적 이점으로 작용하여 제조업 성장을 위한 자금 조달에 기여했습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">지정학적 위치의 경제적 이점:</span> 베트남전 특수와 국제적 압력: 베트남전 파병을 통해 미국으로부터 군수물자 납품 및 인프라 구축 우선권을 얻어 경제적 위기를 넘겼으며, 1980년대에는 미국이 일본에 한국 지원을 강력히 압박하여 대규모 경제 협력 자금을 유치하는 등, 한국의 지정학적 중요성이 경제적 이점으로 작용하여 제조업 성장을 위한 자금 조달에 기여했습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 한국이 어떻게 현재의 제조 강국이 되었는지에 대한 흥미로운 역사적 관점을 제공합니다. 단순히 경제적 노력뿐만 아니라 냉전 시대의 지정학적 상황이 한국의 산업화와 위기 극복에 얼마나 결정적인 역할을 했는지 깊이 이해할 수 있습니다. 한국 경제의 숨겨진 성장 동력과 미래를 통찰하고 싶은 분이라면 반드시 시청해야 할 영상입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

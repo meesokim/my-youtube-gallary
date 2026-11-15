@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -340,20 +452,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>일본에서 한류는 이제 단순한 팬덤을 넘어 일상생활과 비즈니스 영역까지 깊숙이 스며들며 세대를 거쳐 확산되고 있습니다. 특히 한국어의 효율성과 한국 문화 콘텐츠의 세계적인 성공은 일본 사회에 큰 영향을 미치고 있으며, 이는 일본이 직면한 고령화와 경직된 사회 구조에 대한 성찰의 계기를 제공합니다.</p>
             <ul class="points-list">
                 
-                <li>세대와 일상에 스며든 4차 한류: K-푸드, K-뷰티, K-카페, 한국어 학습 등 한국 문화가 일본인의 삶에 깊숙이 자리 잡으며 단순한 팬덤을 넘어 비즈니스 영역까지 확장되고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">세대와 일상에 스며든 4차 한류:</span> K-푸드, K-뷰티, K-카페, 한국어 학습 등 한국 문화가 일본인의 삶에 깊숙이 자리 잡으며 단순한 팬덤을 넘어 비즈니스 영역까지 확장되고 있습니다.
+                    
+                </li>
                 
-                <li>한국어의 압도적인 효율성: 일본어 입력 방식의 비효율성과 비교하여 한국어의 빠른 입력 속도는 일본 기자들조차 놀라게 할 정도로 우수하며, 이는 한국어 학습이 개인의 커리어에 긍정적인 영향을 미친다는 인식으로 이어지고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">한국어의 압도적인 효율성:</span> 일본어 입력 방식의 비효율성과 비교하여 한국어의 빠른 입력 속도는 일본 기자들조차 놀라게 할 정도로 우수하며, 이는 한국어 학습이 개인의 커리어에 긍정적인 영향을 미친다는 인식으로 이어지고 있습니다.
+                    
+                </li>
                 
-                <li>일본 문화 콘텐츠의 쇠퇴와 한국의 '빨리빨리' 정신: 일본의 고령화된 리더십과 경직된 연공서열 문화가 새로운 감각 수용을 어렵게 하여 문화 콘텐츠 경쟁력 약화로 이어지는 반면, 한국의 '빨리빨리' 정신은 세계적인 속도에 발맞춰 문화를 확산시키는 원동력이 되고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">일본 문화 콘텐츠의 쇠퇴와 한국의 '빨리빨리' 정신:</span> 일본의 고령화된 리더십과 경직된 연공서열 문화가 새로운 감각 수용을 어렵게 하여 문화 콘텐츠 경쟁력 약화로 이어지는 반면, 한국의 '빨리빨리' 정신은 세계적인 속도에 발맞춰 문화를 확산시키는 원동력이 되고 있습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                일본 사회에 깊이 뿌리내린 한류의 현주소와 한국 문화의 놀라운 경쟁력을 이 영상을 통해 확인해 보세요. 단순한 유행을 넘어 일본인의 삶과 비즈니스에까지 영향을 미치는 한국의 힘을 이해하고, 더 나아가 일본이 한국에서 배워야 할 점과 한국 사회가 미래에 대비해야 할 과제까지 통찰력을 얻을 수 있을 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>

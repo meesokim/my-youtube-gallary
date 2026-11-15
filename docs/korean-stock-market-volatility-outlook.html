@@ -152,6 +152,117 @@
             color: #667eea;
             font-weight: bold;
         }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Buttons */
         .btn-row {
@@ -303,6 +414,7 @@
         @media (max-width: 768px) {
             .container { padding: 24px 16px 40px; }
             .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -338,20 +450,43 @@
                     allowfullscreen></iframe>
         </div>
 
-        <!-- Summary Section -->
+        <!-- Summary Section (3 Core Insights) -->
         <div class="section">
-            <div class="section-title">📋 영상 요약</div>
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
             <p>최근 한국 증시의 높은 변동성과 특정 종목 쏠림 현상에 대해 신형증권 김효진 박사가 분석합니다. 현재 시장 상황을 고점 신호가 아닌 기간 조정으로 판단하며, 금융 시장의 본질적인 쏠림 현상과 한국 증시의 특성을 심층적으로 설명합니다. 또한, AI 반도체 사이클의 잠재적 전환 요인과 약세장 진입 전 확인할 수 있는 시장 신호들을 제시하며 향후 전망을 논합니다.</p>
             <ul class="points-list">
                 
-                <li>금융 시장의 쏠림 현상은 기본값: 역사적으로 소수의 주식이 부의 상당 부분을 차지하는 것은 금융 시장의 본질적인 특성이며, 이는 한국 증시의 특정 종목 쏠림 현상도 유사한 맥락에서 이해해야 합니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">금융 시장의 쏠림 현상은 기본값:</span> 역사적으로 소수의 주식이 부의 상당 부분을 차지하는 것은 금융 시장의 본질적인 특성이며, 이는 한국 증시의 특정 종목 쏠림 현상도 유사한 맥락에서 이해해야 합니다.
+                    
+                </li>
                 
-                <li>한국 증시의 고유한 변동성 요인: 한국은 글로벌 경쟁력을 갖춘 소수 기업들이 국내 시장 규모 대비 큰 비중을 차지하여 '연못에 고래가 사는' 모습이며, 특히 AI 반도체 병목 현상에서 한국 기업의 독보적 위치가 쏠림과 변동성을 심화시키고 있습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">한국 증시의 고유한 변동성 요인:</span> 한국은 글로벌 경쟁력을 갖춘 소수 기업들이 국내 시장 규모 대비 큰 비중을 차지하여 '연못에 고래가 사는' 모습이며, 특히 AI 반도체 병목 현상에서 한국 기업의 독보적 위치가 쏠림과 변동성을 심화시키고 있습니다.
+                    
+                </li>
                 
-                <li>약세장 전환보다는 기간 조정 가능성 및 주요 신호: 현재 증시는 추가 하락보다는 기간 조정 국면에 가깝다고 판단되며, 주도주 주변부의 붕괴나 글로벌 자금의 완전한 AI 쏠림 현상이 나타나지 않는 한 급격한 약세장 전환 가능성은 낮습니다.</li>
+                <li>
+                    
+                        
+                        <span class="point-title">약세장 전환보다는 기간 조정 가능성 및 주요 신호:</span> 현재 증시는 추가 하락보다는 기간 조정 국면에 가깝다고 판단되며, 주도주 주변부의 붕괴나 글로벌 자금의 완전한 AI 쏠림 현상이 나타나지 않는 한 급격한 약세장 전환 가능성은 낮습니다.
+                    
+                </li>
                 
             </ul>
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                최근 한국 증시의 예측 불가능한 변동성 때문에 투자가 망설여지셨다면 이 영상을 꼭 시청해 보세요. 김효진 박사의 심도 있는 분석을 통해 시장의 본질을 이해하고, 현재의 쏠림 현상이 약세장의 신호인지 아니면 새로운 기회인지 명확한 인사이트를 얻어 현명한 투자 전략을 세울 수 있을 것입니다.
+            </div>
+            
         </div>
+
+        
 
         <!-- PPTX Actions -->
         <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>
