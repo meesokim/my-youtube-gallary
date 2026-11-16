@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="김난도 교수와 함께 2027년 한국인의 달라진 소비와 생활 방식을 분석합니다. 관계 중심 지출에서 개인의 실적과 결과, 그리고 자기 관리에 집중하는 변화를 조명하며, 권태 사회 속에서 촉감 경험과 '안목 자본'의 중요성을 강조합니다.">
+    <title>한국인의 소비, 관계에서 나로! 2027년, 우리는 어디에 돈과 시간을 쓸까? - 영상 요약</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(30, 30, 50, 0.8);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --accent-1: #ff6b6b;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-border: rgba(255,255,255,0.06);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Top Nav */
+        .topnav {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--card-border);
+            background: rgba(15,15,26,0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topnav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .topnav a:hover { color: var(--text-primary); }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* Meta Info */
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .category-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 8px;
+        }
+        .keyword-tag {
+            background: rgba(102,126,234,0.15);
+            color: #98a8f8;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+        }
+        .meta-stat {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Video Player */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 36px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        /* Section */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .points-list {
+            list-style: none;
+            padding: 0;
+        }
+        .points-list li {
+            position: relative;
+            padding: 12px 0 12px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .points-list li:last-child { border-bottom: none; }
+        .points-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-download {
+            background: var(--accent-gradient);
+            color: white;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+        }
+        .btn-preview {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+        .btn-preview:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .btn-preview.active {
+            background: rgba(102,126,234,0.15);
+            border-color: #667eea;
+            color: #98a8f8;
+        }
+
+        /* PPTX Preview Tabs */
+        .preview-tabs {
+            display: none;
+            margin-bottom: 28px;
+        }
+        .preview-tabs.show { display: block; }
+        .tab-header {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            border-bottom: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tab-content {
+            border: 1px solid var(--card-border);
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+
+        /* Office Viewer */
+        .office-viewer {
+            width: 100%; height: 560px; border: 0;
+            background: #111;
+        }
+
+        /* HTML Slide Preview */
+        .slide-preview {
+            background: #1a1a2e;
+            aspect-ratio: 16/9;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-preview .sp-cat {
+            color: var(--accent-1);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-title {
+            color: white;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .slide-preview .sp-divider {
+            width: 60px; height: 3px;
+            background: #64b5f6;
+            border-radius: 2px;
+            margin-bottom: 14px;
+        }
+        .slide-preview .sp-overview {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .slide-preview .sp-point {
+            color: #eee;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-footer {
+            position: absolute;
+            bottom: 16px; left: 50px;
+            color: #888;
+            font-size: 0.7rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container > * {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 40px; }
+            .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <a href="./index.html">← 갤러리로 돌아가기</a>
+    </nav>
+
+    <div class="container">
+        <div class="meta-bar">
+            <span class="category-badge">비즈니스</span>
+            
+            <span class="keyword-tag">#소비 트렌드</span>
+            
+            <span class="keyword-tag">#김난도</span>
+            
+            <span class="keyword-tag">#2027</span>
+            
+            <span class="keyword-tag">#관계 소비</span>
+            
+            <span class="keyword-tag">#자기 관리</span>
+            
+            <span class="keyword-tag">#안목 자본</span>
+            
+            <span class="keyword-tag">#권태 사회</span>
+            
+            <span class="meta-stat">👁️ 47,306</span>
+            <span class="meta-stat">❤️ 841</span>
+        </div>
+
+        <h1>한국인의 소비, 관계에서 나로! 2027년, 우리는 어디에 돈과 시간을 쓸까?</h1>
+
+        <!-- YouTube Player -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Rn5vdz6z4Ec" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+
+        <!-- Summary Section (3 Core Insights) -->
+        <div class="section">
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
+            <p>김난도 교수와 함께 2027년 한국인의 달라진 소비와 생활 방식을 분석합니다. 관계 중심 지출에서 개인의 실적과 결과, 그리고 자기 관리에 집중하는 변화를 조명하며, 권태 사회 속에서 촉감 경험과 '안목 자본'의 중요성을 강조합니다.</p>
+            <ul class="points-list">
+                
+                <li>
+                    
+                        
+                        <span class="point-title">관계 중심 소비의 종말:</span> 과거 관계 유지를 위한 술자리, 모임 지출이 줄고 개인의 실적과 결과에 집중하며 '나'에게 투자하는 경향이 강해지고 있음.
+                    
+                </li>
+                
+                <li>
+                    
+                        
+                        <span class="point-title">권태 사회와 감각의 복원:</span> 풍요로운 콘텐츠 속에서도 지루함을 느끼는 '번태 사회' 현상이 심화되며, AI 시대에 몸으로 부딪히는 촉각적 경험과 지역 축제 등 오감 만족형 소비가 부상함.
+                    
+                </li>
+                
+                <li>
+                    
+                        
+                        <span class="point-title">AI 시대의 '안목 자본':</span> AI가 효율을 극대화하는 시대에는 차별화된 취향을 넘어 타인을 설득하고 인정받는 '안목'이 중요한 자본이 되며, 이는 평소의 관심과 훈련을 통해 길러질 수 있음.
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+
+        
+        <!-- Detailed Blog Article Section -->
+        <article class="blog-article">
+            <div class="blog-header">
+                <div class="section-title" style="margin-bottom: 0;">📝 심층 정리 아티클</div>
+                <span class="blog-badge">AI 에디터 칼럼</span>
+            </div>
+
+            
+            <div class="blog-intro">
+                
+                <p>요즘 들어 "재미없다"는 말을 달고 사는 친구들이 많아졌어요. 저 역시도 끊임없이 쏟아지는 콘텐츠 속에서 뭘 봐야 할지 모르겠고, 봐도 뭔가 채워지지 않는 공허함을 느낄 때가 많았거든요. 그러다 김난도 교수님의 이 영상을 보게 됐는데, "유행도 숙제가 됐다"는 제목부터 제 마음을 꿰뚫는 것 같아 깜짝 놀랐어요.</p>
+                
+                <p>영상을 보면서 '2027년, 우리는 대체 어디에 돈과 시간을 쓰고 있을까?'라는 질문이 계속 머릿속을 맴돌더라고요. 단순히 경제 상황 때문이 아니라, 우리 사회의 근본적인 변화가 소비 패턴을 어떻게 바꾸고 있는지 궁금증이 커졌습니다. 특히 관계 중심 사회에서 개인화 시대로 넘어가는 흐름이 제게는 가장 크게 와닿았어요.</p>
+                
+            </div>
+            
+
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">1. 왜 술값은 아까운데 나를 위한 투자는 아깝지 않을까?</h2>
+                <div class="blog-section-body">
+                    
+                    <p>교수님 말씀처럼 예전에는 술값에 후했던 게 사실이죠. "내가 낼게!" 하면서 계산대 앞에서 몸싸움하던 모습, 저도 많이 봤거든요. 술이 단순히 알코올 섭취가 아니라 '관계에 투자하는 행위'였다는 교수님의 해석에 무릎을 탁 쳤어요. 낯선 사람과도 술 한잔 기울이며 유대감을 쌓고, 관계를 통해 문제를 해결하던 시대의 단면이었던 거죠.</p>
+                    
+                    <p>그런데 요즘은 술 자체를 안 마시는 사람이 늘고, 무알코올/논알코올 주류가 뜨는 현상을 보면서 정말 세상이 변했구나 싶었어요. 코로나를 겪으면서 관계가 끊어지고 개개인이 섬이 되어가면서, 이제는 관계에 쓸데없이 돈과 시간을 들이기보다 '나 자신에게 투자하자'는 패러다임이 생긴 거죠. 헬스클럽이나 피부과, 화장품 시장이 커지는 것도 이런 흐름의 연장선상에 있다는 점이 인상 깊었습니다.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “관계에 쓸데없이 돈 들이고 멈충고 투자하지 말고 나 자신에게 투자하자.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">2. 재미있는 게 넘쳐나는데, 왜 우리는 '권태 사회'에 살고 있을까?</h2>
+                <div class="blog-section-body">
+                    
+                    <p>"요즘 뭐 재밌는 일 없어?" 어릴 적 회사 선배들이 제게 묻던 질문을, 이제는 제가 어린 친구들에게 듣는다는 교수님의 이야기에 너무 공감했어요. 쇼츠, OTT 등 즐길 거리는 넘쳐나는데 왜 우리는 재미를 못 느끼고 권태로워 할까요? 교수님은 세 가지 이유를 짚어주셨는데, 알고리즘이 내가 좋아할 것만 계속 보여줘서 '새로움'이 없다는 점이 가장 와닿았어요.</p>
+                    
+                    <p>좋아요 한 번 누르면 비슷한 콘텐츠만 쏟아져 나오니, 내 취향인 것 같으면서도 식상하고 지루해지는 거죠. 게다가 도파민만 자극하는 쇼츠처럼 '의미' 없는 콘텐츠가 많다는 것도 문제였어요. 한 시간을 봐도 뭘 봤는지 기억이 안 나고, 나 자신이 고양되지 않는다는 건 정말 뼈아픈 지적이었어요. 마지막으로 '혼자 하는 경험'이 많아지면서 즐거움이 반감된다는 이야기도 깊이 생각하게 했습니다. 혼자 여행하는 게 편할 때도 있지만, 결국 함께 나눌 때 기쁨이 배가 된다는 교수님의 말씀에 고개를 끄덕였네요.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “알고리듬이 내가 좋아할 것 같은 거만 계속 보여 줘요. 그러니까 내 취향인 거 같은데 새롭지가 않아.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">3. '취미'를 넘어 '취향'으로, 그리고 '안목 자본'의 시대</h2>
+                <div class="blog-section-body">
+                    
+                    <p>취미와 취향의 차이를 설명해주신 부분도 흥미로웠어요. 과거의 취미가 수동적이고 여가 시간에 잠시 즐기는 것이었다면, 요즘의 '취향'은 훨씬 적극적이고 깊으며 나를 표현하는 수단이 된다는 거죠. DC 마블 세계관 덕후처럼, 내가 무엇에 관심 있는지로 나를 설명하는 시대가 되었다는 말이 참 공감 갔습니다. 게다가 런닝 크루나 와인 동호회처럼 취향이 비슷한 사람들끼리 모여 관계를 맺는 새로운 방식도 생겨났다고 하니, 관계의 형태가 진화하고 있다는 생각이 들었어요.</p>
+                    
+                    <p>그리고 AI 시대에 가장 중요한 키워드로 '안목'을 꼽으신 점이 제게 큰 울림을 주었습니다. AI가 모든 효율을 극대화하는 시대에, 이 파랑은 촌스럽고 저 파랑은 세련됐다고 구분하고 타인을 설득할 수 있는 '안목'이 곧 자본이 된다는 거죠. 스티브 잡스의 일화처럼 안목은 타고나는 것이 아니라 평소의 집착과 태도, 그리고 '많이 보고, 메모하고, 전문가 평 듣고, 다시 보는' 4단계 훈련을 통해 길러진다는 점이 인상 깊었어요. 저도 제 안목을 키우기 위해 노력해야겠다고 다짐했습니다.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “AI 시대에 이건 자본이 된다. 그래서 저희가 이제 안목 자본이라고 키워드를 만들었죠.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">4. 몸으로 부딪히는 '촉감' 경험의 귀환</h2>
+                <div class="blog-section-body">
+                    
+                    <p>AI와 언택트 시대에 몸으로 부딪히는 감각이 줄어들면서, 역설적으로 '촉감' 경험이 중요해진다는 교수님의 분석은 정말 신선했어요. 젊은 세대들이 손으로 만지는 장난감을 좋아하고, 지역 축제가 다시 활성화되는 현상이 바로 이런 감각의 복원을 향한 욕구라는 거죠. 모든 것이 터치스크린과 랜선으로 대체되는 세상에서, 가장 원초적인 감각인 촉감을 직접 느끼고 싶은 마음이 커진다는 점이 매우 흥미로웠습니다.</p>
+                    
+                    <p>이 부분에서 저는 디지털 피로감에 대한 해소 욕구와도 연결된다고 생각했어요. 눈과 귀를 자극하는 정보의 홍수 속에서, 오히려 몸을 움직이고 오감을 만족시키는 경험이 더욱 특별하게 다가오는 것 같아요. 앞으로는 이런 '진짜 경험'을 제공하는 비즈니스가 더욱 각광받을 것이라는 교수님의 예측에 공감하며, 저 역시 일상 속에서 더 많은 촉감 경험을 찾아 나서야겠다는 생각을 했습니다.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “AI와 인터넷 언택트가 너무 발달했다. 그래서 우리가 몸으로 부딪끼는 감각이 되게 적어졌어요.”
+                </blockquote>
+                
+            </div>
+            
+
+            
+            <div class="blog-conclusion">
+                <div class="blog-conclusion-title">💡 마무리 및 시사점</div>
+                
+                <p>영상을 다 보고 나니, 2027년의 소비 트렌드는 단순히 '무엇을 살까'를 넘어 '어떻게 살까'에 대한 근본적인 질문과 연결되어 있다는 생각이 들었어요. 관계보다 나를 우선시하고, 수동적인 즐거움보다 능동적인 취향을 찾아 나서며, AI 시대에 나만의 '안목'을 키우는 것. 이 모든 것이 결국 '나를 성장시키는 소비'로 귀결된다는 교수님의 마지막 말씀이 마음에 깊이 남았습니다.</p>
+                
+                <p>순간적인 '좋아요'에 연연하기보다, 지루한 과정을 거쳐 진정으로 내가 고양되었다고 느끼는 성장이 중요하다고 하셨죠. 저도 앞으로는 남의 시선이 아닌, 온전히 나 자신을 위한 투자와 경험에 집중하며 진짜 성장을 이루어 나가고 싶어요. 오늘부터라도 '안목'을 키우는 4단계 훈련을 차근차근 실천해봐야겠습니다!</p>
+                
+            </div>
+            
+
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                김난도 교수님의 날카로운 통찰력으로 한국인의 변화하는 소비와 생활 방식을 깊이 있게 이해할 수 있는 영상입니다. 단순히 유행을 쫓는 것이 아니라, 관계에서 개인으로, 단순한 즐거움에서 의미 있는 경험으로 변모하는 우리 사회의 흐름을 읽고 싶은 분들께 강력히 추천해요. 2027년, 내가 어디에 돈과 시간을 써야 할지 고민하는 분이라면 꼭 보시길 바랍니다!
+            </div>
+            
+        </article>
+        
+
+        <!-- PPTX Actions -->
+        <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>
+        <div class="btn-row">
+            <a href="./korean-consumer-trend-2027.pptx" class="btn btn-download" download>⬇️ PPTX 다운로드</a>
+            <button class="btn btn-preview active" id="togglePreview" onclick="togglePreview()">🙈 미리보기 닫기</button>
+        </div>
+
+        <!-- PPTX Preview -->
+        <div class="preview-tabs show" id="previewSection">
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('html')">HTML 프리뷰</button>
+                <button class="tab-btn" onclick="switchTab('office')">Office Online 뷰어</button>
+            </div>
+            <div class="tab-content">
+                <!-- HTML Rendered Slide -->
+                <div class="tab-pane active" id="tab-html">
+                    <div class="carousel-wrapper" style="position: relative; overflow: hidden; width: 100%;">
+                        
+                        <!-- Slide 1: Cover & Overview -->
+                        <div class="slide-item active-slide" id="slide-page-1">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="font-size: 1.15rem; font-weight: 700;">[ 비즈니스 ]</div>
+                                <div class="sp-title" style="font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; line-height: 1.3; color: #fff; margin-top: 10px;">한국인의 소비, 관계에서 나로! 2027년, 우리는 어디에 돈과 시간을 쓸까?</div>
+                                <div class="sp-divider" style="background: #667eea; width: 100px; height: 4px; margin: 20px 0;"></div>
+                                <div class="sp-overview" style="font-size: 1.35rem; line-height: 1.8; color: var(--text-secondary);">김난도 교수와 함께 2027년 한국인의 달라진 소비와 생활 방식을 분석합니다. 관계 중심 지출에서 개인의 실적과 결과, 그리고 자기 관리에 집중하는 변화를 조명하며, 권태 사회 속에서 촉감 경험과 '안목 자본'의 중요성을 강조합니다.</div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 1 / 5 (Cover)</div>
+                            </div>
+                        </div>
+
+                        <!-- Slides 2, 3, 4: Insights -->
+                        
+                        <div class="slide-item" id="slide-page-2" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 01 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">관계 중심 소비의 종말</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">과거 관계 유지를 위한 술자리, 모임 지출이 줄고 개인의 실적과 결과에 집중하며 '나'에게 투자하는 경향이 강해지고 있음.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 2 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-3" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 02 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">권태 사회와 감각의 복원</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">풍요로운 콘텐츠 속에서도 지루함을 느끼는 '번태 사회' 현상이 심화되며, AI 시대에 몸으로 부딪히는 촉각적 경험과 지역 축제 등 오감 만족형 소비가 부상함.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 3 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-4" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 03 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">AI 시대의 '안목 자본'</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">AI가 효율을 극대화하는 시대에는 차별화된 취향을 넘어 타인을 설득하고 인정받는 '안목'이 중요한 자본이 되며, 이는 평소의 관심과 훈련을 통해 길러질 수 있음.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 4 / 5</div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Slide 5: Outro & Recommendation -->
+                        <div class="slide-item" id="slide-page-5" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #ff6b6b; font-weight: bold; font-size: 0.9rem; margin-bottom: 12px;">🎯 AI 추천사 및 시청 가치</div>
+                                <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.6; color: var(--text-primary); font-style: italic; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                                    "김난도 교수님의 날카로운 통찰력으로 한국인의 변화하는 소비와 생활 방식을 깊이 있게 이해할 수 있는 영상입니다. 단순히 유행을 쫓는 것이 아니라, 관계에서 개인으로, 단순한 즐거움에서 의미 있는 경험으로 변모하는 우리 사회의 흐름을 읽고 싶은 분들께 강력히 추천해요. 2027년, 내가 어디에 돈과 시간을 써야 할지 고민하는 분이라면 꼭 보시길 바랍니다!"
+                                </div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">
+                                    Keywords: 소비 트렌드, 김난도, 2027, 관계 소비, 자기 관리, 안목 자본, 권태 사회 | 🔗 https://youtu.be/Rn5vdz6z4Ec | Slide 5 / 5
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slide Controller buttons -->
+                    <div class="slide-controls" style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 10px;">
+                        <button class="btn btn-preview" onclick="prevSlide()" id="btn-prev-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">◀ 이전</button>
+                        <span id="slide-indicator" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">1 / 5</span>
+                        <button class="btn btn-preview" onclick="nextSlide()" id="btn-next-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">다음 ▶</button>
+                    </div>
+
+                    <!-- Inline Slider JS -->
+                    <script>
+                        let currentSlideIndex = 1;
+                        const totalSlides = 5;
+
+                        function updateSlideUI() {
+                            // 모든 슬라이드 숨기기
+                            for (let i = 1; i <= totalSlides; i++) {
+                                const slide = document.getElementById('slide-page-' + i);
+                                if (slide) {
+                                    if (i === currentSlideIndex) {
+                                        slide.style.display = 'block';
+                                    } else {
+                                        slide.style.display = 'none';
+                                    }
+                                }
+                            }
+                            // 인디케이터 업데이트
+                            document.getElementById('slide-indicator').textContent = currentSlideIndex + ' / ' + totalSlides;
+                            
+                            // 버튼 비활성화 및 불투명도 조절
+                            const btnPrev = document.getElementById('btn-prev-slide');
+                            const btnNext = document.getElementById('btn-next-slide');
+                            
+                            btnPrev.disabled = (currentSlideIndex === 1);
+                            btnNext.disabled = (currentSlideIndex === totalSlides);
+                            
+                            btnPrev.style.opacity = (currentSlideIndex === 1) ? '0.4' : '1';
+                            btnNext.style.opacity = (currentSlideIndex === totalSlides) ? '0.4' : '1';
+                            btnPrev.style.cursor = (currentSlideIndex === 1) ? 'not-allowed' : 'pointer';
+                            btnNext.style.cursor = (currentSlideIndex === totalSlides) ? 'not-allowed' : 'pointer';
+                        }
+
+                        function nextSlide() {
+                            if (currentSlideIndex < totalSlides) {
+                                currentSlideIndex++;
+                                updateSlideUI();
+                            }
+                        }
+
+                        function prevSlide() {
+                            if (currentSlideIndex > 1) {
+                                currentSlideIndex--;
+                                updateSlideUI();
+                            }
+                        }
+
+                        // DOM 로드 완료 후 실행
+                        document.addEventListener("DOMContentLoaded", function() {
+                            updateSlideUI();
+                        });
+                    </script>
+                </div>
+                <!-- Office Online Viewer -->
+                <div class="tab-pane" id="tab-office">
+                    <iframe class="office-viewer" 
+                            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A//meesokim.github.io/my-youtube-gallary/korean-consumer-trend-2027.pptx"
+                            loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comments Section (Utterances) -->
+        
+        <div class="section-title" style="margin-top: 40px; margin-bottom: 16px;">💬 댓글 및 의견</div>
+        <div class="section" style="padding: 20px; background: rgba(30, 30, 50, 0.4); border-radius: 16px; border: 1px solid var(--card-border);">
+            <script src="https://utteranc.es/client.js"
+                    repo="meesokim/my-youtube-gallary"
+                    issue-number="85"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        
+    </div>
+
+    <footer class="footer">
+        Powered by Gemini AI · <a href="./index.html" style="color:#667eea;text-decoration:none;">갤러리로 돌아가기</a>
+    </footer>
+
+    <script>
+    function togglePreview() {
+        const section = document.getElementById('previewSection');
+        const btn = document.getElementById('togglePreview');
+        const isVisible = section.classList.toggle('show');
+        btn.classList.toggle('active', isVisible);
+        btn.textContent = isVisible ? '🙈 미리보기 닫기' : '👁️ 슬라이드 미리보기';
+    }
+
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    </script>
+</body>
+</html>
