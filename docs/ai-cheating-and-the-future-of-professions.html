@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="최근 세무사 시험에서 AI 컨닝 논란이 불거지며 전문직 시험의 공정성과 존재 이유에 대한 근본적인 질문이 제기되었습니다. AI 기술의 발전은 컨닝 장비의 고도화와 맞물려 기존 시험 시스템의 한계를 드러냈으며, 이는 전문직의 역할 변화와 새로운 평가 방식의 필요성을 시사">
+    <title>AI 컨닝이 불러온 전문직 종말론? 시험의 의미를 다시 생각하다 - 영상 요약</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(30, 30, 50, 0.8);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --accent-1: #ff6b6b;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-border: rgba(255,255,255,0.06);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Top Nav */
+        .topnav {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--card-border);
+            background: rgba(15,15,26,0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topnav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .topnav a:hover { color: var(--text-primary); }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* Meta Info */
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .category-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 8px;
+        }
+        .keyword-tag {
+            background: rgba(102,126,234,0.15);
+            color: #98a8f8;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+        }
+        .meta-stat {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Video Player */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 36px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        /* Section */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .points-list {
+            list-style: none;
+            padding: 0;
+        }
+        .points-list li {
+            position: relative;
+            padding: 12px 0 12px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .points-list li:last-child { border-bottom: none; }
+        .points-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-download {
+            background: var(--accent-gradient);
+            color: white;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+        }
+        .btn-preview {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+        .btn-preview:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .btn-preview.active {
+            background: rgba(102,126,234,0.15);
+            border-color: #667eea;
+            color: #98a8f8;
+        }
+
+        /* PPTX Preview Tabs */
+        .preview-tabs {
+            display: none;
+            margin-bottom: 28px;
+        }
+        .preview-tabs.show { display: block; }
+        .tab-header {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            border-bottom: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tab-content {
+            border: 1px solid var(--card-border);
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+
+        /* Office Viewer */
+        .office-viewer {
+            width: 100%; height: 560px; border: 0;
+            background: #111;
+        }
+
+        /* HTML Slide Preview */
+        .slide-preview {
+            background: #1a1a2e;
+            aspect-ratio: 16/9;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-preview .sp-cat {
+            color: var(--accent-1);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-title {
+            color: white;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .slide-preview .sp-divider {
+            width: 60px; height: 3px;
+            background: #64b5f6;
+            border-radius: 2px;
+            margin-bottom: 14px;
+        }
+        .slide-preview .sp-overview {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .slide-preview .sp-point {
+            color: #eee;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-footer {
+            position: absolute;
+            bottom: 16px; left: 50px;
+            color: #888;
+            font-size: 0.7rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container > * {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 40px; }
+            .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <a href="./index.html">← 갤러리로 돌아가기</a>
+    </nav>
+
+    <div class="container">
+        <div class="meta-bar">
+            <span class="category-badge">AI</span>
+            
+            <span class="keyword-tag">#AI 컨닝</span>
+            
+            <span class="keyword-tag">#전문직 종말</span>
+            
+            <span class="keyword-tag">#AI 시험</span>
+            
+            <span class="keyword-tag">#최신 AI 모델</span>
+            
+            <span class="keyword-tag">#구글 제미나이</span>
+            
+            <span class="keyword-tag">#엔트로픽 클로드</span>
+            
+            <span class="keyword-tag">#GPT 6.2</span>
+            
+            <span class="keyword-tag">#AI 안경</span>
+            
+            <span class="keyword-tag">#로봇</span>
+            
+            <span class="meta-stat">👁️ 3,825</span>
+            <span class="meta-stat">❤️ 111</span>
+        </div>
+
+        <h1>AI 컨닝이 불러온 전문직 종말론? 시험의 의미를 다시 생각하다</h1>
+
+        <!-- YouTube Player -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/ZKKP6jbdNbg" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+
+        <!-- Summary Section (3 Core Insights) -->
+        <div class="section">
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
+            <p>최근 세무사 시험에서 AI 컨닝 논란이 불거지며 전문직 시험의 공정성과 존재 이유에 대한 근본적인 질문이 제기되었습니다. AI 기술의 발전은 컨닝 장비의 고도화와 맞물려 기존 시험 시스템의 한계를 드러냈으며, 이는 전문직의 역할 변화와 새로운 평가 방식의 필요성을 시사합니다.</p>
+            <ul class="points-list">
+                
+                <li>
+                    
+                        
+                        <span class="point-title">AI 컨닝의 충격적 실체:</span> 세무사 시험 수석 합격자가 초소형 카메라와 블루투스 이어폰, AI를 활용한 부정행위로 적발되며, 인간이 풀 수 없는 점수를 기록했습니다. 이는 시험 현장에서 AI 컨닝을 물리적으로 막는 것이 사실상 불가능함을 보여줍니다.
+                    
+                </li>
+                
+                <li>
+                    
+                        
+                        <span class="point-title">전문직 시험 무용론과 역할 변화:</span> AI가 이미 만점에 가깝게 풀 수 있는 시험을 인간이 보는 것의 의미가 사라지고 있으며, 전문직의 역할 또한 AI를 활용하여 실제 기업 문제의 중대한 실수를 잡아내는 'AX 인재'로 변화해야 함을 강조합니다.
+                    
+                </li>
+                
+                <li>
+                    
+                        
+                        <span class="point-title">초지수적 AI 발전과 사회적 파급:</span> 페이블 5.2, 제미나이 4, GPT 6.2 아스트라 등 최신 AI 모델들이 압도적인 성능과 활용 범위를 보여주며, 이는 시험, 직업, 산업 전반에 걸쳐 예상치 못한 변화와 윤리적, 사회적 논의를 촉발하고 있습니다.
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+
+        
+        <!-- Detailed Blog Article Section -->
+        <article class="blog-article">
+            <div class="blog-header">
+                <div class="section-title" style="margin-bottom: 0;">📝 심층 정리 아티클</div>
+                <span class="blog-badge">AI 에디터 칼럼</span>
+            </div>
+
+            
+            <div class="blog-intro">
+                
+                <p>요즘 AI 뉴스들을 볼 때마다 정말 깜짝깜짝 놀라요. 이번 영상도 마찬가지였어요. 제목만 보고 'AI 컨닝? 또 무슨 일이지?' 싶었는데, 세무사 시험에서 수석 합격자가 AI 부정행위로 적발됐다는 소식에 정말이지 입이 떡 벌어졌습니다. 심지어 AI가 아니면 인간은 도저히 맞을 수 없는 점수였다고 하니, 이건 그냥 컨닝을 넘어선 새로운 차원의 문제더라고요.</p>
+                
+                <p>영상을 보면서 '와, 저 정도까지 가능하다고?' 싶을 정도로 고도화된 컨닝 장비들에 충격을 받았습니다. 단순히 시험 한두 번의 문제가 아니라, 앞으로 우리 사회의 교육 시스템, 나아가 '전문직'이라는 개념 자체를 송두리째 흔들 수 있는 심각한 문제라는 생각이 들었어요. 과연 우리는 이 변화에 어떻게 대응해야 할까요?</p>
+                
+            </div>
+            
+
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">1. 세무사 시험 AI 컨닝, 정말 잡을 방법이 없다고?</h2>
+                <div class="blog-section-body">
+                    
+                    <p>이번 세무사 시험 수석 합격자의 AI 컨닝 소식은 정말 충격적이었어요. 초소형 카메라로 시험지를 찍어 AI로 전송하고, 블루투스 이어폰으로 답을 받는 방식이라니… 상상만 해도 영화 같은 이야기인데, 이게 현실에서 벌어졌다는 게 믿기지 않더라고요. 영상에서는 심지어 귀 안에 수술로 이식하는 초소형 이어폰이나 볼펜, 지우개 안에 숨기는 4K 카메라 같은 장비들을 보여주는데, '이걸 어떻게 다 잡아내지?' 하는 생각에 아찔했습니다.</p>
+                    
+                    <p>이 대목에서 저는 솔직히 좀 무서웠어요. 수능도 얼마 안 남았는데 이런 장비들이 판을 친다면 정말 큰 혼란이 올 것 같았거든요. 영상에서도 "엑스레이로도 못 잡을 수 있다. 수술로 피부에 장착하는 건 잡을 방법이 없다"고 하는데, 그럼 도대체 어떻게 해야 할까요? 단순히 시험장 감독을 강화하는 수준으로는 절대 막을 수 없는 문제라는 걸 뼈저리게 느꼈습니다.</p>
+                    
+                    <p>결국 영상에서는 "시험이 바뀌어야 한다"는 결론을 내리더라고요. AI가 이미 만점에 가깝게 풀 수 있는 시험을 굳이 인간이 봐야 할 의미가 없다는 거죠. 이 말에 정말 공감했어요. 시대가 이렇게 변했는데, 시험 방식은 왜 그대로여야 하는지 의문이 들었습니다.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “이제는 AI를 풀로 활용한 실전 프로젝트로 가야 됩니다. 시험이 의미가 없다. 전문직 의미가 없다.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">2. AI가 만점 받는 시험, 전문직은 이제 필요 없는 걸까?</h2>
+                <div class="blog-section-body">
+                    
+                    <p>AI 컨닝 이슈는 단순히 부정행위 문제를 넘어, '전문직의 종말'이라는 더 큰 질문을 던졌습니다. 영상에서 "전문직이라는 것도 필요한가라는 의문까지 번진다"는 말이 나오는데, 정말 섬뜩하면서도 현실적인 이야기라고 생각했어요. AI가 세무사 시험을 만점에 가깝게 풀 수 있다면, 과연 인간 세무사의 역할은 무엇일까요?</p>
+                    
+                    <p>강사님은 카카오의 AI 탑백 시험이나 조코딩 AX 파트너스의 사례처럼, AI를 활용해서 실제 기업의 중대한 문제를 해결하는 능력을 평가하는 방식으로 시험이 바뀌어야 한다고 강조했어요. 단순히 지식을 암기하고 문제를 푸는 것을 넘어, AI를 도구로 삼아 실제 세계의 복잡한 문제를 해결하는 'AX 인재'가 필요하다는 거죠. 이 부분이 개인적으로 제일 크게 와닿았습니다. 이제는 AI를 얼마나 잘 활용해서 새로운 가치를 창출할 수 있느냐가 핵심 역량이 되는 시대라는 걸 다시 한번 깨달았어요.</p>
+                    
+                    <p>저도 예전에는 '전문직' 하면 안정적이고 탄탄한 직업이라는 인식이 강했는데, 이제는 그런 고정관념에서 벗어나야 한다는 생각이 들어요. 빠르게 변하는 시대에 맞춰 우리 스스로도 계속해서 배우고 변화하지 않으면, 정말 '종말'이 올 수도 있겠다는 위기감마저 들었습니다.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “AI 없이 보는 시험은 의미가 없는 것 같습니다. 사실 이제 전문직이라는 것도 필요한가라는 의문까지도 번지는데.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">3. 클로드, 제미나이, GPT… AI는 쉬지 않고 발전 중!</h2>
+                <div class="blog-section-body">
+                    
+                    <p>영상 후반부에는 정말 눈 돌아갈 정도로 많은 최신 AI 소식들이 쏟아졌어요. 엔트로픽의 클로드(Claude)가 마이크로소프트 365의 대규모 장애를 틈타 화이트보드, 시트, 미팅스 같은 업무용 도구들을 출시하며 MS를 위협하는 모습은 인상 깊었습니다. 특히 클로드가 회의에 참여해서 실시간으로 회의록을 정리하고 업무 계획까지 세워준다는 점은 정말 탐나더라고요.</p>
+                    
+                    <p>구글의 제미나이 4 카본과 하이드로젠, 그리고 오픈AI의 GPT 6.2 솔과 아스트라 유출 소식도 흥미로웠습니다. 특히 GPT 6.2 아스트라가 해킹 벤치마크에서 압도적인 점수를 기록했다는 부분에서는 '이게 해킹에 사용되면 어떻게 될까?' 하는 걱정이 들기도 했어요. 기술의 발전이 양날의 검이라는 걸 다시 한번 느끼는 순간이었습니다.</p>
+                    
+                    <p>음악, 이미지, 음성 등 다양한 분야에서 AI 모델들이 계속해서 놀라운 성능을 보여주는 것도 신기했어요. AI가 부른 노래가 멜론 차트 1위를 하고, 10초 만에 4K 이미지를 생성하는 오픈소스 모델까지 나왔다니, 정말 AI가 못하는 게 없는 세상이 되어가는 것 같아요.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “시간이 지날수록 알고리즘이나 이런 걸 다 효율적으로 짤 테니까. 그래서 이것만 봐도 와 이게 상승세가 어마어마하네라고 생각이 드는데 이게 로그 스케일이에요.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">4. 내 지갑부터 로봇, 심지어 에어팟까지? 일상 속 AI의 진화</h2>
+                <div class="blog-section-body">
+                    
+                    <p>AI 기술이 단순히 거대 모델 개발에만 그치는 것이 아니라, 우리 일상 속으로 깊숙이 파고들고 있다는 점도 주목할 만했습니다. 구글 글래스(AI 안경)가 젠틀몬스터와 협업해서 출시된 소식은 정말 흥미로웠어요. '헤이 제미나이, 이거 뭐야?' 하면 바로 정보를 알려주고 쇼핑 리스트에 추가해주는 모습은 미래 기술이 더 이상 멀리 있지 않다는 걸 보여줬죠. 아쉽게도 저는 품절이라 못 샀지만요!</p>
+                    
+                    <p>로봇 분야에서도 엄청난 발전이 있었어요. OpenAI가 로봇 특화 모델 대신 범용 모델로 로봇을 제어하기 시작했다는 것, 그리고 단 50번의 시연만으로 복잡한 작업을 학습하는 플래시 AROA 같은 기술들은 로봇의 대중화를 앞당길 것 같았습니다. 심지어 에어팟만으로 전신 풀 트래킹이 가능한 오픈소스 기술까지 나왔다고 하니, AI가 정말 다양한 형태로 우리 주변에 스며들고 있다는 걸 실감했어요.</p>
+                    
+                    <p>이런 기술들이 정말 빠르게 발전하고 있다는 걸 보면서, '나도 뒤처지지 않으려면 정말 열심히 공부하고 적용해봐야겠다'는 다짐을 하게 되더라고요. 특히 조코딩님의 책으로 1인 창업해서 48시간 만에 4억 넘게 벌었다는 게임 개발자 분 이야기는 정말 자극이 됐습니다.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “이제는 로봇 특화된 모델을 하기보다는 그냥 GPT6 아스트라 같은 범용 모델에게 로봇에 직접 적용할 수 있다.”
+                </blockquote>
+                
+            </div>
+            
+
+            
+            <div class="blog-conclusion">
+                <div class="blog-conclusion-title">💡 마무리 및 시사점</div>
+                
+                <p>이번 영상을 보면서 AI가 우리 사회에 미치는 영향이 생각보다 훨씬 더 광범위하고 깊다는 것을 다시 한번 깨달았습니다. 단순한 기술 발전을 넘어, 교육, 직업, 윤리, 심지어는 인간의 존재 방식에 대한 근본적인 질문들을 던지고 있다는 생각이 들어요. 특히 AI 컨닝 문제는 '시험'이라는 전통적인 평가 방식의 의미를 완전히 바꿔놓을 수도 있겠다는 충격이 컸습니다.</p>
+                
+                <p>하지만 동시에 이런 변화가 새로운 기회가 될 수도 있다는 희망도 보았어요. AI를 도구로 삼아 창의적으로 문제를 해결하고, 새로운 가치를 만들어내는 능력이야말로 앞으로 우리가 갖춰야 할 핵심 역량이 아닐까 싶습니다. 저도 이 영상을 계기로 '어떻게 하면 AI를 더 잘 활용해서 내 일을 더 효율적으로 만들고, 더 나아가 새로운 가치를 창출할 수 있을까?' 하는 고민을 진지하게 해보게 됐습니다. 당장 작은 것부터라도 AI를 적극적으로 활용해보는 시도를 해봐야겠다고 다짐합니다!</p>
+                
+            </div>
+            
+
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                이 영상은 AI 기술이 얼마나 빠르게 발전하고 있는지, 그리고 그 발전이 우리 사회의 교육, 직업, 윤리 등 전반에 어떤 영향을 미치고 있는지 생생하게 보여줍니다. 특히 AI 컨닝 사례를 통해 미래 사회의 변화를 뼈저리게 느끼고, 앞으로 우리가 무엇을 준비해야 할지 진지하게 고민해보고 싶은 분들께 강력히 추천해요. 최신 AI 트렌드를 한눈에 파악하고 미래를 대비하는 데 큰 인사이트를 얻으실 수 있을 거예요!
+            </div>
+            
+        </article>
+        
+
+        <!-- PPTX Actions -->
+        <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>
+        <div class="btn-row">
+            <a href="./ai-cheating-and-the-future-of-professions.pptx" class="btn btn-download" download>⬇️ PPTX 다운로드</a>
+            <button class="btn btn-preview active" id="togglePreview" onclick="togglePreview()">🙈 미리보기 닫기</button>
+        </div>
+
+        <!-- PPTX Preview -->
+        <div class="preview-tabs show" id="previewSection">
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('html')">HTML 프리뷰</button>
+                <button class="tab-btn" onclick="switchTab('office')">Office Online 뷰어</button>
+            </div>
+            <div class="tab-content">
+                <!-- HTML Rendered Slide -->
+                <div class="tab-pane active" id="tab-html">
+                    <div class="carousel-wrapper" style="position: relative; overflow: hidden; width: 100%;">
+                        
+                        <!-- Slide 1: Cover & Overview -->
+                        <div class="slide-item active-slide" id="slide-page-1">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="font-size: 1.15rem; font-weight: 700;">[ AI ]</div>
+                                <div class="sp-title" style="font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; line-height: 1.3; color: #fff; margin-top: 10px;">AI 컨닝이 불러온 전문직 종말론? 시험의 의미를 다시 생각하다</div>
+                                <div class="sp-divider" style="background: #667eea; width: 100px; height: 4px; margin: 20px 0;"></div>
+                                <div class="sp-overview" style="font-size: 1.35rem; line-height: 1.8; color: var(--text-secondary);">최근 세무사 시험에서 AI 컨닝 논란이 불거지며 전문직 시험의 공정성과 존재 이유에 대한 근본적인 질문이 제기되었습니다. AI 기술의 발전은 컨닝 장비의 고도화와 맞물려 기존 시험 시스템의 한계를 드러냈으며, 이는 전문직의 역할 변화와 새로운 평가 방식의 필요성을 시사합니다.</div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 1 / 5 (Cover)</div>
+                            </div>
+                        </div>
+
+                        <!-- Slides 2, 3, 4: Insights -->
+                        
+                        <div class="slide-item" id="slide-page-2" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 01 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">AI 컨닝의 충격적 실체</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">세무사 시험 수석 합격자가 초소형 카메라와 블루투스 이어폰, AI를 활용한 부정행위로 적발되며, 인간이 풀 수 없는 점수를 기록했습니다. 이는 시험 현장에서 AI 컨닝을 물리적으로 막는 것이 사실상 불가능함을 보여줍니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 2 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-3" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 02 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">전문직 시험 무용론과 역할 변화</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">AI가 이미 만점에 가깝게 풀 수 있는 시험을 인간이 보는 것의 의미가 사라지고 있으며, 전문직의 역할 또한 AI를 활용하여 실제 기업 문제의 중대한 실수를 잡아내는 'AX 인재'로 변화해야 함을 강조합니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 3 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-4" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 03 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">초지수적 AI 발전과 사회적 파급</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">페이블 5.2, 제미나이 4, GPT 6.2 아스트라 등 최신 AI 모델들이 압도적인 성능과 활용 범위를 보여주며, 이는 시험, 직업, 산업 전반에 걸쳐 예상치 못한 변화와 윤리적, 사회적 논의를 촉발하고 있습니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 4 / 5</div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Slide 5: Outro & Recommendation -->
+                        <div class="slide-item" id="slide-page-5" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #ff6b6b; font-weight: bold; font-size: 0.9rem; margin-bottom: 12px;">🎯 AI 추천사 및 시청 가치</div>
+                                <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.6; color: var(--text-primary); font-style: italic; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                                    "이 영상은 AI 기술이 얼마나 빠르게 발전하고 있는지, 그리고 그 발전이 우리 사회의 교육, 직업, 윤리 등 전반에 어떤 영향을 미치고 있는지 생생하게 보여줍니다. 특히 AI 컨닝 사례를 통해 미래 사회의 변화를 뼈저리게 느끼고, 앞으로 우리가 무엇을 준비해야 할지 진지하게 고민해보고 싶은 분들께 강력히 추천해요. 최신 AI 트렌드를 한눈에 파악하고 미래를 대비하는 데 큰 인사이트를 얻으실 수 있을 거예요!"
+                                </div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">
+                                    Keywords: AI 컨닝, 전문직 종말, AI 시험, 최신 AI 모델, 구글 제미나이, 엔트로픽 클로드, GPT 6.2, AI 안경, 로봇 | 🔗 https://youtu.be/ZKKP6jbdNbg | Slide 5 / 5
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slide Controller buttons -->
+                    <div class="slide-controls" style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 10px;">
+                        <button class="btn btn-preview" onclick="prevSlide()" id="btn-prev-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">◀ 이전</button>
+                        <span id="slide-indicator" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">1 / 5</span>
+                        <button class="btn btn-preview" onclick="nextSlide()" id="btn-next-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">다음 ▶</button>
+                    </div>
+
+                    <!-- Inline Slider JS -->
+                    <script>
+                        let currentSlideIndex = 1;
+                        const totalSlides = 5;
+
+                        function updateSlideUI() {
+                            // 모든 슬라이드 숨기기
+                            for (let i = 1; i <= totalSlides; i++) {
+                                const slide = document.getElementById('slide-page-' + i);
+                                if (slide) {
+                                    if (i === currentSlideIndex) {
+                                        slide.style.display = 'block';
+                                    } else {
+                                        slide.style.display = 'none';
+                                    }
+                                }
+                            }
+                            // 인디케이터 업데이트
+                            document.getElementById('slide-indicator').textContent = currentSlideIndex + ' / ' + totalSlides;
+                            
+                            // 버튼 비활성화 및 불투명도 조절
+                            const btnPrev = document.getElementById('btn-prev-slide');
+                            const btnNext = document.getElementById('btn-next-slide');
+                            
+                            btnPrev.disabled = (currentSlideIndex === 1);
+                            btnNext.disabled = (currentSlideIndex === totalSlides);
+                            
+                            btnPrev.style.opacity = (currentSlideIndex === 1) ? '0.4' : '1';
+                            btnNext.style.opacity = (currentSlideIndex === totalSlides) ? '0.4' : '1';
+                            btnPrev.style.cursor = (currentSlideIndex === 1) ? 'not-allowed' : 'pointer';
+                            btnNext.style.cursor = (currentSlideIndex === totalSlides) ? 'not-allowed' : 'pointer';
+                        }
+
+                        function nextSlide() {
+                            if (currentSlideIndex < totalSlides) {
+                                currentSlideIndex++;
+                                updateSlideUI();
+                            }
+                        }
+
+                        function prevSlide() {
+                            if (currentSlideIndex > 1) {
+                                currentSlideIndex--;
+                                updateSlideUI();
+                            }
+                        }
+
+                        // DOM 로드 완료 후 실행
+                        document.addEventListener("DOMContentLoaded", function() {
+                            updateSlideUI();
+                        });
+                    </script>
+                </div>
+                <!-- Office Online Viewer -->
+                <div class="tab-pane" id="tab-office">
+                    <iframe class="office-viewer" 
+                            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A//meesokim.github.io/my-youtube-gallary/ai-cheating-and-the-future-of-professions.pptx"
+                            loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comments Section (Utterances) -->
+        
+        <div class="section-title" style="margin-top: 40px; margin-bottom: 16px;">💬 댓글 및 의견</div>
+        <div class="section" style="padding: 20px; background: rgba(30, 30, 50, 0.4); border-radius: 16px; border: 1px solid var(--card-border);">
+            <script src="https://utteranc.es/client.js"
+                    repo="meesokim/my-youtube-gallary"
+                    issue-number="86"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        
+    </div>
+
+    <footer class="footer">
+        Powered by Gemini AI · <a href="./index.html" style="color:#667eea;text-decoration:none;">갤러리로 돌아가기</a>
+    </footer>
+
+    <script>
+    function togglePreview() {
+        const section = document.getElementById('previewSection');
+        const btn = document.getElementById('togglePreview');
+        const isVisible = section.classList.toggle('show');
+        btn.classList.toggle('active', isVisible);
+        btn.textContent = isVisible ? '🙈 미리보기 닫기' : '👁️ 슬라이드 미리보기';
+    }
+
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    </script>
+</body>
+</html>
