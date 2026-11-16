@@ -11,6 +11,23 @@ import urllib.parse
 PAGES_URL = "https://meesokim.github.io/my-youtube-gallary"
 OUTPUT_DIR = "docs"
 
+def _get_unique_section_images(video_data):
+    """blog_sections에서 중복 없이 실제 존재하는 캡처 이미지 경로와 타임스탬프 라벨 목록을 반환"""
+    results = []
+    seen_paths = set()
+    for sec in video_data.get("blog_sections") or []:
+        rel = sec.get("image")
+        if not rel:
+            continue
+        candidate = rel if os.path.isfile(rel) else os.path.join(OUTPUT_DIR, rel)
+        if os.path.isfile(candidate) and os.path.getsize(candidate) > 0:
+            norm = os.path.abspath(candidate)
+            if norm not in seen_paths:
+                seen_paths.add(norm)
+                results.append((candidate, sec.get("timestamp_label", "")))
+    return results
+
+
 def create_pptx(video_data, output_path):
     """ 각 페이지당 하나의 핵심 인사이트만 명확히 담는 다중 슬라이드 PPTX 생성 """
     prs = Presentation()
@@ -71,8 +88,10 @@ def create_pptx(video_data, output_path):
     p_ov.line_spacing = 1.3
 
     # ----------------------------------------------------
-    # SLIDE 2, 3, 4: Core Insights (각 장표당 하나의 명확한 인사이트)
+    # SLIDE 2, 3, 4: Core Insights (각 장표당 하나의 명확한 인사이트 + 캡처 이미지)
     # ----------------------------------------------------
+    section_images = _get_unique_section_images(video_data)
+
     for idx, point_str in enumerate(video_data['points'][:3]):
         slide = add_custom_slide()
         
@@ -110,16 +129,38 @@ def create_pptx(video_data, output_path):
         line_shape.fill.fore_color.rgb = RGBColor(0x2d, 0x2d, 0x44)
         line_shape.line.fill.background()
         
-        # 인사이트 상세 내용 (1 Slide, 1 Message를 위한 큼직한 가독성 확보)
-        ins_detail_box = slide.shapes.add_textbox(Inches(1.0), Inches(3.0), Inches(11.333), Inches(3.5))
-        tf_ins_detail = ins_detail_box.text_frame
-        tf_ins_detail.word_wrap = True
-        p_ins_detail = tf_ins_detail.paragraphs[0]
-        p_ins_detail.text = insight_detail
-        p_ins_detail.font.name = "Malgun Gothic"
-        p_ins_detail.font.size = Pt(20)
-        p_ins_detail.font.color.rgb = RGBColor(0xe8, 0xe8, 0xf0)
-        p_ins_detail.line_spacing = 1.4
+        if idx < len(section_images):
+            img_path, ts_label = section_images[idx]
+            # 좌측 텍스트 + 우측 캡처 이미지 2단 레이아웃
+            ins_detail_box = slide.shapes.add_textbox(Inches(1.0), Inches(2.9), Inches(5.6), Inches(3.8))
+            tf_ins_detail = ins_detail_box.text_frame
+            tf_ins_detail.word_wrap = True
+            p_ins_detail = tf_ins_detail.paragraphs[0]
+            p_ins_detail.text = insight_detail
+            p_ins_detail.font.name = "Malgun Gothic"
+            p_ins_detail.font.size = Pt(18)
+            p_ins_detail.font.color.rgb = RGBColor(0xe8, 0xe8, 0xf0)
+            p_ins_detail.line_spacing = 1.38
+
+            slide.shapes.add_picture(img_path, Inches(7.0), Inches(2.9), width=Inches(5.333))
+            if ts_label:
+                cap_box = slide.shapes.add_textbox(Inches(7.0), Inches(6.05), Inches(5.333), Inches(0.4))
+                p_cap = cap_box.text_frame.paragraphs[0]
+                p_cap.text = f"🖼️ 영상 자료화면 ({ts_label})"
+                p_cap.font.name = "Malgun Gothic"
+                p_cap.font.size = Pt(12)
+                p_cap.font.color.rgb = RGBColor(0xa0, 0xa0, 0xb8)
+        else:
+            # 인사이트 상세 내용 (1 Slide, 1 Message를 위한 큼직한 가독성 확보)
+            ins_detail_box = slide.shapes.add_textbox(Inches(1.0), Inches(3.0), Inches(11.333), Inches(3.5))
+            tf_ins_detail = ins_detail_box.text_frame
+            tf_ins_detail.word_wrap = True
+            p_ins_detail = tf_ins_detail.paragraphs[0]
+            p_ins_detail.text = insight_detail
+            p_ins_detail.font.name = "Malgun Gothic"
+            p_ins_detail.font.size = Pt(20)
+            p_ins_detail.font.color.rgb = RGBColor(0xe8, 0xe8, 0xf0)
+            p_ins_detail.line_spacing = 1.4
 
     # ----------------------------------------------------
     # SLIDE 5: Outro & Recommendation (마무리 및 시청자 추천사)

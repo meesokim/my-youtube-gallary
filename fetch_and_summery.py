@@ -50,6 +50,7 @@ def fetch_youtube_stats(video_id: str) -> tuple[int, str]:
 # ==========================================
 class BlogSection(BaseModel):
     heading: str = Field(description="블로그 본문 섹션의 소제목 (딱딱한 보고서 제목 대신, 글쓴이의 시선과 궁금증이 담긴 자연스러운 소제목. 예: '1. 왜 다들 힘들다는데 여기만 잘 나갈까?')")
+    timestamp_sec: int = Field(description="이 섹션의 핵심 장면이 등장하는 영상 내 시점(초 단위 정수, 예: 125). 자막 스크립트의 [MM:SS] 타임스탬프를 참고하여 화면 캡처하기 가장 좋은 시점을 지정")
     content: str = Field(description="해당 소제목에 대한 본문 (글쓴이가 직접 영상을 보고 정리하며 자신의 생각과 느낌을 녹여낸 1인칭 블로그 문체, 2~3개 문단, 문단 간에는 반드시 '\\n\\n' 줄바꿈 사용. 영상 속 구체적인 사례·수치·발언 맥락을 짚으면서도 '솔직히 이 부분이 인상 깊었다', '내 생각에는~' 같은 개인적 감상과 해석을 자연스럽게 섞어 서술)")
     key_quote: str = Field(description="이 섹션을 읽고 글쓴이 머릿속에 콕 박힌 한 줄 생각이나 핵심 문장 (블로그 인용구 박스에 들어갈 문장)")
 
@@ -72,7 +73,7 @@ def get_youtube_id(url: str) -> str:
     return match.group(1) if match else None
 
 def fetch_youtube_script(video_id: str) -> str:
-    """YouTube 자막을 추출하여 하나의 문자열로 결합"""
+    """YouTube 자막을 [MM:SS] 타임스탬프와 함께 추출하여 하나의 문자열로 결합"""
     try:
         ytt_api = YouTubeTranscriptApi()
         # 한국어 자막 우선 시도 후, 없을 경우 영어 자막 시도
@@ -81,8 +82,20 @@ def fetch_youtube_script(video_id: str) -> str:
         except NoTranscriptFound:
             transcript = ytt_api.fetch(video_id, languages=['en'])
             
-        full_script = " ".join([item.text for item in transcript])
-        return full_script
+        chunks = []
+        last_marker_sec = -20
+        for item in transcript:
+            start_sec = int(getattr(item, "start", 0) or 0)
+            text = (getattr(item, "text", "") or "").strip()
+            if not text:
+                continue
+            if start_sec - last_marker_sec >= 20:
+                mins, secs = divmod(start_sec, 60)
+                chunks.append(f"[{mins:02d}:{secs:02d}] {text}")
+                last_marker_sec = start_sec
+            else:
+                chunks.append(text)
+        return " ".join(chunks)
     except (TranscriptsDisabled, NoTranscriptFound):
         print(f"[-] 경고: 해당 영상({video_id})은 자막을 지원하지 않거나 스크립트를 가져올 수 없습니다.")
         return ""
@@ -111,7 +124,7 @@ def analyze_script_with_gemini(script_text: str, video_id: str, user_context: st
        - 딱딱한 보도자료·AI 칼럼 문체('~입니다/합니다' 일변도, '시사하는 바가 큽니다', '여러분은 어떻게 생각하십니까?' 같은 뻔한 상투어)를 피하세요.
        - 실제로 내가 쓴 글처럼 편하고 진솔한 구어체/해요체('~해요', '~더라고요', '~거든요', '~인 것 같아요' 등)를 자연스럽게 섞어 문장 호흡을 살리세요.
        - `blog_intro`: 이 영상을 보게 된 계기나 첫인상, 보면서 들었던 문제의식이나 호기심을 내 이야기로 자연스럽게 열어주세요.
-       - `blog_sections`: 영상의 핵심 흐름을 3~5개의 소주제로 나누어 소제목(`heading`), 2~3문단의 본문(`content`, 문단 간 `\\n\\n` 줄바꿈 필수), 내 머릿속에 남은 한 줄 생각(`key_quote`)을 작성하세요.
+       - `blog_sections`: 영상의 핵심 흐름을 3~5개의 소주제로 나누어 소제목(`heading`), 자막의 `[MM:SS]` 타임스탬프를 참고한 대표 화면 캡처 시점(`timestamp_sec`, 초 단위 정수), 2~3문단의 본문(`content`, 문단 간 `\\n\\n` 줄바꿈 필수), 내 머릿속에 남은 한 줄 생각(`key_quote`)을 작성하세요.
        - `blog_conclusion`: 영상을 다 보고 난 뒤의 솔직한 소감, 내 일상이나 일에 비추어 본 생각과 여운으로 담백하게 마무리하세요.
     3. 발표자료(PPTX)용 3대 핵심 요약 (`overview`, `points`):
        - `overview`와 `points`(3개)는 슬라이드와 요약 카드에 들어갈 항목이므로, 핵심만 명확하고 밀도 있게 정리하세요.
@@ -231,6 +244,12 @@ if __name__ == "__main__":
         views, likes = fetch_youtube_stats(v_id)
         analysis_result['views'] = views
         analysis_result['likes'] = likes
+        try:
+            from capture_frames import capture_section_frames
+            print("[*] 섹션별 유튜브 화면 캡처를 추출하는 중입니다...")
+            capture_section_frames(v_id, analysis_result.get("blog_sections", []))
+        except Exception as e:
+            print(f"[!] 화면 캡처 추출 중 오류 발생 (텍스트 요약은 계속 저장됩니다): {e}")
         update_videos_json(analysis_result, issue_num)
         print("[*] 모든 파이프라인 처리가 완료되었습니다. 'data/videos.json'을 확인하세요.")
     else:
