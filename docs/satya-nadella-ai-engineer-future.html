@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI 기술 발전으로 소프트웨어 개발 방식이 급변하면서, 마이크로소프트 CEO 사티아 나델라는 엔지니어의 역할 변화와 기업의 대응 전략을 제시합니다. 그는 코드가 '입력'에서 '출력'이 된 시대에 검증의 중요성과 끊임없이 배우고 직접 경험하는 자세가 필수적임을 강조합니다">
+    <title>AI가 코드를 짠다고? MS CEO가 '배움'을 강조한 이유 - 영상 요약</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(30, 30, 50, 0.8);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --accent-1: #ff6b6b;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-border: rgba(255,255,255,0.06);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Top Nav */
+        .topnav {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--card-border);
+            background: rgba(15,15,26,0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topnav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .topnav a:hover { color: var(--text-primary); }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* Meta Info */
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .category-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 8px;
+        }
+        .keyword-tag {
+            background: rgba(102,126,234,0.15);
+            color: #98a8f8;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+        }
+        .meta-stat {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Video Player */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 36px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        /* Section */
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .points-list {
+            list-style: none;
+            padding: 0;
+        }
+        .points-list li {
+            position: relative;
+            padding: 12px 0 12px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .points-list li:last-child { border-bottom: none; }
+        .points-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .point-title {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Blog Article Section */
+        .blog-article {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .blog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .blog-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #98a8f8;
+            background: rgba(102,126,234,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .blog-intro {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+        }
+        .blog-intro p, .blog-section-body p, .blog-conclusion p {
+            margin-bottom: 16px;
+            line-height: 1.85;
+            word-break: keep-all;
+        }
+        .blog-intro p:last-child, .blog-section-body p:last-child, .blog-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+        .blog-section {
+            margin-bottom: 36px;
+        }
+        .blog-section:last-of-type {
+            margin-bottom: 28px;
+        }
+        .blog-heading {
+            font-size: 1.28rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            line-height: 1.4;
+        }
+        .blog-section-body {
+            color: #d0d0e0;
+            font-size: 1rem;
+        }
+        .blog-capture {
+            margin: 16px 0 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+        .blog-capture img {
+            display: block;
+            width: 100%;
+            max-height: 460px;
+            object-fit: cover;
+        }
+        .blog-capture figcaption {
+            padding: 10px 14px;
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            background: rgba(0, 0, 0, 0.25);
+        }
+        .blog-quote {
+            margin: 18px 0 0;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.12) 0%, rgba(118,75,162,0.12) 100%);
+            border-left: 3px solid #98a8f8;
+            border-radius: 0 12px 12px 0;
+            color: #e8e8f8;
+            font-size: 0.96rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .blog-conclusion {
+            margin-top: 32px;
+            padding: 24px 26px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #dcdce8;
+            font-size: 1rem;
+        }
+        .blog-conclusion-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .recommendation-callout {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255,107,107,0.08) 0%, rgba(102,126,234,0.08) 100%);
+            border: 1px solid rgba(255,107,107,0.2);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .recommendation-callout strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-download {
+            background: var(--accent-gradient);
+            color: white;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+        }
+        .btn-preview {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+        }
+        .btn-preview:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .btn-preview.active {
+            background: rgba(102,126,234,0.15);
+            border-color: #667eea;
+            color: #98a8f8;
+        }
+
+        /* PPTX Preview Tabs */
+        .preview-tabs {
+            display: none;
+            margin-bottom: 28px;
+        }
+        .preview-tabs.show { display: block; }
+        .tab-header {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            border-bottom: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85rem;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .tab-content {
+            border: 1px solid var(--card-border);
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; }
+
+        /* Office Viewer */
+        .office-viewer {
+            width: 100%; height: 560px; border: 0;
+            background: #111;
+        }
+
+        /* HTML Slide Preview */
+        .slide-preview {
+            background: #1a1a2e;
+            aspect-ratio: 16/9;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-preview .sp-cat {
+            color: var(--accent-1);
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-title {
+            color: white;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .slide-preview .sp-divider {
+            width: 60px; height: 3px;
+            background: #64b5f6;
+            border-radius: 2px;
+            margin-bottom: 14px;
+        }
+        .slide-preview .sp-overview {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .slide-preview .sp-point {
+            color: #eee;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+        .slide-preview .sp-footer {
+            position: absolute;
+            bottom: 16px; left: 50px;
+            color: #888;
+            font-size: 0.7rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container > * {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 40px; }
+            .slide-preview { padding: 20px 24px; }
+            .blog-article { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <a href="./index.html">← 갤러리로 돌아가기</a>
+    </nav>
+
+    <div class="container">
+        <div class="meta-bar">
+            <span class="category-badge">비즈니스</span>
+            
+            <span class="keyword-tag">#사티아 나델라</span>
+            
+            <span class="keyword-tag">#마이크로소프트</span>
+            
+            <span class="keyword-tag">#AI</span>
+            
+            <span class="keyword-tag">#엔지니어</span>
+            
+            <span class="keyword-tag">#개발자</span>
+            
+            <span class="keyword-tag">#미래</span>
+            
+            <span class="keyword-tag">#학습</span>
+            
+            <span class="keyword-tag">#검증</span>
+            
+            <span class="meta-stat">👁️ 1,140</span>
+            <span class="meta-stat">❤️ 10</span>
+        </div>
+
+        <h1>AI가 코드를 짠다고? MS CEO가 '배움'을 강조한 이유</h1>
+
+        <!-- YouTube Player -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/l33zynXSBFs" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+
+        <!-- Summary Section (3 Core Insights) -->
+        <div class="section">
+            <div class="section-title">⚡ 핵심 3줄 요약</div>
+            <p>AI 기술 발전으로 소프트웨어 개발 방식이 급변하면서, 마이크로소프트 CEO 사티아 나델라는 엔지니어의 역할 변화와 기업의 대응 전략을 제시합니다. 그는 코드가 '입력'에서 '출력'이 된 시대에 검증의 중요성과 끊임없이 배우고 직접 경험하는 자세가 필수적임을 강조합니다.</p>
+            <ul class="points-list">
+                
+                <li>
+                    
+                        
+                        <span class="point-title">AI 시대 개발 패러다임 전환:</span> 코드는 입력이 아닌 출력이 되고, 엔지니어의 역할은 '스펙과 의도' 정의 및 '검증'으로 이동합니다. 클로드 코드와 같은 AI 모델이 코드를 자동으로 생성하면서, 개발자는 이제 스펙과 마크다운을 입력하고 AI가 짠 코드를 검증하는 데 집중해야 합니다. 사티아 나델라는 IDE의 종말이 아닌 새로운 탄생을 예고하며, 검증의 중요성을 특히 강조했습니다.
+                    
+                </li>
+                
+                <li>
+                    
+                        
+                        <span class="point-title">끊임없는 학습과 현장 경험의 중요성:</span> 변화에 적응하기 위해 전문성을 새로운 지렛대로 활용하고, 직접 '하는' 팀에 참여하여 배우는 자세가 필수적입니다. 사티아 나델라는 "만든 것과 사랑에 빠지지 말라"며 모델이 급변할 때 제품 형태도 즉시 바뀌어야 한다고 조언합니다. 그는 전문성이 사라지는 것이 아니라 새로운 방식으로 활용되어야 하며, 심지어 자신도 신입 엔지니어처럼 '프리셉터십' 팀에 들어가 배우고 싶다고 밝히며 현장 학습의 가치를 역설했습니다.
+                    
+                </li>
+                
+                <li>
+                    
+                        
+                        <span class="point-title">기업의 AI 시대 전략:</span> 세상의 모든 지식을 담은 단일 모델을 믿지 않고, 학습 고리를 지키며, 모델의 능력과 신뢰성을 분리하여 접근해야 합니다. 마이크로소프트는 단일 슈퍼 모델보다는 회사 지식을 담은 오픈 모델이나 컨텍스트 층을 활용하는 '토큰 자본' 개념을 강조합니다. 또한, 모델이 바뀌어도 평가 점수가 계속 오를 수 있는 '학습 고리' 유지를 중요하게 여기며, 모델의 유능함과 신뢰성을 별개로 보고 내부자 위험처럼 관리할 것을 경고했습니다.
+                    
+                </li>
+                
+            </ul>
+            
+        </div>
+
+        
+        <!-- Detailed Blog Article Section -->
+        <article class="blog-article">
+            <div class="blog-header">
+                <div class="section-title" style="margin-bottom: 0;">📝 심층 정리 아티클</div>
+                <span class="blog-badge">AI 에디터 칼럼</span>
+            </div>
+
+            
+            <div class="blog-intro">
+                
+                <p>요즘 AI 기술 발전 속도가 정말 무섭다는 생각 많이 하시죠? 저도 솔직히 매일매일 새로운 소식이 쏟아져 나올 때마다 '이러다 내 일자리는 괜찮을까?', '나는 뭘 준비해야 하지?' 하는 불안감이 들 때가 많았어요. 특히 개발 분야는 더 빠르게 변화하고 있는 것 같고요.</p>
+                
+                <p>그러던 중에 마이크로소프트 CEO 사티아 나델라의 인터뷰 영상을 보게 됐습니다. AI가 코드를 짜는 시대, 심지어 VS 코드 같은 IDE(통합 개발 환경)마저 밀려날 수 있다는 이야기까지 나오는데, 세계적인 IT 기업의 수장은 과연 이 변화를 어떻게 보고 있을지 너무 궁금하더라고요. 영상을 보면서 '아, 내가 막연하게 불안해하기만 할 게 아니었구나!' 하고 무릎을 탁 치게 되는 부분이 많았습니다.</p>
+                
+            </div>
+            
+
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">1. AI가 코드를 짠다고? 익숙한 IDE마저 밀려나는 시대</h2>
+                
+                <figure class="blog-capture">
+                    <img src="./captures/l33zynXSBFs/section_1.jpg" alt="1. AI가 코드를 짠다고? 익숙한 IDE마저 밀려나는 시대" loading="lazy">
+                    <figcaption>🖼️ 1. AI가 코드를 짠다고? 익숙한 IDE마저 밀려나는 시대 (01:10)</figcaption>
+                </figure>
+                
+                <div class="blog-section-body">
+                    
+                    <p>영상을 보면서 가장 먼저 충격적이었던 건, 마이크로소프트의 CEO가 직접 "여섯 달 만에 IDE가 밀려났다"고 인정한 부분이었어요. 챗GPT보다 먼저 깃허브 코파일럿을 내놓으며 AI 시대 개발을 선도했던 MS인데, 클로드 코드 같은 새로운 모델이 등장하면서 개발 방식 자체가 근본적으로 흔들리고 있다는 거죠.</p>
+                    
+                    <p>사티아 나델라의 말처럼, 이제는 사람이 코드를 입력하는 게 아니라 AI가 코드를 출력하고, 사람은 '스펙과 마크다운'을 입력하는 주체가 되는 시대가 온 것 같아요. 이 대목에서 '내가 사랑하는 것과 사랑에 빠지지 말라'는 말이 정말 크게 와닿았습니다. 기존에 익숙했던 개발 방식이나 도구에 얽매이지 않고, 모델의 능력에 맞춰 제품의 형태를 계속해서 바꿔나가야 한다는 거죠. 저도 모르게 고정관념에 갇혀 있었던 건 아닌가 반성하게 됐습니다.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “모델이 계단처럼 뛰면 제품의 형태도 곧바로 바뀌어야 한다. 만든 것과 사랑에 빠지지 말라.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">2. 코드는 싸지고, 진짜 '비싼' 건 따로 있다?</h2>
+                
+                <figure class="blog-capture">
+                    <img src="./captures/l33zynXSBFs/section_2.jpg" alt="2. 코드는 싸지고, 진짜 '비싼' 건 따로 있다?" loading="lazy">
+                    <figcaption>🖼️ 2. 코드는 싸지고, 진짜 '비싼' 건 따로 있다? (03:55)</figcaption>
+                </figure>
+                
+                <div class="blog-section-body">
+                    
+                    <p>그렇다면 AI가 코드를 대신 짜주는 시대에 엔지니어는 뭘 해야 할까요? 사티아 나델라의 답은 명확했습니다. 바로 '검증'이요. 코드가 싸지면 싸질수록, 그 코드의 품질과 정확성을 확인하는 검증의 가치는 오히려 비싸진다는 거죠. 심지어 그는 "모델 가문을 따로 두고 다른 가문에게 비평을 맡기라"는 비유까지 들었는데, 한 모델의 약점이 제품의 약점이 되지 않도록 다각적인 검증이 필요하다는 뜻으로 이해했어요.</p>
+                    
+                    <p>저는 이 부분이 정말 인사이트가 깊다고 느꼈습니다. 단순히 코드를 잘 짜는 것을 넘어, '어떤 코드를 짤 것인가' 하는 스펙과 의도를 명확히 하고, AI가 만들어낸 결과물을 정확하게 검증하고 개선하는 역할이 엔지니어의 핵심 역량이 될 거라는 거죠. 깃허브 코파일럿 코어 팀의 사례처럼, 에이전트가 대부분의 코드를 작성해도 결국 이를 경유하고 판단하는 건 엔지니어의 몫이라는 사실이 이를 뒷받침하는 것 같아요.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “코드가 싸진 세상에서 비싸진 건 검증이다. 스펙과 의도가 중요해졌다.”
+                </blockquote>
+                
+            </div>
+            
+            <div class="blog-section">
+                <h2 class="blog-heading">3. 전문성이 값을 잃는다고? MS CEO의 꿈의 직업은 '배우는 사람'</h2>
+                
+                <figure class="blog-capture">
+                    <img src="./captures/l33zynXSBFs/section_3.jpg" alt="3. 전문성이 값을 잃는다고? MS CEO의 꿈의 직업은 '배우는 사람'" loading="lazy">
+                    <figcaption>🖼️ 3. 전문성이 값을 잃는다고? MS CEO의 꿈의 직업은 '배우는 사람' (13:40)</figcaption>
+                </figure>
+                
+                <div class="blog-section-body">
+                    
+                    <p>많은 사람이 AI 때문에 자신의 전문성이 쓸모없어질까 봐 불안해하잖아요. 저도 그랬고요. 하지만 사티아 나델라는 "전문성이 값을 잃는 게 아니라 그 전문성을 새 지렛대로 쓰는 법을 익혀야 한다"고 강조했습니다. 즉, 기존의 전문성을 바탕으로 AI라는 새로운 도구를 활용해 더 큰 가치를 만들어내는 방법을 찾아야 한다는 거죠.</p>
+                    
+                    <p>가장 인상 깊었던 건, 그가 "신입 엔지니어를 선배 프리셉터와 짝지어 주는 제도"인 '프리셉터십' 팀에 자신도 신입처럼 들어가 배우고 싶다고 말한 대목이었어요. 20만 명이 넘는 회사의 CEO가 스스로를 '배우는 사람'의 위치에 두는 모습에서 정말 큰 울림을 받았습니다. 그는 젊은 신입이든, 중견이든, 심지어 자신 같은 CEO든 "직접 경험하고, 배우는 데 시간을 투자하는 것이 가장 중요하다"며 "다시 학교로 돌아가자(Let's get back to school)"고 말합니다.</p>
+                    
+                    <p>이 말이 제 머릿속을 맴돌았어요. AI가 모든 것을 바꿀 수 있는 세상에서, 내가 준비해야 할 가장 중요한 자세는 바로 '끊임없이 배우고 직접 해보는 것'이라는 걸 깨달았습니다. 변화를 두려워할 게 아니라, 적극적으로 뛰어들어 배우고 경험해야 한다는 거죠.</p>
+                    
+                </div>
+                
+                <blockquote class="blog-quote">
+                    “전문성이 값을 잃는 게 아니라 그 전문성을 새 지렛대로 쓰는 법을 익혀야 한다.”
+                </blockquote>
+                
+            </div>
+            
+
+            
+            <div class="blog-conclusion">
+                <div class="blog-conclusion-title">💡 마무리 및 시사점</div>
+                
+                <p>영상을 다 보고 나니, 막연했던 불안감이 어느 정도 해소되고 오히려 '내가 뭘 해야 할지'에 대한 명확한 방향을 얻은 기분이에요. AI가 아무리 발전해도 결국 그 기술을 활용하고, 검증하고, 새로운 가치를 만들어내는 건 사람의 몫이라는 것. 그리고 그 과정에서 가장 중요한 건 '배움의 자세'라는 점을 다시 한번 마음에 새깁니다.</p>
+                
+                <p>사티아 나델라의 말처럼, 저도 이제 '다시 학교로 돌아간다'는 마음으로 새로운 기술과 변화를 적극적으로 받아들이고 직접 경험해보려고 해요. 기존에 익숙했던 방식만을 고수하지 않고, 끊임없이 배우고 성장하는 엔지니어, 그리고 사람으로 거듭나야겠다는 다짐을 해봅니다.</p>
+                
+            </div>
+            
+
+            
+            <div class="recommendation-callout">
+                <strong>🎯 이 영상을 추천하는 이유</strong>
+                AI 시대, 개발자의 미래에 대해 막연한 불안감을 가지고 계신가요? 마이크로소프트 CEO 사티아 나델라의 통찰력 있는 시선을 통해 변화의 본질을 이해하고, 우리가 어떤 자세로 이 시대를 맞이해야 할지 명확한 해답을 얻을 수 있을 거예요. 특히 '배움의 자세'를 강조하는 그의 메시지는 단순히 개발자뿐 아니라 모든 직무의 사람들에게 큰 울림을 줄 겁니다.
+            </div>
+            
+        </article>
+        
+
+        <!-- PPTX Actions -->
+        <div class="section-title" style="margin-bottom: 16px;">📊 요약 자료 (PPTX)</div>
+        <div class="btn-row">
+            <a href="./satya-nadella-ai-engineer-future.pptx" class="btn btn-download" download>⬇️ PPTX 다운로드</a>
+            <button class="btn btn-preview active" id="togglePreview" onclick="togglePreview()">🙈 미리보기 닫기</button>
+        </div>
+
+        <!-- PPTX Preview -->
+        <div class="preview-tabs show" id="previewSection">
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('html')">HTML 프리뷰</button>
+                <button class="tab-btn" onclick="switchTab('office')">Office Online 뷰어</button>
+            </div>
+            <div class="tab-content">
+                <!-- HTML Rendered Slide -->
+                <div class="tab-pane active" id="tab-html">
+                    <div class="carousel-wrapper" style="position: relative; overflow: hidden; width: 100%;">
+                        
+                        <!-- Slide 1: Cover & Overview -->
+                        <div class="slide-item active-slide" id="slide-page-1">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="font-size: 1.15rem; font-weight: 700;">[ 비즈니스 ]</div>
+                                <div class="sp-title" style="font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; line-height: 1.3; color: #fff; margin-top: 10px;">AI가 코드를 짠다고? MS CEO가 '배움'을 강조한 이유</div>
+                                <div class="sp-divider" style="background: #667eea; width: 100px; height: 4px; margin: 20px 0;"></div>
+                                <div class="sp-overview" style="font-size: 1.35rem; line-height: 1.8; color: var(--text-secondary);">AI 기술 발전으로 소프트웨어 개발 방식이 급변하면서, 마이크로소프트 CEO 사티아 나델라는 엔지니어의 역할 변화와 기업의 대응 전략을 제시합니다. 그는 코드가 '입력'에서 '출력'이 된 시대에 검증의 중요성과 끊임없이 배우고 직접 경험하는 자세가 필수적임을 강조합니다.</div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 1 / 5 (Cover)</div>
+                            </div>
+                        </div>
+
+                        <!-- Slides 2, 3, 4: Insights -->
+                        
+                        <div class="slide-item" id="slide-page-2" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 01 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">AI 시대 개발 패러다임 전환</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">코드는 입력이 아닌 출력이 되고, 엔지니어의 역할은 '스펙과 의도' 정의 및 '검증'으로 이동합니다. 클로드 코드와 같은 AI 모델이 코드를 자동으로 생성하면서, 개발자는 이제 스펙과 마크다운을 입력하고 AI가 짠 코드를 검증하는 데 집중해야 합니다. 사티아 나델라는 IDE의 종말이 아닌 새로운 탄생을 예고하며, 검증의 중요성을 특히 강조했습니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 2 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-3" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 02 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">끊임없는 학습과 현장 경험의 중요성</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">변화에 적응하기 위해 전문성을 새로운 지렛대로 활용하고, 직접 '하는' 팀에 참여하여 배우는 자세가 필수적입니다. 사티아 나델라는 "만든 것과 사랑에 빠지지 말라"며 모델이 급변할 때 제품 형태도 즉시 바뀌어야 한다고 조언합니다. 그는 전문성이 사라지는 것이 아니라 새로운 방식으로 활용되어야 하며, 심지어 자신도 신입 엔지니어처럼 '프리셉터십' 팀에 들어가 배우고 싶다고 밝히며 현장 학습의 가치를 역설했습니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 3 / 5</div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide-item" id="slide-page-4" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #667eea; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">CORE INSIGHT 03 / 03</div>
+                                
+                                
+                                    
+                                    <div class="sp-title" style="font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.3;">기업의 AI 시대 전략</div>
+                                    <div class="sp-divider" style="background: rgba(255,255,255,0.06); width: 100%; height: 1px; margin-bottom: 20px;"></div>
+                                    <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);">세상의 모든 지식을 담은 단일 모델을 믿지 않고, 학습 고리를 지키며, 모델의 능력과 신뢰성을 분리하여 접근해야 합니다. 마이크로소프트는 단일 슈퍼 모델보다는 회사 지식을 담은 오픈 모델이나 컨텍스트 층을 활용하는 '토큰 자본' 개념을 강조합니다. 또한, 모델이 바뀌어도 평가 점수가 계속 오를 수 있는 '학습 고리' 유지를 중요하게 여기며, 모델의 유능함과 신뢰성을 별개로 보고 내부자 위험처럼 관리할 것을 경고했습니다.</div>
+                                
+                                
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">Slide 4 / 5</div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Slide 5: Outro & Recommendation -->
+                        <div class="slide-item" id="slide-page-5" style="display: none;">
+                            <div class="slide-preview" style="min-height: 380px; display: flex; flex-direction: column;">
+                                <div class="sp-cat" style="color: #ff6b6b; font-weight: bold; font-size: 0.9rem; margin-bottom: 12px;">🎯 AI 추천사 및 시청 가치</div>
+                                <div class="sp-overview" style="font-size: 1.15rem; line-height: 1.6; color: var(--text-primary); font-style: italic; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;">
+                                    "AI 시대, 개발자의 미래에 대해 막연한 불안감을 가지고 계신가요? 마이크로소프트 CEO 사티아 나델라의 통찰력 있는 시선을 통해 변화의 본질을 이해하고, 우리가 어떤 자세로 이 시대를 맞이해야 할지 명확한 해답을 얻을 수 있을 거예요. 특히 '배움의 자세'를 강조하는 그의 메시지는 단순히 개발자뿐 아니라 모든 직무의 사람들에게 큰 울림을 줄 겁니다."
+                                </div>
+                                <div class="sp-footer" style="margin-top: auto; font-size: 0.8rem; color: #888;">
+                                    Keywords: 사티아 나델라, 마이크로소프트, AI, 엔지니어, 개발자, 미래, 학습, 검증 | 🔗 https://youtu.be/l33zynXSBFs | Slide 5 / 5
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slide Controller buttons -->
+                    <div class="slide-controls" style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 10px;">
+                        <button class="btn btn-preview" onclick="prevSlide()" id="btn-prev-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">◀ 이전</button>
+                        <span id="slide-indicator" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">1 / 5</span>
+                        <button class="btn btn-preview" onclick="nextSlide()" id="btn-next-slide" style="padding: 8px 16px; font-size: 0.9rem; margin: 0; min-width: 80px;">다음 ▶</button>
+                    </div>
+
+                    <!-- Inline Slider JS -->
+                    <script>
+                        let currentSlideIndex = 1;
+                        const totalSlides = 5;
+
+                        function updateSlideUI() {
+                            // 모든 슬라이드 숨기기
+                            for (let i = 1; i <= totalSlides; i++) {
+                                const slide = document.getElementById('slide-page-' + i);
+                                if (slide) {
+                                    if (i === currentSlideIndex) {
+                                        slide.style.display = 'block';
+                                    } else {
+                                        slide.style.display = 'none';
+                                    }
+                                }
+                            }
+                            // 인디케이터 업데이트
+                            document.getElementById('slide-indicator').textContent = currentSlideIndex + ' / ' + totalSlides;
+                            
+                            // 버튼 비활성화 및 불투명도 조절
+                            const btnPrev = document.getElementById('btn-prev-slide');
+                            const btnNext = document.getElementById('btn-next-slide');
+                            
+                            btnPrev.disabled = (currentSlideIndex === 1);
+                            btnNext.disabled = (currentSlideIndex === totalSlides);
+                            
+                            btnPrev.style.opacity = (currentSlideIndex === 1) ? '0.4' : '1';
+                            btnNext.style.opacity = (currentSlideIndex === totalSlides) ? '0.4' : '1';
+                            btnPrev.style.cursor = (currentSlideIndex === 1) ? 'not-allowed' : 'pointer';
+                            btnNext.style.cursor = (currentSlideIndex === totalSlides) ? 'not-allowed' : 'pointer';
+                        }
+
+                        function nextSlide() {
+                            if (currentSlideIndex < totalSlides) {
+                                currentSlideIndex++;
+                                updateSlideUI();
+                            }
+                        }
+
+                        function prevSlide() {
+                            if (currentSlideIndex > 1) {
+                                currentSlideIndex--;
+                                updateSlideUI();
+                            }
+                        }
+
+                        // DOM 로드 완료 후 실행
+                        document.addEventListener("DOMContentLoaded", function() {
+                            updateSlideUI();
+                        });
+                    </script>
+                </div>
+                <!-- Office Online Viewer -->
+                <div class="tab-pane" id="tab-office">
+                    <iframe class="office-viewer" 
+                            src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A//meesokim.github.io/my-youtube-gallary/satya-nadella-ai-engineer-future.pptx"
+                            loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comments Section (Utterances) -->
+        
+        <div class="section-title" style="margin-top: 40px; margin-bottom: 16px;">💬 댓글 및 의견</div>
+        <div class="section" style="padding: 20px; background: rgba(30, 30, 50, 0.4); border-radius: 16px; border: 1px solid var(--card-border);">
+            <script src="https://utteranc.es/client.js"
+                    repo="meesokim/my-youtube-gallary"
+                    issue-number="90"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        
+    </div>
+
+    <footer class="footer">
+        Powered by Gemini AI · <a href="./index.html" style="color:#667eea;text-decoration:none;">갤러리로 돌아가기</a>
+    </footer>
+
+    <script>
+    function togglePreview() {
+        const section = document.getElementById('previewSection');
+        const btn = document.getElementById('togglePreview');
+        const isVisible = section.classList.toggle('show');
+        btn.classList.toggle('active', isVisible);
+        btn.textContent = isVisible ? '🙈 미리보기 닫기' : '👁️ 슬라이드 미리보기';
+    }
+
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    </script>
+</body>
+</html>
